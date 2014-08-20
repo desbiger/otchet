@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Bubble Markers</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/world.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var markers = [
+	{
+		coordinates: [-74, 40.7],
+		text: 'New York City',
+		value: 8406
+	},
+	{
+		coordinates: [100.47, 13.75],
+		text: 'Bangkok',
+		value: 8281
+	},
+	{
+		coordinates: [44.43, 33.33],
+		text: 'Baghdad',
+		value: 7181
+	},
+	{
+		coordinates: [37.62, 55.75],
+		text: 'Moscow',
+		value: 12111
+	},
+	{
+		coordinates: [121.5, 31.2],
+		text: 'Shanghai',
+		value: 24150
+	},
+	{
+		coordinates: [-43.18, -22.9],
+		text: 'Rio de Janeiro',
+		value: 6429
+	},
+	{
+		coordinates: [31.23, 30.05],
+		text: 'Cairo',
+		value: 8922
+	},
+	{
+		coordinates: [28.95, 41],
+		text: 'Istanbul',
+		value: 14160
+	},
+	{
+		coordinates: [127, 37.55],
+		text: 'Seoul',
+		value: 10388
+	},
+	{
+		coordinates: [139.68, 35.68],
+		text: 'Tokyo',
+		value: 9071
+	},
+	{
+		coordinates: [103.83, 1.28],
+		text: 'Singapore',
+		value: 5399
+	},
+	{
+		coordinates: [30.3, 59.95],
+		text: 'Saint Petersburg',
+		value: 5131
+	},
+	{
+		coordinates: [28.03, -26.2],
+		text: 'Johannesburg',
+		value: 4434
+	},
+	{
+		coordinates: [144.95, -37.8],
+		text: 'Melbourne',
+		value: 4252
+	}
+];
+
+$.each(markers, function (_, marker) {
+	marker.attributes = {
+		tooltip: '<b>' + marker.text + '</b>\n' + marker.value + 'K'
+	};
+	delete marker.text;
+});
+</script>
+		<script>
+			$(function ()  
+				{
+   $('#container').dxVectorMap({
+	mapData: DevExpress.viz.map.sources.world,
+	markers: markers,
+	areaSettings: {
+		hoverEnabled: false
+	},
+	markerSettings: {
+		type: 'bubble',
+		minSize: 10,
+		maxSize: 40
+	},
+	tooltip: {
+		enabled: true,
+		customizeTooltip: function (arg) {
+			if (arg.type === 'marker') {
+				return { text: arg.attribute('tooltip') };
+			}
+		}
+	},
+	bounds: [-180, 85, 180, -60]
+});
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" style="width: 100%; height: 440px;"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

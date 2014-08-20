@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Colors Customization</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/world.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var countries = {
+    "Russia": { totalArea: 17.12, color: "#1E90FF" },
+    "Canada": { totalArea: 9.98, color: "#B8860B" },
+    "China": { totalArea: 9.59, color: "#BDB76B" },
+    "United States": { totalArea: 9.52, color: "#FFA07A" },
+    "Brazil": { totalArea: 8.51, color: "#3CB371" },
+    "Australia": { totalArea: 7.69, color: "#D8BFD8" },
+    "India": { totalArea: 3.29, color: "#DB7093" },
+    "Argentina": { totalArea: 2.78, color: "#FFD700" },
+    "Kazakhstan": { totalArea: 2.72, color: "#CD5C5C" },
+    "Algeria": { totalArea: 2.38, color: "#B0C4DE" }
+};</script>
+		<script>
+			$(function ()  
+				{
+   $("#container").dxVectorMap({
+    mapData: DevExpress.viz.map.sources.world,
+    bounds: [-180, 85, 180, -60],
+    tooltip: {
+        enabled: true,
+        border: {
+            visible: false
+        },
+        customizeTooltip: function(arg) {
+            var name = arg.attribute("name"),
+                country = countries[name];
+            if(country) {
+                return { text: name + ": " + country.totalArea + "M km&#178", color: country.color };
+            }
+        }
+    },
+    areaSettings: {
+        click: function(arg) {
+            if(countries[arg.attribute("name")]) {
+                arg.selected(!arg.selected());
+            }
+        },
+        customize: function(arg) {
+            var country = countries[arg.attributes.name];
+            if(country) {
+                return {
+                    color: country.color,
+                    hoveredColor: "#e0e000",
+                    selectedColor: "#008f00"
+                }
+            }
+        }
+    }
+});
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" style="width: 100%; height: 440px;"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

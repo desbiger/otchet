@@ -1,0 +1,81 @@
+1.Какая разница между $this и self в PHP?
+2.Что такое конструктор?
+3.Обязательно ли писать закрывающий тег ?> в конце скрипта?
+4.Чем отличается цикл while от do while?
+5.Что такое рекурсия?
+6.Что выведет этот скрипт?
+
+<?php 
+$str = “0”; 
+if (!$str) echo “EMPTY</br>”; 
+else echo ‘NOT EMPTY’; 
+
+if (empty($str)) echo “EMPTY</br>”; 
+else echo “NOT EMPTY”; 
+
+if (!strlen($str)) echo “EMPTY</br>”; 
+else echo “NOT EMPTY”; 
+?> 
+
+7.Преинкремент и постинкремент. В чем между ними разница?
+
+$i = 1;
+$j = ++$i;
+
+$i = 1;
+$j = $i++;
+
+8.Что такое ассоциативный массив?
+9.Чему будет равно $a?
+
+$a = “1”; 
+$a[$a] = “2”;
+echo $a;
+
+10.Как можно переадресовать пользователя на другую страницу c помощью PHP?
+11.Что такое MVC?
+12.Чем отличается класс от объекта?
+  
+13.Какие здесь ошибки и как упростить?
+
+$criteria = new CDbCriteria;
+$criteria->addCondition('user_id = :user_id');
+$criteria->addCondition('new = 1');
+$criteria->params = array('user_id' => $user->id);
+$new_notices = UserNotices::model()->findAll ($criteria);
+if ($new_notices) {
+    foreach ($new_notices as $new_notice) {
+        $new_notice->new = 0;
+        $criteria->save();
+    }
+}
+
+14.Что тут происходит и для чего?
+
+<?php echo CHtml::activeTextField($model,'username'); ?>
+
+15.Какой запрос получится?
+
+$user = Yii::app()->db->createCommand()
+->select('id, username, profile')
+->from('tbl_user u')
+->join('tbl_profile p', 'u.id=p.user_id')
+->where('id=:id', array(':id'=>$id))
+->queryRow();
+
+16.Какая разница между LEFT, RIGHT и INNER JOIN в SQL?
+
+id name       id  name
+-- ----            --  ----
+1  Pirate        1   Rutabaga
+2  Monkey        2   Pirate
+3  Ninja         3   Darth Vader
+4  Spaghetti     4   Ninja
+
+SELECT * FROM TableA
+LEFT OUTER JOIN TableB
+ON TableA.name = TableB.name
+
+17.Как переадресовать страницу в JavaScript?  
+18.Выбрать все элементы с class = classname (jquery)
+19.Что выберет $(“div[name=apple]:visible:has(p)”); - (jquery)?

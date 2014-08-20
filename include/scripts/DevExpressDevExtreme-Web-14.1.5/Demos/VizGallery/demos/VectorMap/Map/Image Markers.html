@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Image Markers</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/usa.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var cities = [2459115, 2514815, 2428344, 2383660, 2357024, 2464592, 2379574, 2487129, 2430632, 2424766, 2352824, 2391279, 2487610, 2366355, 2436704, 2442047, 2488042, 2487384, 2490383];
+var url = "http://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (" + cities.join(', ') + ')&format=json';
+var getImageUrl = function(weather) {
+    if(weather === 'partly cloudy') {
+        return "http://js.devexpress.com/Demos/VizGallery/images/PartlyCloudy.png"
+    } else if(weather === "isolated thunderstorms") {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Storm.png"
+    } else if(weather === "scattered thunderstorms" || weather.indexOf('storm') !== -1) {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Storm.png"
+    } else if(weather.indexOf("clear") !== -1 || weather.indexOf("sunny") !== -1) {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Sunny.png"
+    } else if(weather.indexOf('fog') !== -1) {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Fog.png"
+    } else if(weather.indexOf("snow") !== -1) {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Show.png"
+    } else {
+        return "http://js.devexpress.com/Demos/VizGallery/images/Cloudy.png"
+    }
+};</script>
+		<script>
+			$(function ()  
+				{
+   var paletteIndex = -1;
+var map = $("#container").dxVectorMap({
+    mapData: DevExpress.viz.map.sources.usa,
+    bounds: [-118, 52, -80, 20],
+    background: {
+        color: "#1E90FF"
+    },
+    markerSettings: {
+        type: "image"
+    },
+    areaSettings: {
+        palette: "Soft",
+        paletteSize: 5,
+        borderColor: "none",
+		hoverEnabled: false,
+        customize: function() {
+            paletteIndex++;
+            if(paletteIndex >= 5) {
+                paletteIndex = 0;
+            }
+            return { paletteIndex: paletteIndex };
+        }
+    }
+}).dxVectorMap('instance');
+map.showLoadingIndicator();
+
+$.ajax({ url: url, dataType: "jsonp" }).done(function(arg) {
+    var markers = $.map(arg.query.results.channel, function(ch) {
+        return {
+            url: getImageUrl((ch.item.forecast[0].text).toLowerCase()),
+            text: ch.location.city,
+            coordinates: [Number(ch.item.long), Number(ch.item.lat)]
+        }
+    });
+    map.option('markers', markers);
+});
+
+
+
+
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" style="width: 100%; height: 440px;"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

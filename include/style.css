@@ -1,0 +1,346 @@
+body {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 50px;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+h2 {
+    background-color: #335963;
+    padding: 10px;
+    color: white !important;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.title_date {
+    font-size: 10px;
+}
+td{
+    vertical-align: top;
+}
+
+table > tr > td {
+    vertical-align: top;
+    padding: 7px;
+    padding-right: 5px;
+    border-spacing: 0px;
+    font-weight: normal;
+
+
+}
+
+.green {
+    color: #ffffff;
+    background-color: green;
+}
+
+.red {
+    color: #ffffff;
+    background-color: #ff0000;
+}
+
+.blue {
+    color: #ffffff;
+    background-color: dodgerblue;
+}
+.black{
+    color: black;
+}
+
+.blue_text a {
+    color: dodgerblue !important;
+}
+
+.blue_border {
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+}
+
+.blue_task {
+    background-color: dodgerblue;
+    color: #ffffff !important;
+}
+
+.blue_task a {
+    color: #ffffff !important;
+}
+
+.button, input[type=submit] {
+    border: 1px solid grey;
+    border-radius: 3px;
+    padding: 7px;
+    background-color: #e3e3e3;
+}
+
+a {
+    color: #00262f;
+    text-decoration: none;
+}
+
+.panel {
+    width: 100%;
+    background-color: #e3e3e3;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+i {
+    color: #ff0000;
+}
+
+.content {
+    width: 90%;
+    margin: auto;
+    margin-top: 17px;
+}
+
+.horizontal_scroll {
+    overflow-x: auto;
+}
+
+.top_menu li {
+    text-align: center;
+    display: inline-block;
+    list-style: none;
+    border: 1px solid #c6c6c6;
+    padding: 12px;
+    font-size: 18px;
+}
+
+.clear {
+    clear: both;
+}
+
+.top_menu {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 700px;
+    float: left;
+}
+
+.top_menu li img {
+    display: block;
+    margin: auto;
+}
+
+.base_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.base_table tr:first-child td {
+    /*background-color: #c6c6c6;*/
+    border: 1px solid grey;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.base_table tr td {
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.users_list {
+    margin: 0;
+    padding: 0;
+}
+
+.users_list li {
+    list-style: none;
+    min-width: 183px;
+}
+
+a[rel=del] {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url("/include/img/deletered_8675.png");
+}
+
+a[rel=edit] {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/include/img/package_editors_5198.png");
+}
+
+.projects {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.projects li {
+    display: block;
+    list-style: none;
+    float: left;
+    padding: 7px;
+}
+
+.projects li a {
+    border: none;
+    color: red;
+}
+
+.auth {
+    text-align: center;
+    border: 1px solid grey;
+    padding: 12px;
+    font-size: 18px;
+    margin: auto;
+    width: 400px;
+    height: 410px;
+}
+
+.auth input {
+    width: 350px;
+    font-size: 20px;
+}
+
+.user_block {
+    float: right;
+}
+
+
+a.selected h3{
+    color: green;
+
+}
+
+.footer {
+    width: 90%;
+
+    height: 50px;
+    background-color: #e6e4e6;
+    border-top: 1px solid grey;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.atach {
+    border: none;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/include/img/paperclip3_black_4934.png");
+}
+
+.clock {
+    border: none;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/include/img/clock_4853.png");
+}
+
+.nolist {
+    list-style: none;
+}
+
+.breadcrumbs {
+    margin-top: 10px;
+}
+
+.breadcrumbs ul {
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumbs ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+.fix_box {
+    display: inline-block;
+    width: 233px;
+}
+
+.fix_box p, .fix_box ul li {
+    font-size: 12px;
+}
+
+.fix_box h3 {
+    font-size: 13px;
+}
+
+.plus {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-image: url("/include/img/edit_add_8656.png");
+}
+
+.edit {
+    border: none;
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url("/include/img/kedit_5970.png");
+}
+
+.project {
+    border: none;
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url("/include/img/folder_html_8545.png");
+}
+
+.nolist li {
+    list-style: none;
+}
+
+.task_text {
+    font-style: italic;
+    font-size: 21px;
+    font-weight: 100;
+    color: black;
+    border: 1px solid #c6c6c6;
+    padding: 7px;
+}
+
+.clear_table {
+    width: 100%;
+}
+
+.clear_table tr td {
+    padding: 0;
+}
+
+.menu {
+
+}
+
+.menu li {
+    border: 1px solid #c6c6c6;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.menu li.selected a {
+    color: #ff0000;
+}
+.bold{
+    font-weight: bold;
+}
+.table_air tr td{
+    padding: 7px;
+}
+.otstup_left{
+    margin-left: 10px;
+}

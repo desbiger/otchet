@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Pie Markers</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/world.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var names = ['Chrisian', 'Muslim', 'Unaffiliated', 'Buddhist', 'Jewish'];
+
+var markers = [
+	{
+		coordinates: [34.6, -5.1],
+		values: [61.4, 35.2, 1.4, 0, 0],
+		attributes: {
+			country: 'Tanzania'
+		}
+	},
+	{
+		coordinates: [18.8, 15],
+		values: [40.6, 55.3, 2.5, 0, 0],
+		attributes: {
+			country: 'Chad'
+		}
+	},
+	{
+		coordinates: [7.36, 9.97],
+		values: [49.3, 48.8, 0.4, 0, 0],
+		attributes: {
+			country: 'Nigeria'
+		}
+	},
+	{
+		coordinates: [135.61, -24.57],
+		values: [67.3, 2.4, 24.2, 2.7, 0.5],
+		attributes: {
+			country: 'Australia'
+		}
+	},
+	{
+		coordinates: [103.3, 34.85],
+		values: [5.1, 1.8, 52.2, 18.2, 0],
+		attributes: {
+			country: 'China'
+		}
+	},
+	{
+		coordinates: [139.5, 37],
+		values: [1.6, 0.2, 57, 36.2, 0],
+		attributes: {
+			country: 'Japan'
+		}
+	},
+	{
+		coordinates: [100.8, 15.9],
+		values: [0.9, 5.5, 0.3, 93.2, 0],
+		attributes: {
+			country: 'Thailand'
+		}
+	},
+	{
+		coordinates: [10.4, 51.4],
+		values: [68,7, 5.8, 24.7, 0.3, 0.3],
+		attributes: {
+			country: 'Germany'
+		}
+	},
+	{
+		coordinates: [100.8, 65.3],
+		values: [73.3, 10, 16.2, 0.1, 0.2],
+		attributes: {
+			country: 'Russia'
+		}
+	},
+	{
+		coordinates: [-3.48, 40.36],
+		values: [78.6, 2.1, 19, 0, 0.1],
+		attributes: {
+			country: 'Spain'
+		}
+	},
+	{
+		coordinates: [-78.01, 21.72],
+		values: [59.2, 0, 23, 0, 0],
+		attributes: {
+			country: 'Cuba'
+		}
+	},
+	{
+		coordinates: [-63.7, -31.92],
+		values: [85.2, 1, 12.2, 0.05, 0.5],
+		attributes: {
+			country: 'Argentina'
+		}
+	},
+	{
+		coordinates: [-110.53, 60.78],
+		values: [69, 2.1, 23.7, 0.5, 0.3],
+		attributes: {
+			country: 'Canada'
+		}
+	},
+	{
+		coordinates: [-100.1, 40.14],
+		values: [78.3, 0.9, 16.4, 1.2, 1.8],
+		attributes: {
+			country: 'United States'
+		}
+	},
+	{
+		coordinates: [34.88, 31.16],
+		values: [2, 18.6, 3.1, 0.3, 75.6],
+		attributes: {
+			country: 'Israel'
+		}
+	}
+];
+
+$.each(markers, function (_, marker) {
+	var list = ['<b>' + marker.attributes.country + '</b>'];
+	$.each(marker.values, function (i, value) {
+		if (value > 0) {
+			list.push(names[i] + ': ' + value + '%');
+		}
+	});
+	marker.attributes.tooltip = list.join('\n');
+});</script>
+		<script>
+			$(function ()  
+				{
+   $('#container').dxVectorMap({
+	mapData: DevExpress.viz.map.sources.world,
+	markers: markers,
+	areaSettings: {
+		hoverEnabled: false
+	},
+	markerSettings: {
+		type: 'pie'
+	},
+	tooltip: {
+		enabled: true,
+		customizeTooltip: function (arg) {
+			if (arg.type === 'marker') {
+				return { text: arg.attribute('tooltip') };
+			}
+		}
+	},
+	bounds: [-180, 85, 180, -60]
+});
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" style="width: 100%; height: 440px;"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

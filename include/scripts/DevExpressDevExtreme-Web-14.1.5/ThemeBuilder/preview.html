@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-bind="css: typography">
+<head>
+    <title>Preview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="Content/DevExtreme/css/dx.common.css" rel="stylesheet" />
+    <link href="Content/CSS/preview-styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <script type="text/html" id="widgets">
+        <!-- ko if: $data.widgets.length -->
+        <div data-bind="widgetsPreview: { data: $data }" class="widgets-container"></div>
+        <!-- /ko -->
+    </script>
+
+    <div class="preview">
+        <div data-bind="template: { name: 'widgets', foreach: widgets }"></div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="Content/DevExtreme/js/jquery-1.11.1.min.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="Content/DevExtreme/js/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script src="Content/DevExtreme/js/knockout-3.1.0.js"></script>
+    <script src="Content/DevExtreme/js/globalize.min.js"></script>
+    <script src="Content/DevExtreme/js/dx.module-core.js"></script>
+    <script src="Content/DevExtreme/js/dx.module-widgets-base.js"></script>
+    <script src="Content/DevExtreme/js/dx.module-widgets-mobile.js"></script>
+    <script src="Content/DevExtreme/js/dx.module-widgets-web.js"></script>
+    <script>
+        window.ThemeBuilder = {};
+    </script>
+    <script src="Content/Scripts/utils.js"></script>
+    <script src="Content/Scripts/groupsAliasesRepository.js"></script>
+    <script src="Content/Scripts/ko.widgetsPreview.js"></script>
+    <script src="Content/Data/JS/dx-theme-builder-preview-metadata.js"></script>
+    <script src="Content/Scripts/previewDataLoader.js"></script>
+    <script src="Content/Scripts/previewRepository.js"></script>
+    <script src="Content/Scripts/parentIframeNotifier.js"></script>
+    <script src="Content/Scripts/previewViewModel.js"></script>
+    <script src="Content/Scripts/cssTemplateLoader.js"></script>
+    <script>
+        $(function() {
+            function initDevice(theme) {
+                var version = "",
+                    deviceType = "tablet";
+                if(theme === "ios7") {
+                    theme = "ios";
+                    version = "7";
+                }
+                if(theme === "generic") {
+                    deviceType = "desktop";
+                }
+                var device = {
+                    platform: theme,
+                    deviceType: deviceType,
+                    win8: theme === "win8",
+                    version: version
+                };
+                
+                DevExpress.devices.current(device);
+            }
+            function listener(event) {
+                if(ThemeBuilder.actionData)
+                    ThemeBuilder.actionData = null;
+
+                ThemeBuilder = $.extend(true, window.ThemeBuilder, JSON.parse(event.data));
+                
+                switch(ThemeBuilder.action) {
+                    case "load":
+                        metadata = ThemeBuilder.actionData.metadata;
+                        initDevice(ThemeBuilder.actionData.currentTheme);
+                        previewRepository.init(ThemeBuilder.actionData.metadataRepositoryData).done(function() {
+                            previewViewModel.init(metadata, ThemeBuilder.actionData.currentTheme, ThemeBuilder.actionData.currentColorScheme, ThemeBuilder.actionData.group);
+                        });
+                        break;
+
+                    case "update":
+                        initDevice(ThemeBuilder.actionData[1]);
+                        previewViewModel.init.apply(previewViewModel, ThemeBuilder.actionData);
+                        break;
+
+                    case "getCSS":
+                        return previewViewModel.getCSS.call(previewViewModel, ThemeBuilder.actionData);
+                        break;
+                }
+            }
+
+            if(window.addEventListener) {
+                window.addEventListener("message", listener, false);
+            } else {
+                window.attachEvent("onmessage", listener);
+            }
+
+            ThemeBuilder.groupsAliasesRepository = new ThemeBuilder.GroupsAliasesRepository();
+            var previewRepository = new ThemeBuilder.PreviewRepository(new ThemeBuilder.PreviewDataLoader()),
+                parentIframeNotifier = new ThemeBuilder.ParentIframeNotifier(),
+                previewViewModel = new ThemeBuilder.PreviewViewModel(new ThemeBuilder.CssTemplateLoader(), previewRepository, parentIframeNotifier);
+            
+            ko.applyBindings(previewViewModel, $("html").get(0));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Date-Time Scale from String Data</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      
+	</head>
+	<body>
+		
+		<script>
+			$(function ()  
+				{
+   var dataSource = [
+    { date: "2013/03/01", dayT: 7, nightT: 2 },
+    { date: "2013/03/02", dayT: 4, nightT: -1 },
+    { date: "2013/03/03", dayT: 4, nightT: -2 },
+    { date: "2013/03/04", dayT: 6, nightT: -3 },
+    { date: "2013/03/05", dayT: 9, nightT: -1 },
+    { date: "2013/03/06", dayT: 6, nightT: 3 },
+    { date: "2013/03/07", dayT: 3, nightT: 1 },
+    { date: "2013/03/08", dayT: 6, nightT: -1 },
+    { date: "2013/03/09", dayT: 13, nightT: 2 },
+    { date: "2013/03/10", dayT: 10, nightT: 2 },
+    { date: "2013/03/11", dayT: 12, nightT: 4 },
+    { date: "2013/03/12", dayT: 14, nightT: 6 },
+    { date: "2013/03/13", dayT: 11, nightT: 3 },
+    { date: "2013/03/14", dayT: 5, nightT: -2 },
+    { date: "2013/03/15", dayT: 8, nightT: -1 },
+    { date: "2013/03/16", dayT: 5, nightT: 0 },
+    { date: "2013/03/17", dayT: 3, nightT: -2 },
+    { date: "2013/03/18", dayT: 2, nightT: -2 },
+    { date: "2013/03/19", dayT: 6, nightT: 1 },
+    { date: "2013/03/20", dayT: 7, nightT: 0 },
+    { date: "2013/03/21", dayT: 4, nightT: -1 },
+    { date: "2013/03/22", dayT: 5, nightT: -2 },
+    { date: "2013/03/23", dayT: 8, nightT: 0 },
+    { date: "2013/03/24", dayT: 8, nightT: 1 },
+    { date: "2013/03/25", dayT: 4, nightT: 2 },
+    { date: "2013/03/26", dayT: 12, nightT: 3 },
+    { date: "2013/03/27", dayT: 12, nightT: 2 },
+    { date: "2013/03/28", dayT: 11, nightT: 3 },
+    { date: "2013/03/29", dayT: 13, nightT: 4 },
+    { date: "2013/03/30", dayT: 15, nightT: 4 },
+    { date: "2013/03/31", dayT: 12, nightT: 7 }
+];
+
+$("#container").dxRangeSelector({
+    dataSource: dataSource,
+    margin: {
+        top: 50
+    },
+    size: {
+        height: 400
+    },
+    chart: {
+        commonSeriesSettings: {
+            type: "steparea",
+            argumentField: "date"
+        },
+        series: [
+          { valueField: "dayT", color: "yellow" },
+          { valueField: "nightT" }
+        ]
+    },
+    scale: {
+        valueType: "datetime"
+    },
+    sliderMarker: {
+        format: "day"
+    },
+    selectedRange: {
+        startValue: "2013/03/01",
+        endValue: "2013/03/07"
+    }
+});
+
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>RangeSelector</h1>&nbsp;&nbsp;&nbsp;<h2>Scales</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3>Select a Month Period</h3></div>
+				<div id="container" style="width: 100%; height: 440px;"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

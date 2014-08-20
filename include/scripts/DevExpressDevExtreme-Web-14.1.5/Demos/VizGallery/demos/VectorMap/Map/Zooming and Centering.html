@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Zooming and Centering</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/world.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var markers = [
+  {
+      coordinates: [-0.1262, 51.5002],
+      attributes: {
+          name: 'London'
+      }
+  },
+  {
+      coordinates: [149.1286, -35.2820],
+      attributes: {
+          name: 'Canberra'
+      }
+  },
+  {
+      coordinates: [139.6823, 35.6785],
+      attributes: {
+          name: 'Tokyo'
+      }
+  },
+  {
+      coordinates: [-77.0241, 38.8921],
+      attributes: {
+          name: 'Washington'
+      }
+  },
+  {
+      coordinates: [-75.6794, 45.4214],
+      attributes: {
+          name: 'Ottawa'
+      }
+  },
+  {
+      coordinates: [37.617778, 55.751667],
+      attributes: {
+          name: 'Moscow'
+      }
+  },
+  {
+      coordinates: [116.4, 39.933333],
+      attributes: {
+          name: 'Pekin'
+      }
+  },
+  {
+      coordinates: [12.5, 41.9],
+      attributes: {
+          name: 'Rome'
+      }
+  },
+  {
+      coordinates: [23.716667, 38],
+      attributes: {
+          name: 'Athens'
+      }
+  },
+  {
+      coordinates: [2.333333, 48.833333],
+      attributes: {
+          name: 'Paris'
+      }
+  },
+  {
+      coordinates: [-3.683333, 40.4],
+      attributes: {
+          name: 'Madrid'
+      }
+  },
+  {
+      coordinates: [-47.866667, -15.798889],
+      attributes: {
+          name: 'Brasilia'
+      }
+  }
+];</script>
+		<script>
+			$(function ()  
+				{
+   var vectorMap = $('#container').dxVectorMap({
+    mapData: DevExpress.viz.map.sources.world,
+    markers: markers,
+    tooltip: {
+        enabled: true,
+        customizeTooltip: function (arg) {
+            if (arg.type === 'marker') {
+                return { text: arg.attribute('name') }
+            }
+        }
+    },
+    markerSettings: {
+        click: function (marker) {
+            vectorMap.center(marker.coordinates());
+            vectorMap.zoomFactor(10);
+        }
+    },
+    bounds: [-180, 85, 180, -60],
+    areaSettings: {
+        hoverEnabled: false
+    }
+}).dxVectorMap("instance");
+
+$("#reset").click(function () {
+    vectorMap.center(null).zoomFactor(1);
+})
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" class="containers" style="height: 420px; width: 100%;"></div>
+<button id="reset">Reset</button>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Dynamic Viewport</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+
+
+		<!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="desktop-dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="desktop" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js.js"></script>
+                                      <script src="../../../data/world.js?h=635411168655227231"></script>
+
+	</head>
+	<body>
+		<script>var viewportCoordinates = {
+    all: null,
+    NorthAmerica: [-180, 84.52, -22.11, -1.57],
+    SouthAmerica: [-112.47, 14.26, -27.52, -57.44],
+    Africa: [-29.34, 39.09, 55.60, -39.00],
+    Europe: [-2.35, 70.91, 61.35, 35.84],
+    Asia: [27.62, 83.11, 180, -19.36],
+    Australia: [104.87, -6.61, 149.98, -45.87]
+};</script>
+		<script>
+			$(function ()  
+				{
+   var vectorMap = $('#container').dxVectorMap({
+	mapData: DevExpress.viz.map.sources.world,
+	bounds: [-180, 85, 180, -60],
+	zoomFactorChanged: function (zoomFactor) {
+	    $("#zoomFactor").val(zoomFactor.toFixed(2));
+	},
+	centerChanged: function (center) {
+	    $("#center").val(center[0].toFixed(3)+", "+ center[1].toFixed(3));
+	}
+}).dxVectorMap("instance");
+
+$('#dropdownListSelector').change(function () {
+    vectorMap.viewport(viewportCoordinates[this.value]);
+});
+}
+
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+				<a class="button" title="Online Demo Gallery" target="_blank" href="http://js.devexpress.com/Demos/VizGallery/">Online Demo Gallery</a>
+	<div class = "logo">
+					<a class="logo" title="ChartJS Gallery" href="../../../index.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>VectorMap</h1>&nbsp;&nbsp;&nbsp;<h2>Map</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme">
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active">
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="container" class="containers" style="height: 420px; width: 100%;"></div>
+<div style="margin-top:10px">
+ Choose a Continent: <select id="dropdownListSelector">
+        <option value="all">All</option>
+        <option value="NorthAmerica">North America</option>
+        <option value="SouthAmerica">South America</option>
+        <option value="Africa">Africa</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="Australia">Australia</option>
+ </select>
+    ZoomFactor:<input type="text" id="zoomFactor" readonly="readonly"/>
+    Center:<input type="text" id="center" readonly="readonly"/>
+</div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

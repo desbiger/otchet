@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Infinite Scrolling</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+		
+	    <!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="generic.dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="generic.light" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.webappjs.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js/underscore-1.5.1.min.js"></script>
+		<script src="../../../js.js"></script>
+		
+		
+	</head>
+	<body>
+		<style>#gridContainer {
+	height: 440px;
+	width: 100%;
+}
+</style>
+		<script>var generateData = function (count) {
+    var i;
+    var surnames = ['Smith', 'Johnson', 'Brown', 'Taylor', 'Anderson', 'Harris', 'Clark', 'Allen', 'Scott', 'Carter'];
+    var names = ['James', 'John', 'Robert', 'Christopher', 'George', 'Mary', 'Nancy', 'Sandra', 'Michelle', 'Betty'];
+    var sex = ['Male', 'Female'];
+    var items = [],
+        startBirthDate = Date.parse('1/1/1975'),
+        endBirthDate = Date.parse('1/1/1992');
+
+    for (i = 0; i < count; i++) {
+        var nameIndex = 
+            Math.floor(Math.random() * names.length);
+        var item = {
+            id: i + 1,
+            firstName: names[nameIndex],
+            lastName: surnames[Math.floor(Math.random() * 
+            surnames.length)],
+            sex: sex[Math.floor(nameIndex / 5)],
+            birthdate: new Date(startBirthDate + Math.floor(
+                Math.random() * 
+                (endBirthDate - startBirthDate)))
+        };
+        items.push(item);
+    }
+    return items;
+};</script>
+		<script>
+			$(function ()  
+				{
+   $("#gridContainer").dxDataGrid({
+    dataSource: generateData(100000),
+    customizeColumns: function (columns) {
+        columns[0].width = 70;
+    },
+    loadPanel: false,
+    scrolling: {
+        mode: 'infinite'
+    }
+});
+
+}
+								
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+                <div class = "logo">
+				    <a class="logo" title="WebAppJS Gallery" href="../../../index.html"></a>
+			    </div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>Paging and Scrolling</h1>&nbsp;&nbsp;&nbsp;<h2>Infinite Scrolling</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme" >
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active" >
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="gridContainer"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

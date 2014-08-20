@@ -1,0 +1,1124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>		
+		<title>Column Customization</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link href="../../../styles.css" rel="stylesheet" />
+		
+	    <!-- Theme -->
+		<link href="../../../css/dx.common.css" rel="stylesheet" />
+	    <link rel="dx-theme" data-theme="generic.dark" href="../../../css/dx.dark.css" data-active="false" />
+	    <link rel="dx-theme" data-theme="generic.light" href="../../../css/dx.light.css" data-active="true" />
+
+		<script src="../../../js/jquery-1.11.1.min.js"></script>
+		<script src="../../../js/knockout-3.1.0.js"></script>
+		<script src="../../../js/globalize.min.js"></script>
+		<script src="../../../js/dx.webappjs.js"></script>
+		<script src="../../../js/dx.chartjs.js"></script>
+		<script src="../../../js/underscore-1.5.1.min.js"></script>
+		<script src="../../../js.js"></script>
+		
+		
+	</head>
+	<body>
+		<style>#gridContainer {
+	height: 440px;
+	width: 100%;
+}
+</style>
+		<script>var orders = [{
+    "ID": 1,
+    "OrderNumber": 35703,
+    "OrderDate": "2014/03/01",
+    "SaleAmount": 11800,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 2,
+    "OrderNumber": 35706,
+    "OrderDate": "2014/01/30",
+    "SaleAmount": 6150,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 3,
+    "OrderNumber": 35709,
+    "OrderDate": "2014/03/24",
+    "SaleAmount": 13200,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 4,
+    "OrderNumber": 35711,
+    "OrderDate": "2014/05/08",
+    "SaleAmount": 16050,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 5,
+    "OrderNumber": 35714,
+    "OrderDate": "2013/12/31",
+    "SaleAmount": 14750,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 6,
+    "OrderNumber": 35789,
+    "OrderDate": "2013/12/31",
+    "SaleAmount": 6050,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 7,
+    "OrderNumber": 35983,
+    "OrderDate": "2014/01/13",
+    "SaleAmount": 3725,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 8,
+    "OrderNumber": 36488,
+    "OrderDate": "2014/01/29",
+    "SaleAmount": 9500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 9,
+    "OrderNumber": 36987,
+    "OrderDate": "2014/03/30",
+    "SaleAmount": 14200,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 10,
+    "OrderNumber": 37642,
+    "OrderDate": "2014/02/17",
+    "SaleAmount": 22650,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 11,
+    "OrderNumber": 38466,
+    "OrderDate": "2014/03/01",
+    "SaleAmount": 7800,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 12,
+    "OrderNumber": 38775,
+    "OrderDate": "2014/01/29",
+    "SaleAmount": 18600,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 13,
+    "OrderNumber": 38988,
+    "OrderDate": "2014/01/14",
+    "SaleAmount": 4050,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 14,
+    "OrderNumber": 39420,
+    "OrderDate": "2014/02/12",
+    "SaleAmount": 20500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 15,
+    "OrderNumber": 39874,
+    "OrderDate": "2014/04/20",
+    "SaleAmount": 9050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 16,
+    "OrderNumber": 40872,
+    "OrderDate": "2014/02/01",
+    "SaleAmount": 6400,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 17,
+    "OrderNumber": 41047,
+    "OrderDate": "2014/05/21",
+    "SaleAmount": 5300,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 18,
+    "OrderNumber": 42847,
+    "OrderDate": "2014/01/23",
+    "SaleAmount": 20400,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 19,
+    "OrderNumber": 43982,
+    "OrderDate": "2014/05/11",
+    "SaleAmount": 6050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 20,
+    "OrderNumber": 44587,
+    "OrderDate": "2014/03/02",
+    "SaleAmount": 1050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 21,
+    "OrderNumber": 48742,
+    "OrderDate": "2014/05/16",
+    "SaleAmount": 13700,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 22,
+    "OrderNumber": 49277,
+    "OrderDate": "2014/05/16",
+    "SaleAmount": 5050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 23,
+    "OrderNumber": 50827,
+    "OrderDate": "2014/05/07",
+    "SaleAmount": 3725,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 24,
+    "OrderNumber": 51477,
+    "OrderDate": "2014/05/04",
+    "SaleAmount": 9500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 25,
+    "OrderNumber": 52847,
+    "OrderDate": "2014/03/31",
+    "SaleAmount": 14200,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 26,
+    "OrderNumber": 53088,
+    "OrderDate": "2014/03/11",
+    "SaleAmount": 13650,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 27,
+    "OrderNumber": 54087,
+    "OrderDate": "2014/03/04",
+    "SaleAmount": 15000,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 28,
+    "OrderNumber": 55770,
+    "OrderDate": "2014/04/27",
+    "SaleAmount": 6550,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 29,
+    "OrderNumber": 56272,
+    "OrderDate": "2014/05/22",
+    "SaleAmount": 15850,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 30,
+    "OrderNumber": 57429,
+    "OrderDate": "2014/02/09",
+    "SaleAmount": 11050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 32,
+    "OrderNumber": 58292,
+    "OrderDate": "2014/03/27",
+    "SaleAmount": 13500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 33,
+    "OrderNumber": 59028,
+    "OrderDate": "2014/03/31",
+    "SaleAmount": 5000,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 34,
+    "OrderNumber": 60188,
+    "OrderDate": "2014/03/07",
+    "SaleAmount": 8450,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 35,
+    "OrderNumber": 61947,
+    "OrderDate": "2014/01/04",
+    "SaleAmount": 7200,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 36,
+    "OrderNumber": 62427,
+    "OrderDate": "2014/05/06",
+    "SaleAmount": 23500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 37,
+    "OrderNumber": 63977,
+    "OrderDate": "2014/05/07",
+    "SaleAmount": 2100,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 38,
+    "OrderNumber": 64924,
+    "OrderDate": "2014/01/06",
+    "SaleAmount": 12700,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 39,
+    "OrderNumber": 65977,
+    "OrderDate": "2014/02/21",
+    "SaleAmount": 2550,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 40,
+    "OrderNumber": 66947,
+    "OrderDate": "2014/01/31",
+    "SaleAmount": 3500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 41,
+    "OrderNumber": 67942,
+    "OrderDate": "2014/05/14",
+    "SaleAmount": 2725,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 42,
+    "OrderNumber": 68428,
+    "OrderDate": "2014/05/03",
+    "SaleAmount": 10500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 43,
+    "OrderNumber": 69477,
+    "OrderDate": "2014/02/21",
+    "SaleAmount": 14200,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 44,
+    "OrderNumber": 70284,
+    "OrderDate": "2014/04/27",
+    "SaleAmount": 13650,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 45,
+    "OrderNumber": 71477,
+    "OrderDate": "2014/01/26",
+    "SaleAmount": 16800,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 46,
+    "OrderNumber": 72947,
+    "OrderDate": "2014/03/23",
+    "SaleAmount": 13350,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 47,
+    "OrderNumber": 73088,
+    "OrderDate": "2014/04/30",
+    "SaleAmount": 8600,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 48,
+    "OrderNumber": 74087,
+    "OrderDate": "2014/05/11",
+    "SaleAmount": 9700,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 49,
+    "OrderNumber": 75972,
+    "OrderDate": "2014/04/22",
+    "SaleAmount": 13500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 50,
+    "OrderNumber": 76927,
+    "OrderDate": "2014/01/25",
+    "SaleAmount": 9800,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 51,
+    "OrderNumber": 77297,
+    "OrderDate": "2014/05/13",
+    "SaleAmount": 10850,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 52,
+    "OrderNumber": 78208,
+    "OrderDate": "2014/01/02",
+    "SaleAmount": 18500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 53,
+    "OrderNumber": 79202,
+    "OrderDate": "2014/02/08",
+    "SaleAmount": 6050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 54,
+    "OrderNumber": 80288,
+    "OrderDate": "2014/05/24",
+    "SaleAmount": 8250,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 55,
+    "OrderNumber": 81042,
+    "OrderDate": "2014/02/21",
+    "SaleAmount": 8050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 56,
+    "OrderNumber": 84744,
+    "OrderDate": "2014/04/12",
+    "SaleAmount": 4650,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 57,
+    "OrderNumber": 85028,
+    "OrderDate": "2014/02/23",
+    "SaleAmount": 2575,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 58,
+    "OrderNumber": 86497,
+    "OrderDate": "2014/04/07",
+    "SaleAmount": 9500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 59,
+    "OrderNumber": 87297,
+    "OrderDate": "2014/01/19",
+    "SaleAmount": 14200,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 60,
+    "OrderNumber": 88027,
+    "OrderDate": "2014/03/10",
+    "SaleAmount": 13650,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 61,
+    "OrderNumber": 89287,
+    "OrderDate": "2014/02/19",
+    "SaleAmount": 12300,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 62,
+    "OrderNumber": 90277,
+    "OrderDate": "2014/01/26",
+    "SaleAmount": 6500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 63,
+    "OrderNumber": 91047,
+    "OrderDate": "2014/01/09",
+    "SaleAmount": 16600,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 64,
+    "OrderNumber": 92477,
+    "OrderDate": "2014/04/10",
+    "SaleAmount": 4050,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 65,
+    "OrderNumber": 94726,
+    "OrderDate": "2014/04/25",
+    "SaleAmount": 20500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 66,
+    "OrderNumber": 95266,
+    "OrderDate": "2014/03/11",
+    "SaleAmount": 9050,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 67,
+    "OrderNumber": 96474,
+    "OrderDate": "2014/04/03",
+    "SaleAmount": 5400,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 68,
+    "OrderNumber": 97464,
+    "OrderDate": "2014/02/04",
+    "SaleAmount": 8200,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 69,
+    "OrderNumber": 98477,
+    "OrderDate": "2014/01/10",
+    "SaleAmount": 23500,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 70,
+    "OrderNumber": 99247,
+    "OrderDate": "2014/01/04",
+    "SaleAmount": 2100,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 71,
+    "OrderNumber": 100089,
+    "OrderDate": "2014/04/12",
+    "SaleAmount": 8750,
+    "Terms": "15 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 72,
+    "OrderNumber": 110087,
+    "OrderDate": "2014/01/31",
+    "SaleAmount": 9900,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 73,
+    "OrderNumber": 120474,
+    "OrderDate": "2014/03/15",
+    "SaleAmount": 12800,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 74,
+    "OrderNumber": 134774,
+    "OrderDate": "2014/04/16",
+    "SaleAmount": 14100,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 75,
+    "OrderNumber": 148274,
+    "OrderDate": "2014/05/21",
+    "SaleAmount": 4750,
+    "Terms": "15 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 76,
+    "OrderNumber": 152772,
+    "OrderDate": "2014/03/03",
+    "SaleAmount": 9050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 77,
+    "OrderNumber": 168272,
+    "OrderDate": "2014/04/28",
+    "SaleAmount": 6400,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 78,
+    "OrderNumber": 174884,
+    "OrderDate": "2014/04/03",
+    "SaleAmount": 7200,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 79,
+    "OrderNumber": 184746,
+    "OrderDate": "2014/01/17",
+    "SaleAmount": 23500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 80,
+    "OrderNumber": 188874,
+    "OrderDate": "2014/03/24",
+    "SaleAmount": 2100,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Utah",
+    "CustomerStoreCity": "Salt Lake City",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 81,
+    "OrderNumber": 188877,
+    "OrderDate": "2014/03/05",
+    "SaleAmount": 8750,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 82,
+    "OrderNumber": 191883,
+    "OrderDate": "2014/02/15",
+    "SaleAmount": 9900,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 83,
+    "OrderNumber": 192474,
+    "OrderDate": "2014/03/12",
+    "SaleAmount": 12800,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 84,
+    "OrderNumber": 193847,
+    "OrderDate": "2014/01/23",
+    "SaleAmount": 14100,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 85,
+    "OrderNumber": 194877,
+    "OrderDate": "2014/05/21",
+    "SaleAmount": 4750,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Jose",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "James",
+    "EmployeeLastName": "Packard"
+}, {
+    "ID": 86,
+    "OrderNumber": 195746,
+    "OrderDate": "2014/02/14",
+    "SaleAmount": 9050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Las Vegas",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 87,
+    "OrderNumber": 197474,
+    "OrderDate": "2014/02/12",
+    "SaleAmount": 6400,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Nevada",
+    "CustomerStoreCity": "Reno",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 88,
+    "OrderNumber": 198746,
+    "OrderDate": "2014/03/05",
+    "SaleAmount": 15700,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Colorado",
+    "CustomerStoreCity": "Denver",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 89,
+    "OrderNumber": 198984,
+    "OrderDate": "2014/05/28",
+    "SaleAmount": 15500,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Wyoming",
+    "CustomerStoreCity": "Casper",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Todd",
+    "EmployeeLastName": "Hoffman"
+}, {
+    "ID": 90,
+    "OrderNumber": 200084,
+    "OrderDate": "2014/03/18",
+    "SaleAmount": 2800,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 91,
+    "OrderNumber": 214222,
+    "OrderDate": "2014/04/12",
+    "SaleAmount": 11050,
+    "Terms": "30 Days",
+    "CustomerStoreState": "Arizona",
+    "CustomerStoreCity": "Phoenix",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Clark",
+    "EmployeeLastName": "Morgan"
+}, {
+    "ID": 92,
+    "OrderNumber": 218867,
+    "OrderDate": "2014/01/11",
+    "SaleAmount": 14200,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Los Angeles",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 93,
+    "OrderNumber": 222974,
+    "OrderDate": "2014/05/14",
+    "SaleAmount": 17300,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "Anaheim",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}, {
+    "ID": 94,
+    "OrderNumber": 238477,
+    "OrderDate": "2014/01/03",
+    "SaleAmount": 6550,
+    "Terms": "30 Days",
+    "CustomerStoreState": "California",
+    "CustomerStoreCity": "San Diego",
+    "EmployeePrefix": "Mr.",
+    "EmployeeFirstName": "Harvey",
+    "EmployeeLastName": "Mudd"
+}];</script>
+		<script>
+			$(function ()  
+				{
+   $("#gridContainer").dxDataGrid({
+    dataSource: orders,
+    allowColumnReordering: true,
+    allowColumnResizing: true,
+    columnAutoWidth: true,
+    columnChooser: {
+        enabled: true
+    },
+    columns: [{
+        dataField: "OrderNumber",
+        caption: "Invoice Number"
+    }, {
+        dataField: 'OrderDate',
+        dataType: 'date',
+        alignment: 'right'
+    }, {
+        dataField: "SaleAmount",
+        format: "currency",
+        alignment: 'right'
+    }, {
+        caption: 'Employee',
+        alignment: 'left',
+        calculateCellValue: function (data) {
+            return [data.EmployeePrefix,
+                data.EmployeeFirstName, data.EmployeeLastName]
+                .join(' ');
+        }
+    }, {
+        caption: "City",
+        dataField: 'CustomerStoreCity'
+    }, {
+        caption: "State",
+        dataField: 'CustomerStoreState'            
+    }, {
+        dataField: "Terms",
+        visible: false
+    }]
+});
+}
+								
+			);
+		</script>
+		<div class="header">
+			<div class="content">
+                <div class = "logo">
+				    <a class="logo" title="WebAppJS Gallery" href="../../../index.html"></a>
+			    </div>
+			</div>
+		</div>
+		<div class="line"></div>		
+		<div class="title">
+			<h1>Columns</h1>&nbsp;&nbsp;&nbsp;<h2>Column Customization</h2>
+		</div>
+		<div class="content containerPlaceholder">
+			<div class="tab dark-theme" >
+				<div class="text">Dark Theme</div>
+			</div>
+			<div class="tab light-theme active" >
+				<div class="text">Light Theme</div>
+             </div> 
+			<div class="pane dx-theme-desktop">
+				<div class="long-title"><h3></h3></div>
+				<div id="gridContainer"></div>
+				<div class="credits"></div>
+			</div>
+		</div>
+	</body>
+</html>

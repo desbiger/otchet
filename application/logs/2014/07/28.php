@@ -1,0 +1,216 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2014-07-28 03:32:21 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: title ~ APPPATH/views/clear.php [ 4 ] in /home/bitrix/ext_www/otchet/application/views/clear.php:4
+2014-07-28 03:32:21 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/views/clear.php(4): Kohana_Core::error_handler(8, 'Undefined varia...', '/home/bitrix/ex...', 4, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Login))
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#9 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#10 {main} in /home/bitrix/ext_www/otchet/application/views/clear.php:4
+2014-07-28 03:38:33 --- EMERGENCY: Kohana_Exception [ 0 ]: A valid hash key must be set in your auth config. ~ MODPATH/auth/classes/Kohana/Auth.php [ 155 ] in file:line
+2014-07-28 03:38:33 --- DEBUG: #0 [internal function]: Kohana_Auth->hash('3455464')
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1210): call_user_func_array(Array, Array)
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(732): Kohana_ORM->run_filter('password', '3455464')
+#3 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(702): Kohana_ORM->set('password', '3455464')
+#4 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(804): Kohana_ORM->__set('password', '3455464')
+#5 /home/bitrix/ext_www/otchet/application/classes/Controller/Login.php(16): Kohana_ORM->values(Array)
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Login->action_index()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Login))
+#9 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#11 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#12 {main} in file:line
+2014-07-28 03:57:40 --- EMERGENCY: ErrorException [ 1 ]: Using $this when not in object context ~ APPPATH/classes/Controller/Login.php [ 40 ] in file:line
+2014-07-28 03:57:40 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2014-07-28 04:22:56 --- EMERGENCY: ORM_Validation_Exception [ 0 ]: Failed to validate array ~ MODPATH/orm/classes/Kohana/ORM.php [ 1275 ] in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1302
+2014-07-28 04:22:56 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1302): Kohana_ORM->check(NULL)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1421): Kohana_ORM->create(NULL)
+#2 /home/bitrix/ext_www/otchet/application/classes/Controller/Users.php(32): Kohana_ORM->save()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Users->action_index()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#8 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#9 {main} in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1302
+2014-07-28 04:23:48 --- EMERGENCY: ORM_Validation_Exception [ 0 ]: Failed to validate array ~ MODPATH/orm/classes/Kohana/ORM.php [ 1275 ] in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1302
+2014-07-28 04:23:48 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1302): Kohana_ORM->check(NULL)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1421): Kohana_ORM->create(NULL)
+#2 /home/bitrix/ext_www/otchet/application/classes/Controller/Users.php(32): Kohana_ORM->save()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Users->action_index()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Users))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#8 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#9 {main} in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1302
+2014-07-28 04:28:41 --- EMERGENCY: ErrorException [ 1 ]: Class 'Model_Workres' not found ~ MODPATH/orm/classes/Kohana/ORM.php [ 46 ] in file:line
+2014-07-28 04:28:41 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2014-07-28 04:35:26 --- EMERGENCY: Database_Exception [ 1054 ]: Unknown column 'worker.task_id' in 'on clause' [ SELECT `tasks`.`id` AS `id`, `tasks`.`name` AS `name`, `tasks`.`description` AS `description`, `tasks`.`about` AS `about`, `tasks`.`status` AS `status`, `tasks`.`begin` AS `begin`, `tasks`.`end` AS `end`, `tasks`.`project_id` AS `project_id`, `tasks`.`boss_of_task` AS `boss_of_task`, `tasks`.`worker_id` AS `worker_id` FROM `tasks` AS `tasks` JOIN `task_workers` AS `worker` ON (`worker`.`task_id` = `id`) WHERE `worker`.`worker_id` = '1' ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:35:26 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `tasks`....', 'Model_Tasks', Array)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/bitrix/ext_www/otchet/application/views/blocks/user_tasks.php(8): Kohana_ORM->find_all()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#7 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(21): Kohana_View->__toString()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:35:54 --- EMERGENCY: Database_Exception [ 1052 ]: Column 'id' in on clause is ambiguous [ SELECT `tasks`.`id` AS `id`, `tasks`.`name` AS `name`, `tasks`.`description` AS `description`, `tasks`.`about` AS `about`, `tasks`.`status` AS `status`, `tasks`.`begin` AS `begin`, `tasks`.`end` AS `end`, `tasks`.`project_id` AS `project_id`, `tasks`.`boss_of_task` AS `boss_of_task`, `tasks`.`worker_id` AS `worker_id` FROM `tasks` AS `tasks` JOIN `task_workers` AS `worker` ON (`worker`.`tasks_id` = `id`) WHERE `worker`.`worker_id` = '1' ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:35:54 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `tasks`....', 'Model_Tasks', Array)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/bitrix/ext_www/otchet/application/views/blocks/user_tasks.php(8): Kohana_ORM->find_all()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#7 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(21): Kohana_View->__toString()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:37:49 --- EMERGENCY: Database_Exception [ 1054 ]: Unknown column 'task_status' in 'where clause' [ SELECT `tasks`.`id` AS `id`, `tasks`.`name` AS `name`, `tasks`.`description` AS `description`, `tasks`.`about` AS `about`, `tasks`.`status` AS `status`, `tasks`.`begin` AS `begin`, `tasks`.`end` AS `end`, `tasks`.`project_id` AS `project_id`, `tasks`.`boss_of_task` AS `boss_of_task`, `tasks`.`worker_id` AS `worker_id` FROM `tasks` AS `tasks` JOIN `task_workers` AS `worker` ON (`worker`.`tasks_id` = `tasks`.`id`) WHERE `worker`.`worker_id` = '1' AND `task_status` = '2' ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:37:49 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `tasks`....', 'Model_Tasks', Array)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/bitrix/ext_www/otchet/application/views/blocks/user_tasks.php(9): Kohana_ORM->find_all()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#7 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(21): Kohana_View->__toString()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:38:01 --- EMERGENCY: Database_Exception [ 1054 ]: Unknown column 'task.status' in 'where clause' [ SELECT `tasks`.`id` AS `id`, `tasks`.`name` AS `name`, `tasks`.`description` AS `description`, `tasks`.`about` AS `about`, `tasks`.`status` AS `status`, `tasks`.`begin` AS `begin`, `tasks`.`end` AS `end`, `tasks`.`project_id` AS `project_id`, `tasks`.`boss_of_task` AS `boss_of_task`, `tasks`.`worker_id` AS `worker_id` FROM `tasks` AS `tasks` JOIN `task_workers` AS `worker` ON (`worker`.`tasks_id` = `tasks`.`id`) WHERE `worker`.`worker_id` = '1' AND `task`.`status` = '2' ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:38:01 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `tasks`....', 'Model_Tasks', Array)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1063): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1004): Kohana_ORM->_load_result(true)
+#3 /home/bitrix/ext_www/otchet/application/views/blocks/user_tasks.php(9): Kohana_ORM->find_all()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#7 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(21): Kohana_View->__toString()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 04:40:35 --- EMERGENCY: Kohana_Exception [ 0 ]: The project property does not exist in the Model_Tasks class ~ MODPATH/orm/classes/Kohana/ORM.php [ 687 ] in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:603
+2014-07-28 04:40:35 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(603): Kohana_ORM->get('project')
+#1 /home/bitrix/ext_www/otchet/application/views/blocks/user_tasks.php(19): Kohana_ORM->__get('project')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#5 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(21): Kohana_View->__toString()
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#9 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#11 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#12 {main} in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:603
+2014-07-28 04:46:20 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: role ~ MODPATH/orm/classes/Kohana/ORM.php [ 1567 ] in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1567
+2014-07-28 04:46:20 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1567): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 1567, Array)
+#1 /home/bitrix/ext_www/otchet/application/classes/Controller/Login.php(29): Kohana_ORM->add('role', 1)
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Login->action_index()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Login))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#8 {main} in /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php:1567
+2014-07-28 09:46:00 --- EMERGENCY: ErrorException [ 8 ]: Trying to get property of non-object ~ APPPATH/classes/Controller/Index.php [ 28 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:46:00 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(28): Kohana_Core::error_handler(8, 'Trying to get p...', '/home/bitrix/ex...', 28, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:46:09 --- EMERGENCY: ErrorException [ 8 ]: Undefined property: Database_MySQL_Result::$date ~ APPPATH/classes/Controller/Index.php [ 28 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:46:09 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(28): Kohana_Core::error_handler(8, 'Undefined prope...', '/home/bitrix/ex...', 28, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:46:29 --- EMERGENCY: ErrorException [ 8 ]: Undefined property: Database_MySQL_Result::$date ~ APPPATH/classes/Controller/Index.php [ 28 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:46:29 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(28): Kohana_Core::error_handler(8, 'Undefined prope...', '/home/bitrix/ex...', 28, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php:28
+2014-07-28 09:50:02 --- EMERGENCY: ErrorException [ 8 ]: A non well formed numeric value encountered ~ APPPATH/classes/Controller/Index.php [ 28 ] in file:line
+2014-07-28 09:50:02 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(8, 'A non well form...', '/home/bitrix/ex...', 28, Array)
+#1 /home/bitrix/ext_www/otchet/application/classes/Controller/Index.php(28): date('Y G m', '2014-03-07')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Index->action_index()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line
+2014-07-28 11:34:22 --- EMERGENCY: Database_Exception [ 1241 ]: Operand should contain 1 column(s) [ UPDATE `work_times` SET `timediff` = (0.000000, 30.000000, 1800) WHERE `id` = '7' ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 11:34:22 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(3, 'UPDATE `work_ti...', false, Array)
+#1 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1394): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /home/bitrix/ext_www/otchet/modules/orm/classes/Kohana/ORM.php(1421): Kohana_ORM->update(NULL)
+#3 /home/bitrix/ext_www/otchet/application/classes/Controller/Base.php(21): Kohana_ORM->save()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(69): Controller_Base->before()
+#5 [internal function]: Kohana_Controller->execute()
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#9 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#10 {main} in /home/bitrix/ext_www/otchet/modules/database/classes/Kohana/Database/Query.php:251
+2014-07-28 11:39:23 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 2 ~ MODPATH/mymodule/classes/Kohana/My.php [ 47 ] in /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php:47
+2014-07-28 11:39:23 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php(47): Kohana_Core::error_handler(8, 'Undefined offse...', '/home/bitrix/ex...', 47, Array)
+#1 /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php(40): Kohana_My::TimeToTimestamp('18:20')
+#2 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(108): Kohana_My::TimeBetwin('17:40', '18:20')
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#8 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#9 {main} in /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php:47
+2014-07-28 11:40:17 --- EMERGENCY: Kohana_Exception [ 0 ]: The time_diff property does not exist in the Model_WorkTimes class ~ MODPATH/orm/classes/Kohana/ORM.php [ 760 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:112
+2014-07-28 11:40:17 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(112): Kohana_ORM->set('time_diff', '0:40')
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:112
+2014-07-28 12:15:25 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected T_VARIABLE ~ APPPATH/classes/Controller/Index.php [ 29 ] in file:line
+2014-07-28 12:15:25 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DX Theme Builder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="Content/DevExtreme/css/dx.common.css" rel="stylesheet" />
+    <link href="Content/DevExtreme/css/dx.light.css" rel="stylesheet" id="theme-styles"/>
+    <link href="Content/CSS/styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="Content/favicon.ico" type="image/x-icon" />
+    <script type="text/html" id="toolbox-property">
+        <div class="property">
+            <label>
+                <span class="toolbox-property-name" data-bind="text: name.replace(/^\d+\.\s*/, '') + ':'"></span>
+                <div class="toolbox-editor" data-bind="toolboxEditor: { value: value, type: type, valueChangeAction: $root.toolboxValueChangedAction }"></div>
+            </label>
+        </div>
+    </script>
+</head>
+<body class="dx-theme-builder">
+
+<div class="wrapper dx-theme-desktop-typography">
+    <div class="header">
+        <div class="header-box">
+            <div class="logo"></div>
+        </div>
+        <div class="action-bar">
+            <div class="left-side">
+                
+                <!-- ko if: currentTheme() === 'generic' -->
+                <div class="custom-palette-button" data-bind="dxButton: { text: 'Highlight Color', clickAction: showCustomPalette }, css: { 'active': customPaletteVisible() }"></div>
+                <!-- /ko -->
+                      
+                <div class="magic-color-button" data-bind="dxButton: { text: 'Hue', clickAction: showMagicColor }, css: { 'active': magicColorVisible() }"></div>
+
+                <div data-bind="dxButton: { text: 'Widgets', clickAction: showWidgets }, css: { 'active': widgetsVisible() }"></div>
+                
+                <div class="buttons-group put-right">
+                    <div class="left-button undo" data-bind="dxButton: { iconSrc: 'Content/Images/undo.png', clickAction: undo, disabled: isUndoButtonDisabled }"></div>
+                    <div class="separator"></div>
+                    <div class="right-button redo" data-bind="dxButton: { iconSrc: 'Content/Images/redo.png', clickAction: redo, disabled: isRedoButtonDisabled }"></div>
+                </div>
+            </div>
+            <div class="right-side">
+                
+                <div class="buttons-group put-left color-scheme-chooser" data-bind="click: showThemesMenu">
+                    <div class="left-button" data-bind="dxButton: { text: 'Base theme' }"></div>
+                    <div class="right-button" data-bind="dxButton: { text: currentThemeDisplayName, iconSrc: 'Content/Images/arrow-opened.png' }"></div>
+                </div>
+
+                <div data-bind="dxContextMenu: {
+                                visible: themesMenuVisible,
+                                items: themes,
+                                selectedItem: selectedTheme(),
+                                invokeOnlyFromCode: true,
+                                position: { my: 'top right', at: 'bottom right', of: '.color-scheme-chooser', offset: '0 -2' },
+                                itemClickAction: updateThemeIdFromMenu,
+                                showingAction: function() {
+                                    $('.dx-menu-items-container').width($('.color-scheme-chooser').width());
+                                },
+                                shownAction: function() { $('.color-scheme-chooser').addClass('pressed'); },
+                                hiddenAction: function() { $('.color-scheme-chooser').removeClass('pressed'); }
+                }"></div>
+
+                <div class="put-right">
+                    <div class="get-css-button" data-bind="dxButton: { text: 'Get CSS', clickAction: getCSS }"></div>
+                    <div class="buttons-group put-left import-export-group">
+                        <div class="left-button" data-bind="dxButton: { text: 'Import', clickAction: showMetadataPopup }"></div>
+                        <div class="separator"></div>
+                        <div class="right-button" data-bind="dxButton: { text: 'Export', clickAction: exportMetadata }"></div>
+                    </div>
+                    <div data-bind="dxButton: { text: 'Reset', clickAction: setDefault }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="toolbox">
+
+            <!-- ko if: magicColorVisible() -->
+            <div class="magic-color-panel">
+                <div data-bind="dxColorPicker: {
+                    value: baseCustomColor,
+                    valueChangeAction: _applyCustomColor,
+                    applyButtonText: 'Apply',
+                    _standAlone: true
+                }"></div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: customPaletteVisible() -->
+            <div class="custom-palette-panel">
+                <div class="custom-palette-panel-content-wrapper">
+                    <p class="description">Select a color for highlighting widget elements that are currently selected or hovered over.</p>
+                    <div data-bind="dxColorPicker: {
+                        value: customPaletteColor,
+                        valueChangeAction: _applyCustomPaletteColor,
+                        applyButtonText: 'Apply',
+                        _standAlone: true
+                    }"></div>
+                    <p class="description">Set a color for the text that is displayed on the highlighted elements.</p>
+                    <div data-bind="template: { name: 'toolbox-property', data: getTreeItemDataByKey('@GENERIC_SELECTED_STATE_TEXT_COLOR') }"></div>
+                </div>
+            </div>
+            <!-- /ko -->
+
+            <!-- ko if: widgetsVisible() -->
+            <div class="widgets">
+                <ul data-bind="foreach: tree" class="navigation-tree">
+                    <li data-bind="css: { 'opened': opened, 'has-children': children.length, 'has-active-child': hasActiveChild }">
+                        <span data-bind="text: title, click: click"></span>
+                        <!-- ko if: children.length -->
+                        <ul data-bind="foreach: children, visible: opened">
+                            <li data-bind="css: { 'active': active }">
+                                <span data-bind="text: title, click: click"></span>
+                            </li>
+                        </ul>
+                        <!-- /ko -->
+                    </li>
+                </ul>
+            </div>
+            <div class="propertybox">
+                <div data-bind="foreach: tree">
+                    <!-- ko if: data && key === $root.currentWidgetGroup() -->
+                    <div class="properties-box">
+                        <div class="editors-wrapper">
+                            <div data-bind="template: { name: 'toolbox-property', foreach: data.sort($root.sortToolboxEditors) }"></div>
+                        </div>
+                    </div>
+                   <!-- /ko -->
+
+                   <!-- ko if: children.length -->
+                    <div data-bind="foreach: children">
+                        <!-- ko if: key === $root.currentWidgetGroup() -->
+                        <div class="properties-box">
+                            <div class="editors-wrapper">
+                                <div data-bind="template: { name: 'toolbox-property', foreach: data.sort($root.sortToolboxEditors) }"></div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                   <!-- /ko -->
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        
+        <div class="preview" data-bind="css: { 'is-mobile': isMobileTheme() }">
+            <div class="preview-panel">
+                <iframe id="preview-panel-iframe" frameborder="0"></iframe>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div data-bind="dxPopup: { visible: CSSPopupVisible, title: 'Get CSS', showTitle: true, height: 500 }">
+        <div data-bind="dxTextArea: { value: CSSContent, height: 350 }"></div>
+        <div data-bind="dxButton: { text: 'Close', clickAction: closeCSSPopup }" class="close-css-popup-button"></div>
+    </div>
+
+    <div data-bind="dxPopup: { visible: metadataPopupVisible, title: (showApplyButton() ? 'Import' : 'Export') + ' Theme Builder Metadata', showTitle: true, height: 500 }">
+        <div data-bind="dxTextArea: { value: exportedMetadataAsString, height: 350 }"></div>
+        <div data-bind="dxButton: { text: 'Apply', clickAction: importMetadata, visible: showApplyButton }"></div>
+        <div data-bind="dxButton: { text: 'Close', clickAction: closeMetadataPopup }"></div>
+    </div>
+
+</div>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="Content/DevExtreme/js/jquery-1.11.1.min.js"></script>
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<script src="Content/DevExtreme/js/jquery-2.1.1.min.js"></script>
+<!--<![endif]-->
+<script src="Content/DevExtreme/js/knockout-3.1.0.js"></script>
+<script src="Content/DevExtreme/js/globalize.min.js"></script>
+<script src="Content/DevExtreme/js/dx.module-core.js"></script>
+<script src="Content/DevExtreme/js/dx.module-widgets-base.js"></script>
+<script src="Content/DevExtreme/js/dx.module-widgets-web.js"></script>
+<script src="Content/Scripts/beautify-css.js"></script>
+<script src="Content/Scripts/ko.toolboxEditor.js"></script>
+<script src="Content/Scripts/themeBuilder.js"></script>
+<script src="Content/Scripts/utils.js"></script>
+<script src="Content/Data/JS/dx-theme-builder-metadata.js"></script>
+<script src="Content/Scripts/metadataLoader.js"></script>
+<script src="Content/Scripts/metadataRepository.js"></script>    
+<script src="Content/Scripts/customThemeCreator.js"></script>
+<script src="Content/Scripts/navigationTree.js"></script>
+<script src="Content/Scripts/groupsAliasesRepository.js"></script>
+<script src="Content/Scripts/navigationTreeManager.js"></script>
+<script src="Content/Scripts/historyChangesManager.js"></script>
+<script src="Content/Scripts/previewIframeNotifier.js"></script>
+<script src="Content/Scripts/themeBuilderViewModel.js"></script>
+<script src="Content/Scripts/index.js"></script>
+</body>
+</html>

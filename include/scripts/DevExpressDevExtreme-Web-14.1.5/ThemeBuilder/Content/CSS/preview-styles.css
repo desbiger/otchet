@@ -1,0 +1,80 @@
+﻿html, 
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: auto;
+}
+
+.preview {
+    padding: 20px;
+}
+
+.widgets-container { }
+
+.widgets-container.overlays-common-group .dxbutton-box,
+.widgets-container.overlays-toasts-group .dxbutton-box {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.dx-theme-generic-typography .base-common-group .widget-box-2.dxcalendar-box {
+    float: left;
+}
+
+.dx-theme-generic-typography .base-common-group .widget-box-3.dxselectbox-box,
+.dx-theme-generic-typography .base-common-group .widget-box-4.dxselectbox-box,
+.dx-theme-generic-typography .base-common-group .widget-box-5.dxslider-box,
+.dx-theme-generic-typography .base-common-group .widget-box-6.dxlookup-box {
+    width: 405px;
+}
+
+.dx-theme-generic-typography .base-common-group .widget-box-3.dxselectbox-box,
+.dx-theme-generic-typography .base-common-group .widget-box-4.dxselectbox-box,
+.dx-theme-generic-typography .base-common-group .widget-box-5.dxslider-box,
+.dx-theme-generic-typography .base-common-group .widget-box-6.dxlookup-box,
+.base-common-group .widget-box-7.dxbutton-box,
+.base-common-group .widget-box-8.dxbutton-box {
+    float: right;
+}
+
+.base-common-group .widget-box-0.dxmenu-box,
+.base-common-group .widget-box-1.dxdatagrid-box {
+    margin-bottom: 40px;
+}
+
+.base-common-group .widget-box-3.dxselectbox-box {
+    margin-bottom: 10px;
+}
+
+.base-common-group .widget-box-4.dxselectbox-box,
+.base-common-group .widget-box-5.dxslider-box {
+    margin-bottom: 15px;
+}
+
+.base-common-group .widget-box-6.dxlookup-box {
+    margin-bottom: 36px;
+}
+
+.base-common-group .widget-box-8.dxbutton-box {
+    margin-right: 5px;
+}
+
+/* Media queries */
+@media (max-width: 750px) {
+    .dx-theme-generic-typography .base-common-group .widget-box-3.dxselectbox-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-4.dxselectbox-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-5.dxslider-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-6.dxlookup-box {
+        width: 375px;
+    }
+}
+@media (max-width: 720px) {
+    .dx-theme-generic-typography .base-common-group .widget-box-3.dxselectbox-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-4.dxselectbox-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-5.dxslider-box,
+    .dx-theme-generic-typography .base-common-group .widget-box-6.dxlookup-box {
+        width: 345px;
+    }
+}

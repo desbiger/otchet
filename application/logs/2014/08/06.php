@@ -1,0 +1,115 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2014-08-06 02:28:03 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 02:28:03 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 02:28:49 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 02:28:49 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:04:05 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:04:05 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:40:39 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:40:39 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:46:01 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:46:01 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:46:39 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: date ~ APPPATH/classes/Controller/Projects.php [ 131 ] in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:46:39 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(131): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 131, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#6 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#7 {main} in /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php:131
+2014-08-06 04:48:58 --- EMERGENCY: ErrorException [ 2 ]: unlink(/home/bitrix/ext_www/otchet/upload/Адаптивная_верстка_-_мобильная_версия.docx): No such file or directory ~ APPPATH/classes/Controller/Projects.php [ 74 ] in file:line
+2014-08-06 04:48:58 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'unlink(/home/bi...', '/home/bitrix/ex...', 74, Array)
+#1 /home/bitrix/ext_www/otchet/application/classes/Controller/Projects.php(74): unlink('/home/bitrix/ex...')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(84): Controller_Projects->action_taskedit()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#7 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line
+2014-08-06 04:55:05 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: times ~ APPPATH/views/blocks/task_detail.php [ 95 ] in /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php:95
+2014-08-06 04:55:05 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php(95): Kohana_Core::error_handler(8, 'Undefined varia...', '/home/bitrix/ex...', 95, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#4 /home/bitrix/ext_www/otchet/application/views/base/base_template.php(47): Kohana_View->__toString()
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(87): Kohana_Controller_Template->after()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php:95
+2014-08-06 05:20:51 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: tsks ~ APPPATH/views/blocks/task_detail.php [ 29 ] in /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php:29
+2014-08-06 05:20:51 --- DEBUG: #0 /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php(29): Kohana_Core::error_handler(8, 'Undefined varia...', '/home/bitrix/ex...', 29, Array)
+#1 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#4 /home/bitrix/ext_www/otchet/application/views/base/base_template.php(47): Kohana_View->__toString()
+#5 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(87): Kohana_Controller_Template->after()
+#9 [internal function]: Kohana_Controller->execute()
+#10 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#13 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#14 {main} in /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php:29
+2014-08-06 06:46:54 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: 03 ~ MODPATH/mymodule/classes/Kohana/My.php [ 21 ] in /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php:21
+2014-08-06 06:46:54 --- DEBUG: #0 /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php(21): Kohana_Core::error_handler(8, 'Undefined index...', '/home/bitrix/ex...', 21, Array)
+#1 /home/bitrix/ext_www/otchet/application/views/blocks/task_detail.php(112): Kohana_My::convertDate('2014-03-11')
+#2 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#3 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#4 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(228): Kohana_View->render()
+#5 /home/bitrix/ext_www/otchet/application/views/base/base_template.php(47): Kohana_View->__toString()
+#6 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(61): include('/home/bitrix/ex...')
+#7 /home/bitrix/ext_www/otchet/system/classes/Kohana/View.php(348): Kohana_View::capture('/home/bitrix/ex...', Array)
+#8 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller/Template.php(44): Kohana_View->render()
+#9 /home/bitrix/ext_www/otchet/system/classes/Kohana/Controller.php(87): Kohana_Controller_Template->after()
+#10 [internal function]: Kohana_Controller->execute()
+#11 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Projects))
+#12 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 /home/bitrix/ext_www/otchet/system/classes/Kohana/Request.php(986): Kohana_Request_Client->execute(Object(Request))
+#14 /home/bitrix/ext_www/otchet/index.php(118): Kohana_Request->execute()
+#15 {main} in /home/bitrix/ext_www/otchet/modules/mymodule/classes/Kohana/My.php:21
