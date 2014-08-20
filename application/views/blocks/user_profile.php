@@ -105,6 +105,7 @@
 			</form>
 			<? if ($date = Arr::get($_POST, 'date')): ?>
 				<? $tasks = ORM::factory('Tasks')
+						->select('*')
 						->join('work_times')
 						->on('work_times.task_id', '=', 'tasks.id')
 						->where('work_times.date', '=', $date)
@@ -115,6 +116,7 @@
 					<tr>
 						<td>Проект</td>
 						<td style = "width: 600px">Задача</td>
+						<td>Временной интервал</td>
 						<td>Дата создания</td>
 						<td>Дата завершения</td>
 						<td>Поставил задачу</td>
@@ -126,6 +128,7 @@
 						<tr class = "<?= My::$status_color[$task->status] ?>">
 							<td><?= $task->project->name ?></td>
 							<td><a href = "/projects/taskdetail/<?= $task->project_id ?>/<?= $task->id ?>"><?= $task->name ?></a></td>
+							<td>c <?= $task->time_begin ?> до <?= $task->time_end ?></td>
 							<td><?= My::convertDate($task->date_begin) ?></td>
 							<td><?= My::convertDate($task->dead_line) ?></td>
 							<td>
