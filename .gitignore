@@ -1,7 +1,7 @@
 # Created by .gitignore support plugin (hsz.mobi)
-application/cache/*
-upload/*
-application/logs/*
-include/scripts/tinymce_4.1.3/*
-system/*
+application/cache
+upload
+application/logs
+include/scripts/tinymce_4.1.3
+system
 /.idea
