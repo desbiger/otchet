@@ -4,4 +4,4 @@ upload/*
 application/logs/*
 include/scripts/tinymce_4.1.3/*
 system/*
-.idea/*
+/.idea
