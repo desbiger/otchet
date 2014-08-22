@@ -5,6 +5,9 @@
 							->get_user()->id)
 					->find()->name ?></a>, добро пожаловать <br/>
 	<a href = "/login/logout/">Выход</a>
+	<br/>
+	<br/>
+	<?=DATE?>
 </div>
 
 
