@@ -13,8 +13,6 @@
 			) {
 				$this->template->content .= View::factory('Admin/tasks_in_work');
 			}
-
-
 		}
 
 		public function action_otchet()
