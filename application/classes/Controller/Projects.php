@@ -60,7 +60,8 @@
 			$date       = date('Y-m-d');
 			$time       = date('H:i');
 
-			Comments::Factory($task_id)->CommentRead();
+			Comments::Factory($task_id)
+					->CommentRead();
 
 			if ($_POST) {
 				if (Arr::get($_POST, 'comment') == 'Добавить') {
@@ -81,9 +82,10 @@
 							->save();
 				}
 				elseif (Arr::get($_POST, 'do') == "Завершить задачу") {
-
 					$task            = ORM::factory('Tasks', $task_id);
 					$task_begin_work = preg_replace("|(.*) (.*)|isU", "$1", $task->begin_work);
+
+					Task::SetReady($task_id, $task->boss_of_task);
 
 					if ($task_begin_work == $date) {
 						$begin_time = preg_replace("|(.*) (.*)|isU", "$2", $task->begin_work) . ":00";
@@ -119,6 +121,9 @@
 					ORM::factory('Tasks', $task_id)
 							->set('finish', Arr::get($_POST, 'finish'))
 							->save();
+				}
+				elseif (Arr::get($_POST, 'do') == 'Принять') {
+					Task::SetSeen($task_id);
 				}
 				$this->redirect('/projects/taskdetail/' . $project_id . "/" . $task_id);
 			}

@@ -64,6 +64,7 @@
     padding: 17px;
     border: none;
     margin-bottom: -1px;
+    font-weight: bold;
 }
 .tabNavigation li a.selected{
     border: 1px solid #c6c6c6;

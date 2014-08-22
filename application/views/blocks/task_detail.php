@@ -116,6 +116,15 @@
 								<?= Form::submit('do', 'Завершить задачу') ?>
 							</form>
 						</div>
+					<?
+					elseif ($task->status == 1 && $task->ready->id && $task->boss_of_task == WORKER_ID): ?>
+						<div class = "fix_box">
+							<form action = "" method = "post">
+								<?= Form::hidden('task_id', $task->id) ?>
+								<?= Form::hidden('project_id', $project->id) ?>
+								<?= Form::submit('do', 'Принять') ?>
+							</form>
+						</div>
 					<? endif ?>
 				</div>
 
@@ -129,9 +138,10 @@
 
 						<li><a href = "#prim"><h3>Примечание</h3></a></li>
 						<li>
-							<a href = "#times"><h3>Временные интервалы (<?=$intervals->count()?>)</h3></a>
+							<a href = "#times"><h3>Временные интервалы (<?= $intervals->count() ?>)</h3></a>
 						</li>
-						<li><a href = "#files"><h3>Файлы (<?=$task->files->find_all()->count()?>)</h3></a></li>
+						<li><a href = "#files"><h3>Файлы (<?= $task->files->find_all()
+											->count() ?>)</h3></a></li>
 					</ul>
 					<hr/>
 					<br/>
@@ -205,17 +215,18 @@
 				</div>
 			</div>
 			<div class = "comments">
-				<h2>Коментарии(<?=$task->comments->find_all()->count()?>)</h2>
+				<h2>Коментарии(<?= $task->comments->find_all()
+							->count() ?>)</h2>
 				<? foreach ($task->comments->find_all() as $comment): ?>
-						<?$date = My::convertDate($comment->date)?>
+					<? $date = My::convertDate($comment->date) ?>
 
 					<div class = "comment">
 						<div class = "info">
-							<span class = "user"><a href = "/user/profile/<?=$comment->worker->id?>"><?=$comment->worker->name?></a></span>
-							<span class = "date_create"><?=$date?> в <?=$comment->time?></span>
+							<span class = "user"><a href = "/user/profile/<?= $comment->worker->id ?>"><?= $comment->worker->name ?></a></span>
+							<span class = "date_create"><?= $date ?> в <?= $comment->time ?></span>
 						</div>
 						<p>
-							<?=$comment->text?>
+							<?= $comment->text ?>
 						</p>
 					</div>
 				<? endforeach ?>

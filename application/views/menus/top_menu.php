@@ -69,21 +69,53 @@
 	<li>
 
 
-		<div class = "count"><?= Comments::Factory()
-					->NewComments()
-					->count() ?></div>
+		<div class = "count"><?=
+				Comments::Factory()
+						->NewComments()
+						->count() ?></div>
 		<a href = "">
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Коментарии
 			<ul>
-				<?foreach(Comments::Factory()->NewComments() as $comments):?>
-				<li>
-					<a href = "/projects/taskdetail/<?=$comments->task->project_id?>/<?=$comments->task->id?>"><?=$comments->task->name
-						?></a>
-				</li>
-				<?endforeach?>
+				<? foreach (Comments::Factory()
+						            ->NewComments() as $comments): ?>
+					<li>
+						<a href = "/projects/taskdetail/<?= $comments->task->project_id ?>/<?= $comments->task->id ?>"><?=
+								$comments->task->name
+							?></a>
+					</li>
+				<? endforeach ?>
 			</ul>
 		</a>
 	</li>
+	<?if (Task::FindMyTasks(2)
+			->count()
+	):?>
+		<li>
+			<div class = "count">
+				<?=
+					Task::FindMyTasks(2)
+							->count()
+				?>
+			</div>
+			<a href = "">
+				<img src = "/include/img/taskbar.png" alt = ""/><br/>
+				Я поручил(а)
+				<ul>
+					<?  foreach (Task::FindMyTasks(2) as $task): ?>
+					<li>
+						<a href = "/projects/taskdetail/<?= $task->project_id ?>/<?= $task->id ?>"><?=
+								$task->name
+							?>
+							<br/>
+							<?My::statusLine($task->finish, My::$status_color[$task->status])
+														?> <?= $task->finish ?>%
+						</a>
+					</li>
+					<?  endforeach ?>
+				</ul>
+			</a>
+		</li>
+	<? endif ?>
 </ul>
 
