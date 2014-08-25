@@ -42,7 +42,7 @@
 				),
 				'comments' => array(
 						'model' => 'TaskComments',
-						'foreign_key' => 'task_id'
+						'foreign_key' => 'task_id',
 				)
 		);
 	}

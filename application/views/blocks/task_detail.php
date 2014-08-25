@@ -217,7 +217,7 @@
 			<div class = "comments">
 				<h2>Коментарии(<?= $task->comments->find_all()
 							->count() ?>)</h2>
-				<? foreach ($task->comments->find_all() as $comment): ?>
+				<? foreach ($task->comments->order_by('id','DESC')->find_all() as $comment): ?>
 					<? $date = My::convertDate($comment->date) ?>
 
 					<div class = "comment">

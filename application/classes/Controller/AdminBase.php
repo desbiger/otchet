@@ -11,6 +11,7 @@
 						->where('user_id', '=', Auth::instance()
 								->get_user()->id)
 						->find()->id);
+				define('DATE',My::convertDate(date('Y-m-d')));
 
 				$this->template             = View::factory('base/base_template');
 				$this->template->content    = '';
