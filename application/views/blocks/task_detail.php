@@ -49,6 +49,8 @@
 					->order_by('id', 'DESC')
 					->order_by('finish')
 					->find_all() ?>
+
+			<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
 			<ul class = "nolist menu">
 				<? foreach ($tasks as $t): ?>
 					<li<?= $t->id == $task_id ? " class='selected'" : '' ?>>
