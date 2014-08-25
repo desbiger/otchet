@@ -27,8 +27,8 @@
 	<ul class = "tabNavigation">
 		<li><a href = "#in_work">В работе(<?= $tasks_w->count() ?>)</a></li>
 		<li><a href = "#standby">В ожидании(<?= $tasks_s->count() ?>)</a></li>
-		<?if(Task::FindMyTasks(2)->count()):?>
-				<li><a href = "#my_tasks">Задачи поставленные мною (<?=Task::FindMyTasks(2)->count()?>)</a></li>
+		<?if(Task::FindMyTasks(array(0,2))->count()):?>
+				<li><a href = "#my_tasks">Задачи поставленные мною (<?=Task::FindMyTasks(array(0,2))->count()?>)</a></li>
 		<?endif?>
 		<?if(Task::MyTasksReady()->count()):?>
 				<li><a href = "#my_ready_tasks">Готовы сдать (<?=Task::MyTasksReady()->count()?>)</a></li>
@@ -82,7 +82,7 @@
 			<? endforeach ?>
 		</table>
 	</div>
-	<?if(Task::FindMyTasks(2)):?>
+	<?if(Task::FindMyTasks(array(0,2))):?>
 			<div id="my_tasks">
 				<table class = "table_air">
 					<tr class = "bold">
@@ -92,7 +92,7 @@
 						<td>Реализаторы</td>
 						<td>Дедлайн</td>
 					</tr>
-					<? foreach (Task::FindMyTasks(2) as $task): ?>
+					<? foreach (Task::FindMyTasks(array(0,2)) as $task): ?>
 						<tr>
 							<td><a href = "/projects/project/<?= $task->project->id ?>"><?= $task->project->name ?></a></td>
 							<td><a href = "/projects/taskdetail/<?= $task->project->id ?>/<?= $task->id ?>"><?= $task->name ?></a></td>

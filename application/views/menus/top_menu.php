@@ -50,7 +50,9 @@
 </style>
 <ul class = "dop_menu">
 	<li>
+		<?if($tasks_w->count()):?>
 		<div class = "count"><?= $tasks_w->count() ?></div>
+		<?endif?>
 		<a href = "/">
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Мои задачи
@@ -68,11 +70,14 @@
 	</li>
 	<li>
 
-
-		<div class = "count"><?=
-				Comments::Factory()
-						->NewComments()
-						->count() ?></div>
+		<?if ($count = Comments::Factory()
+				->NewComments()
+				->count()
+		):?>
+			<div class = "count">
+				<?= $count ?>
+			</div>
+		<? endif ?>
 		<a href = "">
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Коментарии
@@ -88,13 +93,19 @@
 			</ul>
 		</a>
 	</li>
-	<?if (Task::FindMyTasks(2)
+	<?if (Task::FindMyTasks(array(
+			0,
+			2
+	))
 			->count()
 	):?>
 		<li>
 			<div class = "count">
 				<?=
-					Task::FindMyTasks(2)
+					Task::FindMyTasks(array(
+							0,
+							2
+					))
 							->count()
 				?>
 			</div>
@@ -102,17 +113,20 @@
 				<img src = "/include/img/taskbar.png" alt = ""/><br/>
 				Я поручил(а)
 				<ul>
-					<?  foreach (Task::FindMyTasks(2) as $task): ?>
-					<li>
-						<a href = "/projects/taskdetail/<?= $task->project_id ?>/<?= $task->id ?>"><?=
-								$task->name
-							?>
-							<br/>
-							<?My::statusLine($task->finish, My::$status_color[$task->status])
-														?> <?= $task->finish ?>%
-						</a>
-					</li>
-					<?  endforeach ?>
+					<? foreach (Task::FindMyTasks(array(
+							0,
+							2
+					)) as $task): ?>
+						<li>
+							<a href = "/projects/taskdetail/<?= $task->project_id ?>/<?= $task->id ?>"><?=
+									$task->name
+								?>
+								<br/>
+								<?My::statusLine($task->finish, My::$status_color[$task->status])
+								?> <?= $task->finish ?>%
+							</a>
+						</li>
+					<? endforeach ?>
 				</ul>
 			</a>
 		</li>

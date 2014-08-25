@@ -49,10 +49,19 @@
 		static function FindMyTasks($status = null)
 		{
 			if ($status) {
-				return ORM::factory('Tasks')
-						->where('boss_of_task', '=', WORKER_ID)
-						->where('status', '=', $status)
-						->find_all();
+				if (is_array($status)) {
+					return ORM::factory('Tasks')
+							->where('boss_of_task', '=', WORKER_ID)
+							->where('status', "in", $status)
+							->find_all();
+				}
+				else {
+					return ORM::factory('Tasks')
+							->where('boss_of_task', '=', WORKER_ID)
+							->where('status', '=', $status)
+							->find_all();
+				}
+
 
 			}
 			else {
