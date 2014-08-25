@@ -468,6 +468,17 @@ a.selected h3 {
     padding-left: 10px;
 }
 
+.dop_menu li.title {
+    width: 94%;
+    margin: 0;
+    padding: 7px;
+    height: 13px;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    font-size: 17px;
+    background-color: antiquewhite;
+}
+
 .dop_menu li img {
     margin: auto;
 }
@@ -500,7 +511,7 @@ a.selected h3 {
     background-color: #ffffff;
     border: 1px solid #c6c6c6;
     height: auto;
-    width: 280px;
+    width: 380px;
     left: -40px;
     top: 75px;
     box-shadow: 0px 8px 38px -10px;
@@ -511,15 +522,28 @@ a.selected h3 {
     display: none;
     padding: 6px;
 }
+.dop_menu > li > ul a{
+    color: black;
+}
 
-.dop_menu > li > ul > li > a {
+.dop_menu > li > ul > li > table  tr  td  a {
     font-weight: bold;
     font-size: 11px;
     color: black;
 }
 
-.dop_menu > li > ul > li > a:hover {
+.dop_menu > li > ul > li >table  tr  td a:hover {
     color: #0055CC;
+}
+.dop_menu >li > ul > li >table{
+    margin:0;
+    width: 100%;
+}
+.dop_menu >li > ul > li >table tr td{
+    padding: 2px;
+}
+.dop_menu >li > ul > li >table tr td:last-child{
+    width: 142px;
 }
 
 .dop_menu > li > ul > li {
@@ -534,22 +558,26 @@ a.selected h3 {
     border: 1px solid rgb(213, 213, 213);
     margin-bottom: 15px;
 }
-.comment .info{
+
+.comment .info {
     width: 200px;
     display: block;
     font-size: 10px;
 }
-.comment .info .user a{
+
+.comment .info .user a {
     font-size: 12px;
 }
-.comment p{
+
+.comment p {
     display: block;
     width: 85%;
     margin-top: 10px;
     font-size: 15px;
     color: #E69507;
 }
-.add_comment{
+
+.add_comment {
     margin-top: 30px;
     border-top: 1px solid rgb(213, 213, 213);
     padding-top: 30px;
