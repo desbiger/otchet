@@ -114,48 +114,18 @@
 		<a href = "">
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Коментарии
-			<ul>
-				<? $cur_project = 0; ?>
-				<? foreach (Comments::Factory()
-						            ->NewComments() as $comments): ?>
-					<? if ($cur_project != $comments->project->id): ?>
-						<li class = "blue title"><?= $comments->project->name ?></li>
-						<li class = "<?= My::$status_color[$comments->status] ?>">
-							<table>
-								<tr>
-									<td>
-										<a href = "/projects/taskdetail/<?= $comments->project_id ?>/<?= $comments->id ?>"><?=
-												$comments->name ?></a>
-									</td>
-									<td>
-										<?
-											My::statusLine($comments->finish, My::$status_color[$comments->status])
-										?> <?= $comments->finish ?>%
-									</td>
-								</tr>
-							</table>
-						</li>
-						<? $cur_project = $comments->project->id ?>
-					<? else: ?>
-						<li class = "<?= My::$status_color[$comments->status] ?>">
-							<table>
-								<tr>
-									<td>
-										<a href = "/projects/taskdetail/<?= $comments->project_id ?>/<?= $comments->id ?>"><?=
-												$comments->name ?></a>
-									</td>
-									<td>
-										<?
-											My::statusLine($comments->finish, My::$status_color[$comments->status])
-										?> <?= $comments->finish ?>%
-									</td>
-								</tr>
-							</table>
-						</li>
-					<?endif ?>
-				<? endforeach ?>
-			</ul>
 		</a>
+		<ul>
+			<? foreach (Comments::Factory()
+					            ->NewComments() as $comments): ?>
+				<li>
+					<a href = "/projects/taskdetail/<?= $comments->task->project_id ?>/<?= $comments->task->id ?>"><?=
+							$comments->task->name
+						?></a>
+				</li>
+			<? endforeach ?>
+		</ul>
+
 	</li>
 	<?if (Task::FindMyTasks(array(
 			0,
