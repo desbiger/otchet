@@ -115,6 +115,7 @@
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Коментарии
 		</a>
+		<?if($count):?>
 		<ul>
 			<? foreach (Comments::Factory()
 					            ->NewComments() as $comments): ?>
@@ -125,6 +126,7 @@
 				</li>
 			<? endforeach ?>
 		</ul>
+		<?endif?>
 
 	</li>
 	<?if (Task::FindMyTasks(array(
