@@ -59,11 +59,30 @@
 			$project_id = $this->request->param('id');
 			$date       = date('Y-m-d');
 			$time       = date('H:i');
+			$task       = ORM::factory('Tasks', $task_id);
 
 			Comments::Factory($task_id)
 					->CommentRead();
 
 			if ($_POST) {
+
+
+				if (Arr::get($_POST, 'subtasks_edit')) { //если сабмит подзадач
+					if ($new_tasks = Arr::get($_POST, 'subtask_name')) {
+						foreach ($new_tasks as $key => $newtask) {
+							Task::AddSubTask($task_id, $newtask, 1);
+						}
+					}
+					$subtasks = $task->small_task->find_all();
+					$log      = '';
+					$checks   = Arr::get($_POST, 'check_subtask');
+					foreach ($subtasks as $subtask) {
+						$status = Arr::get($checks, $subtask->id)? 1:0;
+						Task::UpdateSubtaskStatus($subtask->id, $status);
+					}
+				}
+
+
 				if (Arr::get($_POST, 'comment') == 'Добавить') {
 					$text = Arr::get($_POST, 'text');
 					if (strlen($text)) {
@@ -71,7 +90,6 @@
 								->add($text);
 						$this->redirect($this->request->uri());
 					}
-
 				}
 
 
@@ -82,7 +100,7 @@
 							->save();
 				}
 				elseif (Arr::get($_POST, 'do') == "Завершить задачу") {
-					$task            = ORM::factory('Tasks', $task_id);
+
 					$task_begin_work = preg_replace("|(.*) (.*)|isU", "$1", $task->begin_work);
 
 					Task::SetReady($task_id, $task->boss_of_task);
@@ -128,7 +146,7 @@
 				$this->redirect('/projects/taskdetail/' . $project_id . "/" . $task_id);
 			}
 
-
+			$this->template->title   = 'Задача - ' . $task->name;
 			$this->template->content = View::factory('blocks/task_detail')
 					->bind('project_id', $project_id)
 					->bind('task_id', $task_id);

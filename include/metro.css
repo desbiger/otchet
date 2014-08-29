@@ -582,3 +582,9 @@ a.selected h3 {
     border-top: 1px solid rgb(213, 213, 213);
     padding-top: 30px;
 }
+.small_tasks_table tr td{
+    padding: 5px;
+}
+.small_tasks_table{
+    margin-top: 15px;
+}

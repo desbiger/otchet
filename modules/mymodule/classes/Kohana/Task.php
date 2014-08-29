@@ -86,5 +86,34 @@
 					->group_by('tasks.id')
 					->find_all();
 		}
+
+		static function AddSubTask($task_id, $name, $check_status)
+		{
+			if ($name) {
+				return ORM::factory('SmallTasks')
+						->set('name', $name)
+						->set('task_id', $task_id)
+						->set('status', $check_status)
+						->save();
+
+			}
+			else {
+				return false;
+			}
+		}
+
+		static function UpdateSubtaskStatus($subtask_id, $status)
+		{
+			if ($status) {
+				return ORM::factory('SmallTasks', $subtask_id)
+						->set('status',0)
+						->save();
+			}else{
+				return ORM::factory('SmallTasks', $subtask_id)
+						->set('status',1)
+						->save();
+			}
+
+		}
 	}
  

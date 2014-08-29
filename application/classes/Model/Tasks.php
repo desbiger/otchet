@@ -43,6 +43,10 @@
 				'comments' => array(
 						'model' => 'TaskComments',
 						'foreign_key' => 'task_id',
+				),
+				'small_task' => array(
+						'model' => 'SmallTasks',
+						'foreign_key' => 'task_id',
 				)
 		);
 	}
