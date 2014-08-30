@@ -7,12 +7,16 @@
 				'tasks' => array(
 						'model' => 'Tasks',
 						'foreign_key' => 'project_id'
+				),
+				'wiki' => array(
+					'model' => 'ProjectWiki',
+					'foreign_key' => 'project_id'
 				)
 		);
 		protected $_belongs_to = array(
-			'stat' => array(
-				'model' => 'ObjectStatus',
-				'foreign_key' => 'status'
-			)
+				'stat' => array(
+						'model' => 'ObjectStatus',
+						'foreign_key' => 'status'
+				)
 		);
 	}

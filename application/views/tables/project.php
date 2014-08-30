@@ -46,6 +46,7 @@
 	<ul class = "tabNavigation">
 		<li><a href = "#list"><h3>Таблица</h3></a></li>
 		<li><a href = "#diagramm"><h3>Диаграмма</h3></a></li>
+		<li><a href = "#wiki"><h3>Wiki</h3></a></li>
 <!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
 	</ul>
 	<hr/>
@@ -144,6 +145,10 @@
 			</tr>
 		</table>
 
+	</div>
+	<div id="wiki">
+		<?$wiki = $project->wiki->find_all()?>
+		<?=View::factory('blocks/wiki_list')->bind('wiki',$wiki)?>
 	</div>
 <!--	<div id = "graph">-->
 <!--		<script type = "text/javascript">-->
