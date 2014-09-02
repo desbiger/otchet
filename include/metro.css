@@ -236,7 +236,6 @@ i {
     list-style: none;
     min-width: 183px;
 }
-
 a[rel=del]{
     background-image: url("/include/img/deletered_8675.png");
     background-position: center center;
