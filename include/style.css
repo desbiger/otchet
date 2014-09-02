@@ -1,7 +1,7 @@
 body {
     font-family: arial, helvetica, sans-serif;
     font-size: 12px;
-    margin: 100px;
+    margin: 0;
     padding: 0;
     padding-bottom: 50px;
 }
@@ -115,8 +115,12 @@ i {
     padding: 12px;
     font-size: 18px;
 }
-.top_menu li:hover a{
-    color: orangered;
+.top_menu li a img{
+    background: #006375;
+}
+
+.top_menu li:hover{
+    background: #006375;
 }
 
 .clear {
@@ -133,7 +137,7 @@ i {
 
 .top_menu li img {
     display: block;
-    margin: auto;
+    margin: 0 auto 5px;
 }
 
 .base_table {
