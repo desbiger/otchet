@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa8293a3-4c26-4605-a9ff-15498e7f7291" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/classes/Model/ReadyTasks.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/mymodule/classes/Task.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/modules/mymodule/classes/Kohana/Task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/Controller/Projects.php" afterPath="$PROJECT_DIR$/application/classes/Controller/Projects.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/classes/Model/Tasks.php" afterPath="$PROJECT_DIR$/application/classes/Model/Tasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/tabs.css" afterPath="$PROJECT_DIR$/include/tabs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/blocks/task_detail.php" afterPath="$PROJECT_DIR$/application/views/blocks/task_detail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/menus/top_menu.php" afterPath="$PROJECT_DIR$/application/views/menus/top_menu.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/blocks/user_tasks.php" afterPath="$PROJECT_DIR$/application/views/blocks/user_tasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="otchet.iws" />
@@ -39,76 +29,8 @@
       <file leaf-file-name="task_detail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/blocks/task_detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="0" selection-start="4152" selection-end="4152" vertical-scroll-proportion="19.133333" vertical-offset="4057" max-vertical-offset="7857">
-              <folding>
-                <element signature="tag#script#0" expanded="true" />
-                <element signature="tag#style#0" expanded="true" />
-                <element signature="tag#div#0" expanded="true" />
-                <element signature="tag#ul#0;tag#div#0" expanded="true" />
-                <element signature="tag#style#1" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#li#0;n#ul#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#h2#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#a#0;tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#h2#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#span#0;tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#ul#0;tag#div#1;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#2;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#p#0;tag#div#2;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#p#0;n#div#2;n#div#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="tag#div#3;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#form#0;tag#div#3;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#4;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#form#0;tag#div#4;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#5;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#form#0;tag#div#5;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#li#1;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#a#0;tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#h3#0;tag#a#0;tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#tr#2;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#td#3;tag#tr#2;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#script#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#ul#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#2;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#h2#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#p#0;tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="tag#form#0;tag#div#1;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="tag#div#1" expanded="true" />
-                <element signature="tag#div#0;tag#div#1" expanded="true" />
-                <element signature="tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-                <element signature="tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="tag#div#2" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-                <element signature="tag#div#3" expanded="true" />
-                <element signature="tag#div#0;tag#div#3" expanded="true" />
-                <element signature="tag#form#0;tag#div#0;tag#div#3" expanded="true" />
-              </folding>
+            <state line="137" column="0" selection-start="4140" selection-end="4140" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="5899">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,7 +38,7 @@
       <file leaf-file-name="Tasks.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/classes/Model/Tasks.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="17" selection-start="544" selection-end="544" vertical-scroll-proportion="-15.3" vertical-offset="270" max-vertical-offset="1431">
+            <state line="27" column="17" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -125,13 +47,8 @@
       <file leaf-file-name="Task.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/mymodule/classes/Kohana/Task.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="-18.666666" vertical-offset="331" max-vertical-offset="2322">
-              <folding>
-                <element signature="e#28#151#0" expanded="true" />
-                <element signature="e#326#419#0" expanded="true" />
-                <element signature="e#887#967#0" expanded="true" />
-                <element signature="e#1302#1373#0" expanded="true" />
-              </folding>
+            <state line="33" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2108">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,7 +56,7 @@
       <file leaf-file-name="Projects.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/classes/Controller/Projects.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="44" selection-start="3939" selection-end="3939" vertical-scroll-proportion="-7.2" vertical-offset="3159" max-vertical-offset="7020">
+            <state line="125" column="44" selection-start="3696" selection-end="3696" vertical-scroll-proportion="0.0" vertical-offset="2125" max-vertical-offset="4726">
               <folding />
             </state>
           </provider>
@@ -148,7 +65,25 @@
       <file leaf-file-name="tabs.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/tabs.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="24" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="2106">
+            <state line="9" column="24" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="605" max-vertical-offset="1326">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="19" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-13.846154" vertical-offset="1629" max-vertical-offset="6035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="metro.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/metro.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="587" column="7" selection-start="8713" selection-end="8713" vertical-scroll-proportion="0.8057143" vertical-offset="9415" max-vertical-offset="10115">
               <folding />
             </state>
           </provider>
@@ -157,36 +92,8 @@
       <file leaf-file-name="top_menu.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/menus/top_menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="21" selection-start="2100" selection-end="2100" vertical-scroll-proportion="-36.0" vertical-offset="1377" max-vertical-offset="3429">
-              <folding>
-                <element signature="tag#ul#0" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#0" expanded="true" />
-                <element signature="tag#li#1;tag#ul#0" expanded="true" />
-                <element signature="tag#a#0;tag#li#1;tag#ul#0" expanded="true" />
-                <element signature="tag#li#2;tag#ul#0" expanded="true" />
-                <element signature="tag#a#0;tag#li#2;tag#ul#0" expanded="true" />
-                <element signature="tag#li#3;tag#ul#0" expanded="true" />
-                <element signature="tag#a#0;tag#li#3;tag#ul#0" expanded="true" />
-                <element signature="tag#style#0" expanded="true" />
-                <element signature="tag#li#0;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-                <element signature="tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-                <element signature="tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#div#0;tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-                <element signature="tag#li#2;tag#ul#1" expanded="true" />
-                <element signature="tag#div#0;tag#li#2;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-                <element signature="tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-                <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-                <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-              </folding>
+            <state line="91" column="21" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="1547" max-vertical-offset="3485">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -194,42 +101,17 @@
       <file leaf-file-name="Index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/classes/Controller/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="81" selection-start="349" selection-end="349" vertical-scroll-proportion="-11.7" vertical-offset="0" max-vertical-offset="2457">
+            <state line="13" column="81" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1547">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_tasks.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_tasks.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/blocks/user_tasks.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="37" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.504084" vertical-offset="2673" max-vertical-offset="4104">
-              <folding>
-                <element signature="tag#h2#0" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#h2#0;n#!!top" expanded="true" />
-                <element signature="tag#ul#0;tag#div#0" expanded="true" />
-                <element signature="tag#div#0;tag#div#0" expanded="true" />
-                <element signature="tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-                <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-                <element signature="tag#div#1;tag#div#0" expanded="true" />
-                <element signature="tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-                <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-                <element signature="tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#td#3;tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-                <element signature="tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-                <element signature="tag#tr#0;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-                <element signature="tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-                <element signature="tag#td#3;tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-                <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-              </folding>
+            <state line="94" column="36" selection-start="3207" selection-end="3207" vertical-scroll-proportion="-2.6153846" vertical-offset="1530" max-vertical-offset="2584">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -261,7 +143,6 @@
         <option value="$PROJECT_DIR$/application/views/base/footer.php" />
         <option value="$PROJECT_DIR$/application/views/grafics/ganta.php" />
         <option value="$PROJECT_DIR$/log.log" />
-        <option value="$PROJECT_DIR$/include/style.css" />
         <option value="$PROJECT_DIR$/application/views/grafics/procent_line.php" />
         <option value="$PROJECT_DIR$/include/gantti.css" />
         <option value="$PROJECT_DIR$/application/bootstrap.php" />
@@ -281,7 +162,6 @@
         <option value="$PROJECT_DIR$/include/scripts/tabs.js" />
         <option value="$PROJECT_DIR$/application/views/tables/project.php" />
         <option value="$PROJECT_DIR$/application/classes/Model/TaskComments.php" />
-        <option value="$PROJECT_DIR$/include/metro.css" />
         <option value="$PROJECT_DIR$/modules/mymodule/classes/Kohana/My.php" />
         <option value="$PROJECT_DIR$/modules/mymodule/classes/Comments.php" />
         <option value="$PROJECT_DIR$/application/views/forms/new_task.php" />
@@ -298,6 +178,8 @@
         <option value="$PROJECT_DIR$/application/views/blocks/task_detail.php" />
         <option value="$PROJECT_DIR$/application/classes/Controller/Projects.php" />
         <option value="$PROJECT_DIR$/include/tabs.css" />
+        <option value="$PROJECT_DIR$/include/style.css" />
+        <option value="$PROJECT_DIR$/include/metro.css" />
       </list>
     </option>
   </component>
@@ -305,8 +187,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -334,6 +216,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -634,7 +517,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -681,38 +563,65 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="aa8293a3-4c26-4605-a9ff-15498e7f7291" name="Default" comment="" />
       <created>1406032822481</created>
       <updated>1406032822481</updated>
     </task>
+    <task id="LOCAL-00001" summary="правка стилей">
+      <created>1409642095018</created>
+      <updated>1409642095018</updated>
+    </task>
+    <task id="LOCAL-00002" summary="правка стилей&#10;">
+      <created>1409642493324</created>
+      <updated>1409642493324</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15548456" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19116081" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15532735" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1931964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3257821" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -724,9 +633,13 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="правка стилей" />
+    <MESSAGE value="правка стилей&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="правка стилей&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -795,11 +708,6 @@
     <entry file="file://$PROJECT_DIR$/include/gantti.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="669" column="3" selection-start="13573" selection-end="13573" vertical-scroll-proportion="0.33333334" vertical-offset="17763" max-vertical-offset="19521" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="24" selection-start="319" selection-end="319" vertical-scroll-proportion="0.033333335" vertical-offset="510" max-vertical-offset="9504" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/bootstrap.php">
@@ -892,11 +800,6 @@
         <state line="17" column="5" selection-start="442" selection-end="442" vertical-scroll-proportion="-15.3" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/metro.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="478" column="1" selection-start="6865" selection-end="6865" vertical-scroll-proportion="0.0" vertical-offset="12390" max-vertical-offset="15147" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/mymodule/classes/Kohana/My.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="187" selection-end="187" vertical-scroll-proportion="-14.4" vertical-offset="81" max-vertical-offset="3834" />
@@ -943,9 +846,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/classes/Model/ReadyTasks.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="47" selection-start="151" selection-end="151" vertical-scroll-proportion="0.12413793" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
+        <state line="4" column="47" selection-start="151" selection-end="151" vertical-scroll-proportion="0.12413793" vertical-offset="0" max-vertical-offset="870" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/mymodule/classes/Task.php">
@@ -957,101 +858,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/blocks/task_detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="0" selection-start="4152" selection-end="4152" vertical-scroll-proportion="19.133333" vertical-offset="4057" max-vertical-offset="7857">
-          <folding>
-            <element signature="tag#script#0" expanded="true" />
-            <element signature="tag#style#0" expanded="true" />
-            <element signature="tag#div#0" expanded="true" />
-            <element signature="tag#ul#0;tag#div#0" expanded="true" />
-            <element signature="tag#style#1" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#li#0;n#ul#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#td#0;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#h2#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#a#0;tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#h2#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#span#0;tag#h2#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#ul#0;tag#div#1;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#2;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#p#0;tag#div#2;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#p#0;n#div#2;n#div#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="tag#div#3;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#form#0;tag#div#3;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#4;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#form#0;tag#div#4;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#5;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#form#0;tag#div#5;tag#div#0;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#a#0;tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#h3#0;tag#a#0;tag#li#2;tag#ul#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#tr#2;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#td#3;tag#tr#2;tag#table#0;tag#div#0;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#script#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#ul#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#div#1;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#2;tag#div#1;tag#div#0;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#h2#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#p#0;tag#div#0;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="tag#form#0;tag#div#1;tag#div#1;tag#td#1;tag#tr#0;tag#table#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="tag#div#1" expanded="true" />
-            <element signature="tag#div#0;tag#div#1" expanded="true" />
-            <element signature="tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-            <element signature="tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#form#0;tag#div#0;tag#div#1" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="tag#div#2" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="tag#div#3" expanded="true" />
-            <element signature="tag#div#0;tag#div#3" expanded="true" />
-            <element signature="tag#form#0;tag#div#0;tag#div#3" expanded="true" />
-          </folding>
+        <state line="137" column="0" selection-start="4140" selection-end="4140" vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="5899">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/mymodule/classes/Kohana/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="-18.666666" vertical-offset="331" max-vertical-offset="2322">
-          <folding>
-            <element signature="e#28#151#0" expanded="true" />
-            <element signature="e#326#419#0" expanded="true" />
-            <element signature="e#887#967#0" expanded="true" />
-            <element signature="e#1302#1373#0" expanded="true" />
-          </folding>
+        <state line="33" column="22" selection-start="683" selection-end="683" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2108">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/classes/Model/Tasks.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="17" selection-start="544" selection-end="544" vertical-scroll-proportion="-15.3" vertical-offset="270" max-vertical-offset="1431">
+        <state line="27" column="17" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/classes/Controller/Projects.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="44" selection-start="3939" selection-end="3939" vertical-scroll-proportion="-7.2" vertical-offset="3159" max-vertical-offset="7020">
+        <state line="125" column="44" selection-start="3696" selection-end="3696" vertical-scroll-proportion="0.0" vertical-offset="2125" max-vertical-offset="4726">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/classes/Controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="81" selection-start="346" selection-end="346" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="1547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/menus/top_menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="21" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="1547" max-vertical-offset="3485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/blocks/user_tasks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="36" selection-start="3207" selection-end="3207" vertical-scroll-proportion="-2.6153846" vertical-offset="1530" max-vertical-offset="2584">
           <folding />
         </state>
       </provider>
@@ -1063,77 +912,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/classes/Controller/Index.php">
+    <entry file="file://$PROJECT_DIR$/include/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="81" selection-start="349" selection-end="349" vertical-scroll-proportion="-11.7" vertical-offset="0" max-vertical-offset="2457">
+        <state line="117" column="19" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-13.846154" vertical-offset="1629" max-vertical-offset="6035">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/menus/top_menu.php">
+    <entry file="file://$PROJECT_DIR$/include/metro.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="21" selection-start="2100" selection-end="2100" vertical-scroll-proportion="-36.0" vertical-offset="1377" max-vertical-offset="3429">
-          <folding>
-            <element signature="tag#ul#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#0" expanded="true" />
-            <element signature="tag#li#1;tag#ul#0" expanded="true" />
-            <element signature="tag#a#0;tag#li#1;tag#ul#0" expanded="true" />
-            <element signature="tag#li#2;tag#ul#0" expanded="true" />
-            <element signature="tag#a#0;tag#li#2;tag#ul#0" expanded="true" />
-            <element signature="tag#li#3;tag#ul#0" expanded="true" />
-            <element signature="tag#a#0;tag#li#3;tag#ul#0" expanded="true" />
-            <element signature="tag#style#0" expanded="true" />
-            <element signature="tag#li#0;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-            <element signature="tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#0;tag#ul#1" expanded="true" />
-            <element signature="tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#div#0;tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#1;tag#ul#1" expanded="true" />
-            <element signature="tag#li#2;tag#ul#1" expanded="true" />
-            <element signature="tag#div#0;tag#li#2;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-            <element signature="tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-            <element signature="tag#li#0;tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-            <element signature="tag#a#0;tag#li#0;tag#ul#0;tag#a#0;tag#li#2;tag#ul#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/blocks/user_tasks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="37" selection-start="4061" selection-end="4061" vertical-scroll-proportion="0.504084" vertical-offset="2673" max-vertical-offset="4104">
-          <folding>
-            <element signature="tag#h2#0" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#h2#0;n#!!top" expanded="true" />
-            <element signature="tag#ul#0;tag#div#0" expanded="true" />
-            <element signature="tag#div#0;tag#div#0" expanded="true" />
-            <element signature="tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-            <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#0;tag#div#0" expanded="true" />
-            <element signature="tag#div#1;tag#div#0" expanded="true" />
-            <element signature="tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-            <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#1;tag#div#0" expanded="true" />
-            <element signature="tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#td#3;tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#2;tag#div#0" expanded="true" />
-            <element signature="tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-            <element signature="tag#tr#0;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-            <element signature="tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-            <element signature="tag#td#3;tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-            <element signature="tag#td#4;tag#tr#1;tag#table#0;tag#div#3;tag#div#0" expanded="true" />
-          </folding>
+        <state line="587" column="7" selection-start="8713" selection-end="8713" vertical-scroll-proportion="0.8057143" vertical-offset="9415" max-vertical-offset="10115">
+          <folding />
         </state>
       </provider>
     </entry>
