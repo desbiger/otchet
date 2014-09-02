@@ -2,7 +2,6 @@ body {
     font-family: arial, helvetica, sans-serif;
     font-size: 12px;
     margin: 0;
-    padding: 0;
     padding-bottom: 50px;
 }
 
@@ -116,10 +115,6 @@ i {
     font-size: 18px;
 }
 .top_menu li a img{
-    background: #006375;
-}
-
-.top_menu li:hover{
     background: #006375;
 }
 

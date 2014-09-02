@@ -37,9 +37,6 @@ h3 {
     display: inline-block;
 }
 
-.top_menu li a {
-    color: #ffffff;
-}
 
 .title_date {
     font-size: 10px;
@@ -168,7 +165,6 @@ i {
     text-align: center;
     display: inline-block;
     list-style: none;
-    padding: 12px;
     font-size: 18px;
 }
 
@@ -183,15 +179,32 @@ i {
 }
 
 .top_menu {
+    overflow: hidden;
     padding: 0;
     margin: 0;
     width: 700px;
     float: left;
 }
 
+
+.top_menu li:hover{
+    /*background: linear-gradient(to bottom, #005c6b 0%,#639689 45%);*/
+    /*background: linear-gradient(to bottom, #005c6b 0%,#639689 76%);*/
+    /*background: linear-gradient(to bottom, #005c6b 0%,#ffffff 51%,#639689 100%);*/
+    /*background: linear-gradient(to bottom, #005c6b 0%,#ffffff 40%,#005c6b 100%);*/
+    /*background: linear-gradient(to bottom, #005c6b 0%,#dbffed 40%,#005c6b 100%);*/
+    background: linear-gradient(to bottom, #005c6b 0%, #e3f6f1 42%,#005c6b 100%);
+}
 .top_menu li img {
     display: block;
-    margin: auto;
+    margin: 0 auto 10px;
+}
+
+.top_menu li a {
+    color: #ffffff;
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
 }
 
 .base_table {
@@ -224,18 +237,22 @@ i {
     min-width: 183px;
 }
 
-a[rel=del] {
-    display: block;
-    width: 16px;
-    height: 16px;
+a[rel=del]{
     background-image: url("/include/img/deletered_8675.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 16px;
+    width: 100%;
 }
 
 a[rel=edit] {
-    display: block;
-    width: 24px;
-    height: 24px;
     background-image: url("/include/img/package_editors_5198.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 24px;
+    width: 100%;
 }
 
 .projects {
@@ -480,7 +497,7 @@ a.selected h3 {
 }
 
 .dop_menu li img {
-    margin: auto;
+    margin: 0 auto 5px;
 }
 
 .dop_menu li a {
@@ -587,9 +604,6 @@ a.selected h3 {
 }
 .small_tasks_table{
     margin-top: 15px;
-}
-.test2{
-    font-family: arial, helvetica, sans-serif;
     width: 95%;
     margin-left: 17px;
 }
