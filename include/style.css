@@ -115,7 +115,7 @@ i {
     padding: 12px;
     font-size: 18px;
 }
-.top_menu li:hover{
+.top_menu li:hover a{
     color: orangered;
 }
 
