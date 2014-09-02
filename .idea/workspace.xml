@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa8293a3-4c26-4605-a9ff-15498e7f7291" name="Default" comment="Merge remote-tracking branch 'origin/Pavel_sakharov' into Pavel_sakharov&#10;&#10;Conflicts:&#10;&#9;include/metro.css&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chart_test.html" afterPath="$PROJECT_DIR$/chart_test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/metro.css" afterPath="$PROJECT_DIR$/include/metro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/style.css" afterPath="$PROJECT_DIR$/include/style.css" />
+    <list default="true" id="aa8293a3-4c26-4605-a9ff-15498e7f7291" name="Default" comment="Изменение стилей&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="ff051e25-32f0-45a1-a175-2ba215d83320" name="Failed commit: Default" comment="Merge remote-tracking branch 'origin/Pavel_sakharov' into Pavel_sakharov&#10;&#10;Conflicts:&#10;&#9;include/metro.css&#10;" />
@@ -33,7 +29,7 @@
       <file leaf-file-name="metro.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/include/metro.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="243" column="19" selection-start="3968" selection-end="3968" vertical-scroll-proportion="0.4349776" vertical-offset="3840" max-vertical-offset="10523">
+            <state line="242" column="33" selection-start="3948" selection-end="3948" vertical-scroll-proportion="0.40956652" vertical-offset="3840" max-vertical-offset="10523">
               <folding />
             </state>
           </provider>
@@ -295,7 +291,11 @@
       <created>1409644088750</created>
       <updated>1409644088750</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Изменение стилей">
+      <created>1409649272188</created>
+      <updated>1409649272188</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <option name="createChangelist" value="false" />
     <option name="createBranch" value="false" />
     <servers />
@@ -345,7 +345,8 @@
     <MESSAGE value="test vlad" />
     <MESSAGE value="Merge remote-tracking branch 'origin/Pavel_sakharov' into Pavel_sakharov&#10;&#10;Conflicts:&#10;&#9;include/metro.css&#10;" />
     <MESSAGE value="правка дизайна&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="правка дизайна&#10;" />
+    <MESSAGE value="Изменение стилей" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменение стилей" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -629,7 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/include/metro.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="19" selection-start="3968" selection-end="3968" vertical-scroll-proportion="0.4349776" vertical-offset="3840" max-vertical-offset="10523">
+        <state line="242" column="33" selection-start="3948" selection-end="3948" vertical-scroll-proportion="0.40956652" vertical-offset="3840" max-vertical-offset="10523">
           <folding />
         </state>
       </provider>
