@@ -590,4 +590,10 @@ a.selected h3 {
 }
 .test2{
     font-family: arial, helvetica, sans-serif;
+    width: 95%;
+    margin-left: 17px;
+}
+
+.test_style{
+    font-size: 50px;
 }
