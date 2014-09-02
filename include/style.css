@@ -115,6 +115,9 @@ i {
     padding: 12px;
     font-size: 18px;
 }
+.top_menu li:hover{
+    color: orangered;
+}
 
 .clear {
     clear: both;
