@@ -8,7 +8,9 @@
 		width: 100%;
 	}
 </style>
-<h2><?= $user->firstname ?> <?= $user->name ?> <?= $user->secondename ?></h2>
+<h2><?= $user->firstname ?> <?= $user->name ?> <?= $user->secondename ?> <?=
+		$user->id == WORKER_ID ? "<a style='font-size: 12px'
+			href = '/user/my_profile_edit'>(Редактировать)</a>" : '' ?></h2>
 <table class = "user_table">
 	<tr>
 		<td style = "width: 128px">
