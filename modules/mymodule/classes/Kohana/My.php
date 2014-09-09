@@ -18,7 +18,6 @@
 		);
 
 
-
 		static function statusLine($procent, $color)
 		{
 			echo View::factory('grafics/procent_line')
@@ -130,7 +129,7 @@
 
 		static function TextFormat($string)
 		{
-//			$string = str_replace(array("\n","\r"," "), array("<br>","<br>","&nbsp"), $string);
+			//			$string = str_replace(array("\n","\r"," "), array("<br>","<br>","&nbsp"), $string);
 			return $string;
 		}
 	}

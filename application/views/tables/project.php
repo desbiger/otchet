@@ -7,19 +7,38 @@
 <?
 	$project = ORM::factory('Objects', $id);
 	if ($_GET) {
-		$tasks = ORM::factory('Tasks');
-		$col   = $tasks->list_columns();
-		//		$tasks->from(array('work_times','time'));
-		//		$tasks->where('project_id', '=', $id);
-		//		$tasks->with('time');
-		//		$tasks->where('time.date','<','2014-06-01');
-		foreach ($col as $k => $v) {
-			if ($vol = Arr::get($_GET, $k)) {
-				$tasks->where($k, '=', $vol);
+		$noa_auto = array(
+				'date_from',
+				'date_to'
+		);
+		$tasks    = ORM::factory('Tasks');
+		$col      = $tasks->table_columns();
+		if (Arr::get($_GET, 'date_from') != ''  || Arr::get($_GET, 'date_to') !='') {
+			$tasks->join('work_times')->on('work_times.task_id','=','tasks.id');
+			if(Arr::get($_GET, 'date_from') != ''){
+				$tasks->where('work_times.date','>',Arr::get($_GET, 'date_from'));
+			}
+			if(Arr::get($_GET, 'date_to') != ''){
+				$tasks->where('work_times.date','<',Arr::get($_GET, 'date_to'));
 			}
 		}
+		if($worker[] = Arr::get($_REQUEST,'worker')){
+			$tasks->join('task_workers')->on('task_workers.tasks_id','=','tasks.id');
+			$tasks->where('task_workers.worker_id','IN',$worker);
+		}
+
+
+		foreach ($col as $k => $v) {
+			$vol = Arr::get($_GET, $k);
+			if ($vol || ($vol == 0 && $k == 'status')) {
+				$tasks->where('tasks.'.$k, '=', $vol);
+			}
+		}
+		$tasks->where('tasks.project_id', '=', $id);
 
 		$tasks = $tasks->find_all();
+//		var_dump($tasks,true);
+
 	}
 	else {
 		$tasks = ORM::factory('Tasks')
@@ -46,7 +65,7 @@
 	<ul class = "tabNavigation">
 		<li><a href = "#list"><h3>Таблица</h3></a></li>
 		<li><a href = "#diagramm"><h3>Диаграмма</h3></a></li>
-<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
+		<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
 	</ul>
 	<hr/>
 	<br/>
@@ -60,7 +79,7 @@
 
 	</div>
 	<div id = "list">
-		<!--		--><? //= View::factory('forms/filter_objects') ?>
+		<?= View::factory('forms/filter_objects') ?>
 
 		<? $i = 0; ?>
 		<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
@@ -99,15 +118,18 @@
 					<td><?= $i ?></td>
 					<td>
 
-							<a href = "/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
-								<?= $task->name ?>
-							</a>
-						<?if($task->files->find_all()->count()):?>
-							<span class="atach"></span>
-						<?endif?>
+						<a href = "/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
+							<?= $task->name ?>
+						</a>
+						<? if ($task->files->find_all()
+								->count()
+						): ?>
+							<span class = "atach"></span>
+						<? endif ?>
 
 					</td>
-					<td><?= $task->comments->find_all()->count()?></td>
+					<td><?= $task->comments->find_all()
+								->count() ?></td>
 					<td><?= $task->date->find()->date ? date("d F Y", strtotime($task->date->find()->date)) : "" ?></td>
 
 					<td style = "text-align: center"><? My::statusLine($task->finish, 'blue') ?> &nbsp<?= $task->finish ?>%</td>
@@ -145,30 +167,32 @@
 		</table>
 
 	</div>
-<!--	<div id = "graph">-->
-<!--		<script type = "text/javascript">-->
-<!--			$(function () {-->
-<!--				$('#graph').click(function () {-->
-<!--					AmCharts.render();-->
-<!--				})-->
-<!--			})-->
-<!--		</script>-->
-<!--		--><?//
-//
-//			$title = 'График';
-//			$name = $project->name;
-//			$datas = My::GetDatasForGraphikProject($id);
-//
-//
-//		?>
-<!--		--><?//=
-//			View::factory('grafics/line')
-//					->bind('datas', $datas)
-//					->bind('project', $name)
-//					->bind('title', $title)
-//					->bind('id', $id)
-//		?>
-<!--	</div>-->
+	<!--	<div id = "graph">-->
+	<!--		<script type = "text/javascript">-->
+	<!--			$(function () {-->
+	<!--				$('#graph').click(function () {-->
+	<!--					AmCharts.render();-->
+	<!--				})-->
+	<!--			})-->
+	<!--		</script>-->
+	<!--		--><? //
+		//
+		//			$title = 'График';
+		//			$name = $project->name;
+		//			$datas = My::GetDatasForGraphikProject($id);
+		//
+		//
+		//
+	?>
+	<!--		--><? //=
+		//			View::factory('grafics/line')
+		//					->bind('datas', $datas)
+		//					->bind('project', $name)
+		//					->bind('title', $title)
+		//					->bind('id', $id)
+		//
+	?>
+	<!--	</div>-->
 </div>
 
 
