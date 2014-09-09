@@ -65,7 +65,8 @@
 	<ul class = "tabNavigation">
 		<li><a href = "#list"><h3>Таблица</h3></a></li>
 		<li><a href = "#diagramm"><h3>Диаграмма</h3></a></li>
-		<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
+		<li><a href = "#wiki"><h3>Wiki</h3></a></li>
+<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
 	</ul>
 	<hr/>
 	<br/>
@@ -79,7 +80,7 @@
 
 	</div>
 	<div id = "list">
-		<?= View::factory('forms/filter_objects') ?>
+     <?= View::factory('forms/filter_objects') ?>
 
 		<? $i = 0; ?>
 		<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
@@ -118,18 +119,15 @@
 					<td><?= $i ?></td>
 					<td>
 
-						<a href = "/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
-							<?= $task->name ?>
-						</a>
-						<? if ($task->files->find_all()
-								->count()
-						): ?>
-							<span class = "atach"></span>
-						<? endif ?>
+							<a href = "/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
+								<?= $task->name ?>
+							</a>
+						<?if($task->files->find_all()->count()):?>
+							<span class="atach"></span>
+						<?endif?>
 
 					</td>
-					<td><?= $task->comments->find_all()
-								->count() ?></td>
+					<td><?= $task->comments->find_all()->count()?></td>
 					<td><?= $task->date->find()->date ? date("d F Y", strtotime($task->date->find()->date)) : "" ?></td>
 
 					<td style = "text-align: center"><? My::statusLine($task->finish, 'blue') ?> &nbsp<?= $task->finish ?>%</td>
@@ -167,32 +165,35 @@
 		</table>
 
 	</div>
-	<!--	<div id = "graph">-->
-	<!--		<script type = "text/javascript">-->
-	<!--			$(function () {-->
-	<!--				$('#graph').click(function () {-->
-	<!--					AmCharts.render();-->
-	<!--				})-->
-	<!--			})-->
-	<!--		</script>-->
-	<!--		--><? //
-		//
-		//			$title = 'График';
-		//			$name = $project->name;
-		//			$datas = My::GetDatasForGraphikProject($id);
-		//
-		//
-		//
-	?>
-	<!--		--><? //=
-		//			View::factory('grafics/line')
-		//					->bind('datas', $datas)
-		//					->bind('project', $name)
-		//					->bind('title', $title)
-		//					->bind('id', $id)
-		//
-	?>
-	<!--	</div>-->
+	<div id="wiki">
+		<?$wiki = $project->wiki->find_all()?>
+		<?$project_id = $project->id;?>
+		<?=View::factory('blocks/wiki_list')->bind('wiki',$wiki)->bind('id',$project_id)?>
+	</div>
+<!--	<div id = "graph">-->
+<!--		<script type = "text/javascript">-->
+<!--			$(function () {-->
+<!--				$('#graph').click(function () {-->
+<!--					AmCharts.render();-->
+<!--				})-->
+<!--			})-->
+<!--		</script>-->
+<!--		--><?//
+//
+//			$title = 'График';
+//			$name = $project->name;
+//			$datas = My::GetDatasForGraphikProject($id);
+//
+//
+//		?>
+<!--		--><?//=
+//			View::factory('grafics/line')
+//					->bind('datas', $datas)
+//					->bind('project', $name)
+//					->bind('title', $title)
+//					->bind('id', $id)
+//		?>
+<!--	</div>-->
 </div>
 
 
