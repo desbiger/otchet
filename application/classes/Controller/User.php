@@ -17,18 +17,23 @@
 
 		public function action_my_profile_edit()
 		{
+			$errors = array();
 			if ($_POST) {
 				if (Arr::get($_POST, 'change_pass') == 'Сменить пароль') {
-					$validate = Validation::factory($_POST);
-					//					$validate->rule('new_password', 'min_light', array('min' => 6));
-					if ($datas['password'] = Arr::get($_POST, 'new_password') == Arr::get($_POST, 'new_password_confirm')) {
+					$datas['password']         = $_POST['new_password'];
+					$datas['password_confirm'] = $_POST['new_password_confirm'];
+					try {
 						$user = ORM::factory('User', Auth::instance()
 								->get_user());
-
-
 						$user->update_user($datas, array('password'));
 						$this->redirect('/user/profile/' . WORKER_ID);
+
+					} catch (ORM_Validation_Exception $e) {
+						$errors = $e->errors('Auth');
+						$errors = $errors['_external'];
+//						print_r($errors);
 					}
+
 				}
 				elseif (Arr::get($_POST, 'update')) {
 					$worker  = ORM::factory('Workers', WORKER_ID);
@@ -37,6 +42,15 @@
 						if ($value = Arr::get($_POST, $key)) {
 							$worker->set($key, $value);
 						}
+					}
+					try {
+						ORM::factory('User', Auth::instance()
+								->get_user()->id)
+								->set('email', Arr::get($_POST, 'email'))
+								->save();
+
+					} catch (ORM_Validation_Exception $e) {
+						print_r($e->errors('auth'));
 					}
 					$worker->update();
 					$this->redirect('/user/profile/' . WORKER_ID);
@@ -49,6 +63,7 @@
 							->get_user()->id)
 					->find();
 			$this->template->content = View::factory('/forms/user_profile_edit')
-					->bind('user', $user);
+					->bind('user', $user)
+					->bind('errors', $errors);
 		}
 	}

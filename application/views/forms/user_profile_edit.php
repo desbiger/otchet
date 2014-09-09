@@ -37,7 +37,9 @@
 			<form action = "" method="post">
 				<div class="user_about">
 					<p><h2>Смена пароля</h2></p>
+					<i><?=Arr::get($errors,'password')?></i>
 					<p>Новый пароль <span><?=Form::password('new_password')?></span></p>
+					<i><?=Arr::get($errors,'password_confirm')?></i>
 					<p>Новый пароль еще раз<span><?=Form::password('new_password_confirm')?></span></p>
 					<p><?=Form::submit('change_pass','Сменить пароль')?></p>
 				</div>
