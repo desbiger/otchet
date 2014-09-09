@@ -71,8 +71,30 @@
 			else {
 				return false;
 			}
-
 		}
+		static function UploadFileUniversal($file_array,$for, $for_id, $title, $about)
+		{
+			$files = ORM::factory('File');
+			if ($file_array['size'] > 0) {
+				if ($file_name = Upload::save($file_array, $file_array['name'], $_SERVER['DOCUMENT_ROOT'] . '/upload/')) {
+					$files->set('for', $for);
+					$files->set('for_id', $for_id);
+					$files->set('title', $title);
+					$files->set('about', $about);
+					$files->set('filename', str_replace($_SERVER['DOCUMENT_ROOT'] . "/upload/", "", $file_name));
+					$files->set('type', $file_array['type']);
+					$files->save();
+					return true;
+				}
+				else {
+					return false;
+				};
+			}
+			else {
+				return false;
+			}
+		}
+
 
 		static function Obj_fore_select($object, $values, $names)
 		{

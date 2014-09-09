@@ -597,3 +597,31 @@ a.selected h3 {
 .user_about{
     width: 320px;
 }
+.wiki_block{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.wiki_block h3{
+    font-size: 22px;
+    /*border-bottom: 1px solid grey;*/
+    /*padding-bottom: 17px;*/
+    margin-bottom: 17px;
+}
+.wiki_block .text{
+    background-color: #fafafa;
+    border: 1px solid #b4b4b4;
+    padding: 10px;
+}
+.wiki_block .text p{
+    margin: 5px;
+}
+.wiki_block .text .files{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+}
+.wiki_block .text .files a{
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
