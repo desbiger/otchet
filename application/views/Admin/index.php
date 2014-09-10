@@ -2,10 +2,15 @@
 		'/' => 'Главная',
 		'/otchet' => 'Раздел руководителя',
 )?>
-<?= View::factory('/menus/breadcrumbs')
-		->bind('nodes', $nodes) ?>
+<?=
+	View::factory('/menus/breadcrumbs')
+			->bind('nodes', $nodes) ?>
 
 <h2>Раздел руководителя</h2>
+<form action = "" method="post" enctype="multipart/form-data">
+<input type = "file" name="avatar"/>
+	<input type = "submit" value="Загрузить"/>
+</form>
 <div class = "tabs">
 	<ul class = "tabNavigation">
 		<li><a href = "#projects">Проекты</a></li>
@@ -16,7 +21,7 @@
 		<?= View::factory('Admin/Projects_list') ?>
 	</div>
 	<div id = "users">
-		<?=View::factory('Admin/users')?>
+		<?= View::factory('Admin/users') ?>
 	</div>
 	<div id = "gen"></div>
 

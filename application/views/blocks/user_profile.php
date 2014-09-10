@@ -14,7 +14,12 @@
 <table class = "user_table">
 	<tr>
 		<td style = "width: 128px">
-			<img src = "<?= $user->avatar ? $user->avatar : '/include/empty_ava.png' ?>" alt = ""/>
+			<? if ($user->avatar): ?>
+				<?$src =  My::ResizeImage($user->avatar_file->filename, '123') ?>
+				<a href = "<?= $user->avatar_file->filename ?>" class="fancy"><img  src = "<?= $src?>" alt = ""/></a>
+			<? else: ?>
+				<img  src = "/include/empty_ava.png" alt = ""/>
+			<?endif ?>
 		</td>
 		<td>
 			<div class = "user_about">

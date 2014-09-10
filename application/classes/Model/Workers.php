@@ -8,8 +8,12 @@
 						'model' => 'WorkerWhois',
 						'foreign_key' => 'whois'
 				),
-			'user'=> array(
-				'model' => 'User'
-			)
+				'user' => array(
+						'model' => 'User'
+				),
+				'avatar_file' => array(
+						'model' => 'File',
+						'foreign_key' => 'avatar'
+				)
 		);
 	}

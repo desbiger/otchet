@@ -9,14 +9,32 @@
 	}
 </style>
 <h2><?= $user->firstname ?> <?= $user->name ?> <?= $user->secondename ?></h2>
-
+<script type = "text/javascript">
+	$(function(){
+		$('.replace_img').click(function(){
+			$('#avatar').trigger('click');
+		})
+	})
+</script>
+<style type = "text/css">
+	.replace_img{
+		cursor: pointer;
+	}
+</style>
 <table class = "user_table">
 	<tr>
 		<td style = "width: 128px">
-			<img src = "<?= $user->avatar ? $user->avatar : '/include/empty_ava.png' ?>" alt = ""/>
+			<form action = "" method = "post" enctype="multipart/form-data">
+			<? if ($user->avatar): ?>
+				<?$src =  My::ResizeImage($user->avatar_file->filename, '123') ?>
+				<img class="replace_img"   src = "<?= $src?>" alt = ""/>
+			<? else: ?>
+				<img class="replace_img"  src = "/include/empty_ava.png" alt = ""/>
+			<?endif ?>
+				<input type="file" name="avatar" id="avatar" style="display: none">
 		</td>
 		<td>
-			<form action = "" method = "post">
+
 				<div class = "user_about">
 					<p>Имя: <span><?= Form::input('name', $user->name) ?></span></p>
 

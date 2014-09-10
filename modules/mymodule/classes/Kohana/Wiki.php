@@ -9,6 +9,7 @@
 			return $wiki->set('name', $name)
 					->set('text', $text)
 					->set('project_id', $project_id)
+					->set('author', WORKER_ID)
 					->save();
 		}
 

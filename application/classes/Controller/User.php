@@ -19,6 +19,11 @@
 		{
 			$errors = array();
 			if ($_POST) {
+				if (Arr::get($_FILES, 'avatar')) {
+					if($_FILES['avatar']['name']){
+						Worker::UpdateAvatar($_FILES['avatar'], WORKER_ID);
+					}
+				}
 				if (Arr::get($_POST, 'change_pass') == 'Сменить пароль') {
 					$datas['password']         = $_POST['new_password'];
 					$datas['password_confirm'] = $_POST['new_password_confirm'];
@@ -31,7 +36,7 @@
 					} catch (ORM_Validation_Exception $e) {
 						$errors = $e->errors('Auth');
 						$errors = $errors['_external'];
-//						print_r($errors);
+						//						print_r($errors);
 					}
 
 				}
