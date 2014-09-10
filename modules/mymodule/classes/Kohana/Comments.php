@@ -11,6 +11,11 @@
 		public $date; //текущая дата
 		public $time; //текущее время
 
+		/**
+		 * @param null $task_id
+		 * @return Comments
+		 * завод метод
+		 */
 		static function Factory($task_id = null)
 		{
 			if ($task_id) {
