@@ -124,21 +124,72 @@
 		<h3>Суть задачи</h3>
 
 		<p class = "task_text"><?= $task->name ?></p>
-
+		<? $small_tasks = $task->small_task->find_all() ?>
 
 		<div class = "tabs">
 			<ul class = "tabNavigation">
-
+				<li>
+					<a href = "#small_task">
+						<h3>Подзадачи (<?= $small_tasks->count() ?>)</h3>
+					</a>
+				</li>
 				<li><a href = "#prim"><h3>Примечание</h3></a></li>
+
 				<li>
 					<a href = "#times"><h3>Временные интервалы (<?= $intervals->count() ?>)</h3></a>
 				</li>
-				<li><a href = "#files"><h3>Файлы (<?= $task->files->find_all()
-									->count() ?>)</h3></a></li>
+				<li><a href = "#files"><h3>Файлы (<?=
+								$task->files->find_all()
+										->count() ?>)</h3></a></li>
 			</ul>
 			<hr/>
 			<br/>
 
+
+			<div id = "small_task">
+				<script type = "text/javascript">
+					$(function () {
+						$('#subtask').click(function () {
+							$('#add_subtask').show();
+							$('.small_tasks_table').append("" +
+									"<tr><td></td><td>Текст подзадачи<br><input style='width: 100%; padding: 7px;' type='text' " +
+									"name='subtask_name[]'></td></tr>");
+						});
+						$('input[type=checkbox]').click(function () {
+							$('#add_subtask').show();
+						})
+					});
+				</script>
+
+
+				<form action = "" method = "post">
+					<table class = "small_tasks_table">
+						<? foreach ($small_tasks as $i => $subtask): ?>
+							<tr>
+								<td>
+									<input type = "checkbox" <?= $subtask->status == 0 ? 'checked="checked"' : '' ?> name =
+									"check_subtask[<?=
+										$subtask->id
+									?>]"
+									       value
+									       = "1"></td>
+								<td style = "font-size: 15px; <?=
+									$subtask->status == 0 ? 'text-decoration: line-through; color:green' : ''
+								?>"><?= $subtask->name ?></td>
+							</tr>
+						<? endforeach ?>
+						<tr>
+							<td style="width: 22px;"></td>
+							<td>
+								<input type = "button" class = "button" id = "subtask" name = "subtask" value = "+"/>
+								<br/>
+							</td>
+						</tr>
+					</table>
+					<br/>
+					<input style = "display: none" type = "submit" name = "subtasks_edit" id = "add_subtask" value = "Сохранить">
+				</form>
+			</div>
 			<div id = "times">
 				<a title = "Добавить временной интервал" href = "#clock" class = "clock fancy"></a>
 				<table class = "table_air">
