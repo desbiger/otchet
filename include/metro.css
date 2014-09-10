@@ -625,3 +625,13 @@ a.selected h3 {
     font-size: 15px;
     font-weight: bold;
 }
+.comment {
+    overflow: hidden;
+}
+.comment .ava{
+    width: 140px;
+    float: left;
+}
+.comment .info{
+    float: left;
+}

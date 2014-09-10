@@ -212,13 +212,17 @@
 						<?$date = My::convertDate($comment->date)?>
 
 					<div class = "comment">
+						<div class="ava">
+							<img width="100" src = "<?=Worker::GetAva($comment->worker->id,100)?>" alt = ""/>
+						</div>
 						<div class = "info">
 							<span class = "user"><a href = "/user/profile/<?=$comment->worker->id?>"><?=$comment->worker->name?></a></span>
 							<span class = "date_create"><?=$date?> в <?=$comment->time?></span>
+							<p>
+								<?=$comment->text?>
+							</p>
 						</div>
-						<p>
-							<?=$comment->text?>
-						</p>
+
 					</div>
 				<? endforeach ?>
 
