@@ -17,6 +17,14 @@
 				),
 				'project' => array(
 						'model' => 'Objects'
+				),
+
+
+		);
+		protected $_has_one = array(
+				'ready' => array(
+						'model' => 'ReadyTasks',
+						'foreign_key' => 'task_id',
 				)
 		);
 		protected $_has_many = array(
@@ -34,7 +42,11 @@
 				),
 				'comments' => array(
 						'model' => 'TaskComments',
-						'foreign_key' => 'task_id'
+						'foreign_key' => 'task_id',
+				),
+				'small_task' => array(
+						'model' => 'SmallTasks',
+						'foreign_key' => 'task_id',
 				)
 		);
 	}

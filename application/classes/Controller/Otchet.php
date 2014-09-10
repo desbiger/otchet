@@ -4,7 +4,7 @@
 	{
 		public function action_index()
 		{
-			$this->template->content = View::factory("Admin/Projects_list");
+			$this->template->content = View::factory("Admin/index");
 		}
 
 		public function action_project()

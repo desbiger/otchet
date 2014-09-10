@@ -69,5 +69,7 @@
 			</tr>
 		</table>
 	</div>
-	<div id="user">123</div>
+	<div id="user">
+		<?=View::factory('forms/filter_objects')?>
+	</div>
 </div>

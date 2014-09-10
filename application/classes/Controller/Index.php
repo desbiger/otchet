@@ -7,14 +7,12 @@
 
 			$this->template->content .= View::factory('blocks/user_tasks');
 
-			
+
 			if (Auth::instance()
 					->logged_in('Admin')
 			) {
 				$this->template->content .= View::factory('Admin/tasks_in_work');
 			}
-
-
 		}
 
 		public function action_otchet()
@@ -60,8 +58,10 @@
 					if ($task_id = $task->save()) {
 
 						//                        прикрепление файла к задаче
-						if (Arr::get($_FILES, 'file_file')) {
-							My::UploadFile($_FILES['file_file'], $task_id, Arr::get($_POST, 'file_title'), Arr::get($_POST, 'file_text'));
+						if ($_FILES) {
+							foreach ($_FILES as $file) {
+								My::UploadFile($file, $task_id, '', '');
+							}
 						}
 						//                        прикрепление файла к задаче
 

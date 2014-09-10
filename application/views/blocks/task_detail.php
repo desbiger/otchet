@@ -41,59 +41,61 @@
 
 <h1><?= $project->name ?></h1>
 <table class = "clear_table">
-	<tr>
-		<td style = "width: 20%; vertical-align: top">
-			<h2>Задачи проекта</h2>
-			<? $tasks = ORM::factory('Tasks')
-					->where('project_id', '=', $task->project_id)
-					->order_by('id', 'DESC')
-					->order_by('finish')
-					->find_all() ?>
-			<ul class = "nolist menu">
-				<? foreach ($tasks as $t): ?>
-					<li<?= $t->id == $task_id ? " class='selected'" : '' ?>>
-						<i style = "width: 10px;height: 10px;display: inline-block; " class = "<?= My::$status_color[$t->status] ?>"></i>
-						<a href = "/projects/taskdetail/<?= $t->project_id ?>/<?= $t->id ?>">
-							<?= $t->name ?>
-						</a>
-					</li>
+<tr>
+<td style = "width: 20%; vertical-align: top">
+	<h2>Задачи проекта</h2>
+	<? $tasks = ORM::factory('Tasks')
+			->where('project_id', '=', $task->project_id)
+			->order_by('id', 'DESC')
+			->order_by('finish')
+			->find_all() ?>
+
+	<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
+	<ul class = "nolist menu">
+		<? foreach ($tasks as $t): ?>
+			<li<?= $t->id == $task_id ? " class='selected'" : '' ?>>
+				<i style = "width: 10px;height: 10px;display: inline-block; " class = "<?= My::$status_color[$t->status] ?>"></i>
+				<a href = "/projects/taskdetail/<?= $t->project_id ?>/<?= $t->id ?>">
+					<?= $t->name ?>
+				</a>
+			</li>
+		<? endforeach ?>
+	</ul>
+</td>
+<td style = "padding-left: 10px; vertical-align: top">
+<h2>
+	<a title = "редактировать" style = "display: inline-block;float: right" href = "/projects/taskedit/<?= $project->id ?>/<?= $task->id ?>"
+	   class =
+	   "edit"></a>
+	Задача #<?= $task->id ?>
+	<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
+	<? My::statusLine($task->finish, My::$status_color[$task->status]) ?> <?= $task->finish ?>%
+	| Выполнить к <span class = "date_static" date-begin = "<?= $task->date_begin ?>" date-end = "<?= $task->dead_line ?>"><?=
+			My::convertDate($task->dead_line)
+		?></span>
+
+</h2>
+
+<br/>
+
+<div>
+	<div>
+		<div class = "fix_box">
+			<h3>Поставил задачу</h3>
+
+			<p><?= $task->boss->firstname ?> <?= $task->boss->name ?></p>
+		</div>
+		<div class = "fix_box">
+			<h3>Реализаторы:</h3>
+			<? $workers = $task->workers->find_all() ?>
+			<ul>
+				<? foreach ($workers as $worker): ?>
+					<li class = "nolist">    <?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?></li>
 				<? endforeach ?>
 			</ul>
-		</td>
-		<td style = "padding-left: 10px; vertical-align: top">
-			<h2>
-				<a title = "редактировать" style = "display: inline-block;float: right" href = "/projects/taskedit/<?= $project->id ?>/<?= $task->id ?>"
-				   class =
-				   "edit"></a>
-				Задача #<?= $task->id ?>
-				<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
-				<? My::statusLine($task->finish, My::$status_color[$task->status]) ?> <?= $task->finish ?>%
-				| Выполнить к <span class = "date_static" date-begin = "<?= $task->date_begin ?>" date-end = "<?= $task->dead_line ?>"><?=
-						My::convertDate($task->dead_line)
-					?></span>
-
-			</h2>
-
-			<br/>
-
-			<div>
-				<div>
-					<div class = "fix_box">
-						<h3>Поставил задачу</h3>
-
-						<p><?= $task->boss->firstname ?> <?= $task->boss->name ?></p>
-					</div>
-					<div class = "fix_box">
-						<h3>Реализаторы:</h3>
-						<? $workers = $task->workers->find_all() ?>
-						<ul>
-							<? foreach ($workers as $worker): ?>
-								<li class = "nolist">    <?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?></li>
-							<? endforeach ?>
-						</ul>
-					</div>
-					<div class = "fix_box">
-						<h3>Статус</h3>
+		</div>
+		<div class = "fix_box">
+			<h3>Статус</h3>
 
 						<p>
 							<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
