@@ -9,8 +9,8 @@
 						'foreign_key' => 'project_id'
 				),
 				'wiki' => array(
-					'model' => 'ProjectWiki',
-					'foreign_key' => 'project_id'
+						'model' => 'ProjectWiki',
+						'foreign_key' => 'project_id'
 				)
 		);
 		protected $_belongs_to = array(

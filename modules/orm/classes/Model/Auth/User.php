@@ -69,9 +69,9 @@ class Model_Auth_User extends ORM {
 	public function labels()
 	{
 		return array(
-			'username'         => 'username',
+			'username'         => 'Пользователь',
 			'email'            => 'email address',
-			'password'         => 'password',
+			'password'         => 'Пароль',
 		);
 	}
 
@@ -138,7 +138,7 @@ class Model_Auth_User extends ORM {
 	public static function get_password_validation($values)
 	{
 		return Validation::factory($values)
-			->rule('password', 'min_length', array(':value', 8))
+			->rule('password', 'min_length', array(':value', 3))
 			->rule('password_confirm', 'matches', array(':validation', ':field', 'password'));
 	}
 

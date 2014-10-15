@@ -1,5 +1,5 @@
-<?$work = ORM::factory('Workers')->where('whois','=','1')->find_all()?>
-<?$boses = ORM::factory('Workers')->where('whois','=','2')->find_all()?>
+<?$work = ORM::factory('Workers')->find_all()?>
+<?$boses = ORM::factory('Workers')->find_all()?>
 <h3>Отбор по свойствам</h3>
 <div class = "panel">
 	<form action = "" method = "get">
@@ -12,7 +12,7 @@
 				<td>В период до</td>
 			</tr>
 			<tr>
-				<td><?= Form::select('worker_id',My::Obj_fore_select($work,'id',array('name','firstname')),Arr::get($_GET,'worker_id')) ?></td>
+				<td><?= Form::select('worker',My::Obj_fore_select($work,'id',array('name','firstname')),Arr::get($_GET,'worker')) ?></td>
 				<td><?= Form::select('boss_of_task',My::Obj_fore_select($boses,'id',array('name','firstname')),Arr::get($_GET,'boss_of_task')) ?></td>
 				<td><?= Form::select('status',My::$ststuses,Arr::get($_GET,'status')) ?></td>
 				<td><?= Form::input('date_from',Arr::get($_GET,'date_from'),array('class'=>'date')) ?></td>

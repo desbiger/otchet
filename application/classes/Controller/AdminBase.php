@@ -11,13 +11,13 @@
 						->where('user_id', '=', Auth::instance()
 								->get_user()->id)
 						->find()->id);
-				define('DATE',My::convertDate(date('Y-m-d')));
+				define('DATE',My::convertDate(date('Y-d-m')));
 
 				$this->template             = View::factory('base/base_template');
 				$this->template->content    = '';
 				$this->template->title      = 'Отчеты';
 				$this->template->user_block = View::factory('blocks/user_block');
-				$this->template->top_menu   = View::factory('menus/top_menu');
+				$this->template->top_menu   = View::factory('menus/top_menu').View::factory('css/admin_style');;
 			}
 			else {
 				$this->redirect('/');

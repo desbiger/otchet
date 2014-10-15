@@ -18,7 +18,6 @@
 </script>
 <table class = "base_table">
 	<tr>
-		<td style="width: 100px;">Фото</td>
 		<td>Фамилия</td>
 		<td>Имя</td>
 		<td>Отчество</td>
@@ -26,17 +25,6 @@
 	</tr>
 	<? foreach ($users as $task): ?>
 		<tr rel = "<?= $task->id ?>">
-
-			<?if ($task->avatar) {
-
-				$src = My::ResizeImage($task->avatar_file->filename, 50);
-			}
-			else {
-				$src = "/include/empty_ava.png";
-			}
-			?>
-
-			<td><img width="50" src = "<?= $src?>" alt = ""/></td>
 			<td rel = "<?= $task->id ?>"><?= $task->firstname ?></td>
 			<td><?= $task->name ?></td>
 			<td><?= $task->secondename ?> </td>

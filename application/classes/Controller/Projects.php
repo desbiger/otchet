@@ -30,9 +30,48 @@
 							->bind('errors', $errors);
 		}
 
+		public function action_newwiki()
+		{
+			$id = $this->request->param('id');
+			if (Arr::get($_POST, 'wiki_add')) {
+				Wiki::Add(Arr::get($_POST, 'wiki_name'), Arr::get($_POST, 'text'), $id);
+				$this->redirect('/projects/project/' . $id);
+			}
+			$this->template->content = View::factory('forms/new_wiki')
+					->bind('id', $id);
+		}
+
+		public function action_wikiedit()
+		{
+			$wiki_id = $this->request->param('id');
+			if($_FILES){
+				foreach($_FILES as $file){
+					My::UploadFileUniversal($file,'wiki',$wiki_id,$file['name'],'');
+				}
+			}
+			if ($_POST) {
+				$wiki = ORM::factory('ProjectWiki', $wiki_id);
+
+				$coloums = $wiki->table_columns();
+				foreach($coloums as $k => $v){
+					if($vol = Arr::get($_POST,$k)){
+						$wiki->set($k,$vol);
+					}
+				}
+				$wiki->save();
+				$this->redirect('/projects/project/'.$wiki->project_id);
+			}
+
+			$this->template->content = View::factory('/forms/edit_wiki')
+					->bind('id', $wiki_id);
+		}
+
 		public function action_project()
 		{
 			$action = $this->request->param('id2');
+			$id     = $this->request->param('id');
+
+
 			if (preg_match("|del_task_([0-9]+)|", $action, $matches)) {
 				$task_id = $matches[1];
 				foreach (ORM::factory('WorkTimes')
@@ -45,7 +84,7 @@
 						->delete();
 				$this->redirect('/projects/project/' . $this->request->param('id'));
 			}
-			if ($id = $this->request->param('id')) {
+			if ($id) {
 				$cur_project             = View::factory('tables/project')
 						->bind('id', $id);
 				$this->template->content = $cur_project;
@@ -77,7 +116,7 @@
 					$log      = '';
 					$checks   = Arr::get($_POST, 'check_subtask');
 					foreach ($subtasks as $subtask) {
-						$status = Arr::get($checks, $subtask->id)? 1:0;
+						$status = Arr::get($checks, $subtask->id) ? 1 : 0;
 						Task::UpdateSubtaskStatus($subtask->id, $status);
 					}
 				}

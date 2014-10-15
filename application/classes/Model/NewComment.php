@@ -6,6 +6,11 @@
 	    protected $_belongs_to = array(
 		    'task' => array(
 			    'model' => 'Tasks'
+		    ),
+		    'worker' => array(
+			    'model' => 'Workers',
+			    'forign_key' => 'worker_id'
 		    )
+
 	    );
     }

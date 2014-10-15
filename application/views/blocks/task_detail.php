@@ -41,263 +41,196 @@
 
 <h1><?= $project->name ?></h1>
 <table class = "clear_table">
-<tr>
-<td style = "width: 20%; vertical-align: top">
-	<h2>Задачи проекта</h2>
-	<? $tasks = ORM::factory('Tasks')
-			->where('project_id', '=', $task->project_id)
-			->order_by('id', 'DESC')
-			->order_by('finish')
-			->find_all() ?>
-
-	<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
-	<ul class = "nolist menu">
-		<? foreach ($tasks as $t): ?>
-			<li<?= $t->id == $task_id ? " class='selected'" : '' ?>>
-				<i style = "width: 10px;height: 10px;display: inline-block; " class = "<?= My::$status_color[$t->status] ?>"></i>
-				<a href = "/projects/taskdetail/<?= $t->project_id ?>/<?= $t->id ?>">
-					<?= $t->name ?>
-				</a>
-			</li>
-		<? endforeach ?>
-	</ul>
-</td>
-<td style = "padding-left: 10px; vertical-align: top">
-<h2>
-	<a title = "редактировать" style = "display: inline-block;float: right" href = "/projects/taskedit/<?= $project->id ?>/<?= $task->id ?>"
-	   class =
-	   "edit"></a>
-	Задача #<?= $task->id ?>
-	<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
-	<? My::statusLine($task->finish, My::$status_color[$task->status]) ?> <?= $task->finish ?>%
-	| Выполнить к <span class = "date_static" date-begin = "<?= $task->date_begin ?>" date-end = "<?= $task->dead_line ?>"><?=
-			My::convertDate($task->dead_line)
-		?></span>
-
-</h2>
-
-<br/>
-
-<div>
-	<div>
-		<div class = "fix_box">
-			<h3>Поставил задачу</h3>
-
-			<p><?= $task->boss->firstname ?> <?= $task->boss->name ?></p>
-		</div>
-		<div class = "fix_box">
-			<h3>Реализаторы:</h3>
-			<? $workers = $task->workers->find_all() ?>
-			<ul>
-				<? foreach ($workers as $worker): ?>
-					<li class = "nolist">    <?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?></li>
+	<tr>
+		<td style = "width: 20%; vertical-align: top">
+			<h2>Задачи проекта</h2>
+			<? $tasks = ORM::factory('Tasks')
+					->where('project_id', '=', $task->project_id)
+					->order_by('id', 'DESC')
+					->order_by('finish')
+					->find_all() ?>
+			<ul class = "nolist menu">
+				<? foreach ($tasks as $t): ?>
+					<li<?= $t->id == $task_id ? " class='selected'" : '' ?>>
+						<i style = "width: 10px;height: 10px;display: inline-block; " class = "<?= My::$status_color[$t->status] ?>"></i>
+						<a href = "/projects/taskdetail/<?= $t->project_id ?>/<?= $t->id ?>">
+							<?= $t->name ?>
+						</a>
+					</li>
 				<? endforeach ?>
 			</ul>
-		</div>
-		<div class = "fix_box">
-			<h3>Статус</h3>
-
-			<p>
+		</td>
+		<td style = "padding-left: 10px; vertical-align: top">
+			<h2>
+				<a title = "редактировать" style = "display: inline-block;float: right" href = "/projects/taskedit/<?= $project->id ?>/<?= $task->id ?>"
+				   class =
+				   "edit"></a>
+				Задача #<?= $task->id ?>
 				<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
-				<?= My::$ststuses[$task->status] ?>
-			</p>
-		</div>
-		<? if ($task->status == 0): ?>
-			<div class = "fix_box">
-				<form action = "" method = "post">
-					<?= Form::hidden('task_id', $task->id) ?>
-					<?= Form::hidden('project_id', $project->id) ?>
-					<?= Form::submit('do', 'В работу') ?>
-				</form>
-			</div>
-		<? elseif ($task->status == 2): ?>
-			<div class = "fix_box">
-				<form action = "" method = "post">
-					<?= Form::hidden('task_id', $task->id) ?>
-					<?= Form::hidden('project_id', $project->id) ?>
-					<?= Form::submit('do', 'Завершить задачу') ?>
-				</form>
-			</div>
-		<?
-		elseif ($task->status == 1 && $task->ready->id && $task->boss_of_task == WORKER_ID): ?>
-			<div class = "fix_box">
-				<form action = "" method = "post">
-					<?= Form::hidden('task_id', $task->id) ?>
-					<?= Form::hidden('project_id', $project->id) ?>
-					<?= Form::submit('do', 'Принять') ?>
-				</form>
-			</div>
-		<? endif ?>
-	</div>
+				<? My::statusLine($task->finish, My::$status_color[$task->status]) ?> <?= $task->finish ?>%
+				| Выполнить к <span class = "date_static" date-begin = "<?= $task->date_begin ?>" date-end = "<?= $task->dead_line ?>"><?=
+						My::convertDate($task->dead_line)
+					?></span>
 
-	<h3>Суть задачи</h3>
+			</h2>
 
-	<p class = "task_text"><?= $task->name ?></p>
-	<? $small_tasks = $task->small_task->find_all() ?>
+			<br/>
 
-	<div class = "tabs">
-		<ul class = "tabNavigation">
-			<li>
-				<a href = "#small_task">
-					<h3>Подзадачи (<?= $small_tasks->count() ?>)</h3>
-				</a>
-			</li>
-			<li><a href = "#prim"><h3>Примечание</h3></a></li>
+			<div>
+				<div>
+					<div class = "fix_box">
+						<h3>Поставил задачу</h3>
 
-			<li>
-				<a href = "#times"><h3>Временные интервалы (<?= $intervals->count() ?>)</h3></a>
-			</li>
-			<li><a href = "#files"><h3>Файлы (<?=
-							$task->files->find_all()
-									->count() ?>)</h3></a></li>
-		</ul>
-		<hr/>
-		<br/>
+						<p><?= $task->boss->firstname ?> <?= $task->boss->name ?></p>
+					</div>
+					<div class = "fix_box">
+						<h3>Реализаторы:</h3>
+						<? $workers = $task->workers->find_all() ?>
+						<ul>
+							<? foreach ($workers as $worker): ?>
+								<li class = "nolist">    <?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?></li>
+							<? endforeach ?>
+						</ul>
+					</div>
+					<div class = "fix_box">
+						<h3>Статус</h3>
 
+						<p>
+							<i style = "width: 10px;height: 10px;display: inline-block" class = "<?= My::$status_color[$task->status] ?>"></i>
+							<?= My::$ststuses[$task->status] ?>
+						</p>
+					</div>
+					<? if ($task->status == 0): ?>
+						<div class = "fix_box">
+							<form action = "" method = "post">
+								<?= Form::hidden('task_id', $task->id) ?>
+								<?= Form::hidden('project_id', $project->id) ?>
+								<?= Form::submit('do', 'В работу') ?>
+							</form>
+						</div>
+					<? elseif ($task->status == 2): ?>
+						<div class = "fix_box">
+							<form action = "" method = "post">
+								<?= Form::hidden('task_id', $task->id) ?>
+								<?= Form::hidden('project_id', $project->id) ?>
+								<?= Form::submit('do', 'Завершить задачу') ?>
+							</form>
+						</div>
+					<? endif ?>
+				</div>
 
-		<div id = "small_task">
-			<script type = "text/javascript">
-				$(function () {
-					$('#subtask').click(function () {
-						$('#add_subtask').show();
-						$('.small_tasks_table').append("" +
-								"<tr><td></td><td>Текст подзадачи<br><input style='width: 100%; padding: 7px;' type='text' " +
-								"name='subtask_name[]'></td></tr>");
-					});
-					$('input[type=checkbox]').click(function () {
-						$('#add_subtask').show();
-					})
-				});
-			</script>
+				<h3>Суть задачи</h3>
+
+				<p class = "task_text"><?= $task->name ?></p>
 
 
-			<form action = "" method = "post">
-				<table class = "small_tasks_table">
-					<? foreach ($small_tasks as $i => $subtask): ?>
-						<tr>
-							<td>
-								<input type = "checkbox" <?= $subtask->status == 0 ? 'checked="checked"' : '' ?> name =
-								"check_subtask[<?=
-									$subtask->id
-								?>]"
-								       value
-								       = "1"></td>
-							<td style = "font-size: 15px; <?=
-								$subtask->status == 0 ? 'text-decoration: line-through; color:green' : ''
-							?>"><?= $subtask->name ?></td>
-						</tr>
-					<? endforeach ?>
-					<tr>
-						<td style="width: 22px;"></td>
-						<td>
-							<input type = "button" class = "button" id = "subtask" name = "subtask" value = "+"/>
-							<br/>
-						</td>
-					</tr>
-				</table>
-				<br/>
-				<input style = "display: none" type = "submit" name = "subtasks_edit" id = "add_subtask" value = "Сохранить">
-			</form>
-		</div>
+				<div class = "tabs">
+					<ul class = "tabNavigation">
 
-		<div id = "times">
-			<a title = "Добавить временной интервал" href = "#clock" class = "clock fancy"></a>
-			<table class = "table_air">
-				<tr class = "bold">
-					<td>Дата работ</td>
-					<td>Время начала</td>
-					<td>Время окончания</td>
-					<td>Итого затрачено</td>
-					<td>Описание работ</td>
-				</tr>
-				<? $itog = array(); ?>
-				<? foreach ($intervals as $time): ?>
-					<? $interval = $time->time_end - $time->time_begin ?>
-					<? $diff = My::TimeBetwin($time->time_begin, $time->time_end) ?>
-					<? $itog[] = $diff['timestamp'] ?>
-					<tr>
-						<td><?= My::convertDate($time->date) ?></td>
-						<td><?= $time->time_begin ?></td>
-						<td><?= $time->time_end ?></td>
-						<td><?= $diff[0] ?> час. <?= $diff[1] ?> мин.</td>
-						<td><?= $time->text ?></td>
-
-					</tr>
-				<? endforeach ?>
-				<tr class = "bold black">
-					<td></td>
-					<td></td>
-					<td>итого потрачено на задачу:</td>
-					<td>
-						<? $summa = My::SummOffTimes($itog) ?>
-						<?= $summa[0] ?> час. <?= $summa[1] ?> мин.
-					</td>
-
-				</tr>
-			</table>
-		</div>
-		<div id = "files">
-			<? $files = ORM::factory('File')
-					->where('task_id', '=', $task->id)
-					->find_all() ?>
-			<? if ($files->count()): ?>
-
-				<script type = "text/javascript">
-					$(function () {
-						$('a[rel=filedel]').click(function () {
-							if (!confirm('Вы уверены что хотите удалить этот файл?')) {
-								return false;
-							}
-						});
-					});
-
-				</script>
-				<ul class = "nolist otstup_left">
-					<? foreach ($files as $file): ?>
+						<li><a href = "#prim"><h3>Примечание</h3></a></li>
 						<li>
-							<a target = "_new" href = "/upload/<?= $file->filename ?>"><?= $file->filename ?></a>
+							<a href = "#times"><h3>Временные интервалы (<?=$intervals->count()?>)</h3></a>
 						</li>
-					<? endforeach ?>
-				</ul>
-				<br/>
-			<? endif ?>
+						<li><a href = "#files"><h3>Файлы (<?=$task->files->find_all()->count()?>)</h3></a></li>
+					</ul>
+					<hr/>
+					<br/>
 
-		</div>
-		<div id = "prim">
-			<p><?= My::TextFormat($task->description) ?></p>
-		</div>
-	</div>
-</div>
-<div class = "comments">
-	<h2>Коментарии(<?=
-			$task->comments->find_all()
-					->count() ?>)</h2>
-	<? foreach ($task->comments->order_by('id', 'DESC')
-			            ->find_all() as $comment): ?>
-		<? $date = My::convertDate($comment->date) ?>
+					<div id = "times">
+						<a title = "Добавить временной интервал" href = "#clock" class = "clock fancy"></a>
+						<table class = "table_air">
+							<tr class = "bold">
+								<td>Дата работ</td>
+								<td>Время начала</td>
+								<td>Время окончания</td>
+								<td>Итого затрачено</td>
+								<td>Описание работ</td>
+							</tr>
+							<? $itog = array(); ?>
+							<? foreach ($intervals as $time): ?>
+								<? $interval = $time->time_end - $time->time_begin ?>
+								<? $diff = My::TimeBetwin($time->time_begin, $time->time_end) ?>
+								<? $itog[] = $diff['timestamp'] ?>
+								<tr>
+									<td><?= My::convertDate($time->date) ?></td>
+									<td><?= $time->time_begin ?></td>
+									<td><?= $time->time_end ?></td>
+									<td><?= $diff[0] ?> час. <?= $diff[1] ?> мин.</td>
+									<td><?= $time->text ?></td>
 
-		<div class = "comment">
-			<div class = "info">
-				<span class = "user"><a href = "/user/profile/<?= $comment->worker->id ?>"><?= $comment->worker->name ?></a></span>
-				<span class = "date_create"><?= $date ?> в <?= $comment->time ?></span>
+								</tr>
+							<? endforeach ?>
+							<tr class = "bold black">
+								<td></td>
+								<td></td>
+								<td>итого потрачено на задачу:</td>
+								<td>
+									<? $summa = My::SummOffTimes($itog) ?>
+									<?= $summa[0] ?> час. <?= $summa[1] ?> мин.
+								</td>
+
+							</tr>
+						</table>
+					</div>
+					<div id = "files">
+						<? $files = ORM::factory('File')
+								->where('task_id', '=', $task->id)
+								->find_all() ?>
+						<? if ($files->count()): ?>
+
+							<script type = "text/javascript">
+								$(function () {
+									$('a[rel=filedel]').click(function () {
+										if (!confirm('Вы уверены что хотите удалить этот файл?')) {
+											return false;
+										}
+									});
+								});
+
+							</script>
+							<ul class = "nolist otstup_left">
+								<? foreach ($files as $file): ?>
+									<li>
+										<a target = "_new" href = "/upload/<?= $file->filename ?>"><?= $file->filename ?></a>
+									</li>
+								<? endforeach ?>
+							</ul>
+							<br/>
+						<? endif ?>
+
+					</div>
+					<div id = "prim">
+						<p><?= My::TextFormat($task->description) ?></p>
+					</div>
+				</div>
 			</div>
-			<p>
-				<?= $comment->text ?>
-			</p>
-		</div>
-	<? endforeach ?>
+			<div class = "comments">
+				<h2>Коментарии(<?=$task->comments->find_all()->count()?>)</h2>
+				<? foreach ($task->comments->find_all() as $comment): ?>
+						<?$date = My::convertDate($comment->date)?>
 
-	<div class = "add_comment">
-		<h3>Добавить коментарий</h3>
+					<div class = "comment">
+						<div class = "info">
+							<span class = "user"><a href = "/user/profile/<?=$comment->worker->id?>"><?=$comment->worker->name?></a></span>
+							<span class = "date_create"><?=$date?> в <?=$comment->time?></span>
+						</div>
+						<p>
+							<?=$comment->text?>
+						</p>
+					</div>
+				<? endforeach ?>
 
-		<form action = "" method = "post">
-			<?= Form::textarea('text', '', array('style' => 'width:100%')) ?><br/><br/>
-			<?= Form::submit('comment', 'Добавить') ?>
-		</form>
-	</div>
-</div>
-</td>
-</tr>
+				<div class = "add_comment">
+					<h3>Добавить коментарий</h3>
+
+					<form action = "" method = "post">
+						<?= Form::textarea('text', '', array('style' => 'width:100%')) ?><br/><br/>
+						<?= Form::submit('comment', 'Добавить') ?>
+					</form>
+				</div>
+			</div>
+		</td>
+	</tr>
 </table>
 
 
