@@ -19,7 +19,7 @@
 		static function GetAva($worker_id, $width, $height = null)
 		{
 			$worker = ORM::factory('Workers', $worker_id);
-			if ($worker->avatar) {
+			if ($worker->avatar && file_exists($worker->avatar_file->filename)) {
 				if ($width != null || $height != null) {
 					$src = My::ResizeImage($worker->avatar_file->filename, $width, $height);
 				}

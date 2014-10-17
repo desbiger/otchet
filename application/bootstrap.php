@@ -103,7 +103,8 @@
 	 */
 	Kohana::init(array(
 			'base_url' => '',
-			'index_file' => ''
+			'index_file' => '',
+			'errors' => false
 	));
 	Cookie::$salt = '123';
 	/**
@@ -126,7 +127,8 @@
 		// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 			'database' => MODPATH . 'database',
 		// Database access
-		 'image'      => MODPATH.'image',      // Image manipulation
+			'image' => MODPATH . 'image',
+		// Image manipulation
 		// 'minion'     => MODPATH.'minion',     // CLI Tasks
 			'orm' => MODPATH . 'orm',
 		// Object Relationship Mapping
