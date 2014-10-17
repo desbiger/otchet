@@ -32,6 +32,7 @@
 				<td>Статус проекта</td>
 				<td>Описание объекта</td>
 				<td>Ваших задач в работе</td>
+				<td>Правка</td>
 			</tr>
 			<? $objects = ORM::factory('Objects')
 					->where('status', '=', 1)
@@ -51,6 +52,7 @@
 					<td><?= $vol->stat->name ?></td>
 					<td><?= $vol->description ?></td>
 					<td style = "text-align: center"><?= $tasks->count() ?></td>
+					<td><a href = "/projects/edit/<?=$vol->id?>" rel="edit"></a></td>
 				</tr>
 			<? endforeach ?>
 		</table>
@@ -62,6 +64,7 @@
 						<td>Статус проекта</td>
 						<td>Описание объекта</td>
 						<td>Ваших задач в работе</td>
+						<td>Правка</td>
 					</tr>
 					<? $objects = ORM::factory('Objects')
 							->where('status', '=', 4)
@@ -81,6 +84,7 @@
 							<td><?= $vol->stat->name ?></td>
 							<td><?= $vol->description ?></td>
 							<td style = "text-align: center"><?= $tasks->count() ?></td>
+							<td><a href = "/projects/edit/<?=$vol->id?>" rel="edit"></a></td>
 						</tr>
 					<? endforeach ?>
 				</table>
@@ -92,6 +96,7 @@
 						<td>Статус проекта</td>
 						<td>Описание объекта</td>
 						<td>Ваших задач в работе</td>
+						<td>Правка</td>
 					</tr>
 					<? $objects = ORM::factory('Objects')
 							->where('status', '=', 5)
@@ -111,6 +116,7 @@
 							<td><?= $vol->stat->name ?></td>
 							<td><?= $vol->description ?></td>
 							<td style = "text-align: center"><?= $tasks->count() ?></td>
+							<td><a href = "/projects/edit/<?=$vol->id?>" rel="edit"></a></td>
 						</tr>
 					<? endforeach ?>
 				</table>
@@ -122,6 +128,7 @@
 						<td>Статус проекта</td>
 						<td>Описание объекта</td>
 						<td>Ваших задач в работе</td>
+						<td>Правка</td>
 					</tr>
 					<? $objects = ORM::factory('Objects')
 							->where('status', '=', 2)
@@ -141,6 +148,7 @@
 							<td><?= $vol->stat->name ?></td>
 							<td><?= $vol->description ?></td>
 							<td style = "text-align: center"><?= $tasks->count() ?></td>
+							<td><a href = "/projects/edit/<?=$vol->id?>" rel="edit"></a></td>
 						</tr>
 					<? endforeach ?>
 				</table>
@@ -152,6 +160,7 @@
 						<td>Статус проекта</td>
 						<td>Описание объекта</td>
 						<td>Ваших задач в работе</td>
+						<td>Правка</td>
 					</tr>
 					<? $objects = ORM::factory('Objects')
 							->where('status', '=', 3)
@@ -171,6 +180,7 @@
 							<td><?= $vol->stat->name ?></td>
 							<td><?= $vol->description ?></td>
 							<td style = "text-align: center"><?= $tasks->count() ?></td>
+							<td><a href = "/projects/edit/<?=$vol->id?>" rel="edit"></a></td>
 						</tr>
 					<? endforeach ?>
 				</table>

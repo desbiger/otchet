@@ -2,6 +2,36 @@
 
 	class Controller_Projects extends Controller_Base
 	{
+		public function action_edit()
+		{
+			$project_id              = $this->request->param('id');
+			$errors = array();
+			if ($_POST) {
+				$valid = Validation::factory($_POST);
+				$valid->label('name', 'Название проекта');
+				$valid->rule('name', 'not_empty');
+				$valid->label('description', 'Описание проекта');
+				$valid->rule('description', 'not_empty');
+
+
+				if ($valid->check()) {
+					$project = ORM::factory('Objects',$project_id);
+					$project->set('name', Arr::get($_POST, 'name'));
+					$project->set('description', Arr::get($_POST, 'description'));
+					$project->set('status', Arr::get($_POST, 'status'));
+					$project->save();
+					$this->redirect('/projects');
+				}
+				else {
+					$errors = $valid->errors('validation');
+				}
+
+			}
+			$this->template->content = View::factory('forms/edit_project')
+					->bind('id', $project_id)
+					->bind('errors', $errors);
+		}
+
 		public function action_index()
 		{
 			$errors = array();
@@ -44,22 +74,22 @@
 		public function action_wikiedit()
 		{
 			$wiki_id = $this->request->param('id');
-			if($_FILES){
-				foreach($_FILES as $file){
-					My::UploadFileUniversal($file,'wiki',$wiki_id,$file['name'],'');
+			if ($_FILES) {
+				foreach ($_FILES as $file) {
+					My::UploadFileUniversal($file, 'wiki', $wiki_id, $file['name'], '');
 				}
 			}
 			if ($_POST) {
 				$wiki = ORM::factory('ProjectWiki', $wiki_id);
 
 				$coloums = $wiki->table_columns();
-				foreach($coloums as $k => $v){
-					if($vol = Arr::get($_POST,$k)){
-						$wiki->set($k,$vol);
+				foreach ($coloums as $k => $v) {
+					if ($vol = Arr::get($_POST, $k)) {
+						$wiki->set($k, $vol);
 					}
 				}
 				$wiki->save();
-				$this->redirect('/projects/project/'.$wiki->project_id);
+				$this->redirect('/projects/project/' . $wiki->project_id);
 			}
 
 			$this->template->content = View::factory('/forms/edit_wiki')
