@@ -14,7 +14,7 @@
 <table class = "user_table">
 	<tr>
 		<td style = "width: 128px">
-			<? if ($user->avatar): ?>
+			<? if ($user->avatar && file_exists($user->avatar_file->filename)): ?>
 				<?$src =  My::ResizeImage($user->avatar_file->filename, '123') ?>
 				<a href = "<?= $user->avatar_file->filename ?>" class="fancy"><img  src = "<?= $src?>" alt = ""/></a>
 			<? else: ?>
