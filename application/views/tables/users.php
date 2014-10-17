@@ -27,7 +27,7 @@
 	<? foreach ($users as $task): ?>
 		<tr rel = "<?= $task->id ?>">
 
-			<?if ($task->avatar) {
+			<?if ($task->avatar && file_exists($task->avatar_file->filename)) {
 
 				$src = My::ResizeImage($task->avatar_file->filename, 50);
 			}
