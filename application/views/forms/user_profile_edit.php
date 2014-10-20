@@ -25,7 +25,7 @@
 	<tr>
 		<td style = "width: 128px">
 			<form action = "" method = "post" enctype="multipart/form-data">
-			<? if ($user->avatar): ?>
+			<? if ($user->avatar && file_exists($user->avatar_file->filename)): ?>
 				<?$src =  My::ResizeImage($user->avatar_file->filename, '123') ?>
 				<img class="replace_img"   src = "<?= $src?>" alt = ""/>
 			<? else: ?>

@@ -19,7 +19,7 @@ return array
 			 * Ports and sockets may be appended to the hostname.
 			 */
 			'hostname'   => '127.0.0.1',
-			'database'   => 'otchet',
+			'database'   => 'tasks',
 			'username'   => 'root',
 			'password'   => '',
 			'persistent' => FALSE,

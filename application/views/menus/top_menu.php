@@ -102,8 +102,6 @@
 
 	</li>
 	<li>
-
-
 		<?if ($count = Comments::Factory()
 				->NewComments()
 				->count()
@@ -116,18 +114,18 @@
 			<img src = "/include/img/taskbar.png" alt = ""/><br/>
 			Коментарии
 		</a>
-		<?if($count):?>
-		<ul>
-			<? foreach (Comments::Factory()
-					            ->NewComments() as $comments): ?>
-				<li>
-					<a href = "/projects/taskdetail/<?= $comments->task->project_id ?>/<?= $comments->task->id ?>"><?=
-							$comments->task->name
-						?></a>
-				</li>
-			<? endforeach ?>
-		</ul>
-		<?endif?>
+		<? if ($count): ?>
+			<ul>
+				<? foreach (Comments::Factory()
+						            ->NewComments() as $comments): ?>
+					<li>
+						<a href = "/projects/taskdetail/<?= $comments->task->project_id ?>/<?= $comments->task->id ?>"><?=
+								$comments->task->name
+							?></a>
+					</li>
+				<? endforeach ?>
+			</ul>
+		<? endif ?>
 
 	</li>
 	<?if (Task::FindMyTasks(array(
