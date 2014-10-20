@@ -102,8 +102,6 @@
 
 	</li>
 	<li>
-
-
 		<?if ($count = Comments::Factory()
 				->NewComments()
 				->count()
