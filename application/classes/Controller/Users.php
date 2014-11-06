@@ -24,13 +24,13 @@
 				else {
 					$user    = ORM::factory('User');
 					$user_id = $user->values(array(
-							'username' => Arr::get($_REQUEST, 'name'),
+							'username' => My::RuToLatin(Arr::get($_REQUEST, 'name')),
 							'email' => Arr::get($_REQUEST, 'email'),
 							'password' => Arr::get($_REQUEST, 'password'),
 							'password_confirm' => Arr::get($_REQUEST, 'password'),
 					));
 					$user->save();
-					$user->add('roles', '1');
+					$user->add('roles', '3');
 
 
 					$workers = ORM::factory('Workers');
