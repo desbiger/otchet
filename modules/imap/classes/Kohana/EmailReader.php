@@ -179,5 +179,89 @@
 
 		}
 
+		/**
+		 * Сохраняем вложения
+		 * @param $email_number
+		 * @param string $folder
+		 */
+		public function GetAttachments($email_number, $folder = 'upload/email')
+		{
+			/* get information specific to this email */
+			$overview = imap_fetch_overview($this->conn, $email_number, 0);
+
+			/* get mail message */
+			$message = imap_fetchbody($this->conn, $email_number, 2);
+
+			/* get mail structure */
+			$structure = imap_fetchstructure($this->conn, $email_number);
+
+			$attachments = array();
+
+			/* if any attachments found... */
+			if (isset($structure->parts) && count($structure->parts)) {
+				for ($i = 0; $i < count($structure->parts); $i++) {
+					$attachments[$i] = array(
+							'is_attachment' => false,
+							'filename' => '',
+							'name' => '',
+							'attachment' => ''
+					);
+
+					if ($structure->parts[$i]->ifdparameters) {
+						foreach ($structure->parts[$i]->dparameters as $object) {
+							if (strtolower($object->attribute) == 'filename') {
+								$attachments[$i]['is_attachment'] = true;
+								$attachments[$i]['filename']      = $object->value;
+							}
+						}
+					}
+
+					if ($structure->parts[$i]->ifparameters) {
+						foreach ($structure->parts[$i]->parameters as $object) {
+							if (strtolower($object->attribute) == 'name') {
+								$attachments[$i]['is_attachment'] = true;
+								$attachments[$i]['name']          = $object->value;
+							}
+						}
+					}
+
+					if ($attachments[$i]['is_attachment']) {
+						$attachments[$i]['attachment'] = imap_fetchbody($this->conn, $email_number, $i + 1);
+
+						/* 4 = QUOTED-PRINTABLE encoding */
+						if ($structure->parts[$i]->encoding == 3) {
+							$attachments[$i]['attachment'] = base64_decode($attachments[$i]['attachment']);
+						}
+						/* 3 = BASE64 encoding */
+						elseif ($structure->parts[$i]->encoding == 4) {
+							$attachments[$i]['attachment'] = quoted_printable_decode($attachments[$i]['attachment']);
+						}
+					}
+				}
+			}
+
+			/* iterate through each attachment and save it */
+			foreach ($attachments as $attachment) {
+				if ($attachment['is_attachment'] == 1) {
+					$filename = $attachment['name'];
+					if (empty($filename)) {
+						$filename = $attachment['filename'];
+					}
+
+					if (empty($filename)) {
+						$filename = time() . ".dat";
+					}
+
+					/* prefix the email number to the filename in case two emails
+					 * have the attachment with the same file name.
+					 */
+					echo DOCROOT . $folder . '/' . $email_number . "-" . $filename;
+					file_put_contents(DOCROOT . $folder . '/' . $email_number . "-" . $filename, $attachment['attachment']);
+				}
+
+			}
+
+		}
+
 	}
  
