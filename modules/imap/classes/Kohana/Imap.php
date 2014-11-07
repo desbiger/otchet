@@ -13,12 +13,15 @@
 		function connect()
 		{
 			$conf           = (object)$this->config;
-			$this->_connect = imap_open('{' . $conf->host . ':' . $conf->port . '/imap/ssl}' . $conf->foder, $conf->user, $conf->pass);
+			echo $string = '{' . $conf->host . ':' . $conf->port . '/imap/ssl}' . $conf->folder;
+			$this->_connect = imap_open($string, $conf->user, $conf->pass);
+			var_dump($this->_connect);
 		}
 
 		function Kohana_Imap()
 		{
 			$this->config = Kohana::$config->load('imap_email');
+		    $this->connect();
 		}
 
 		function GetNewMail()

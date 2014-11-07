@@ -13,7 +13,6 @@
 			) {
 				$this->template->content .= View::factory('Admin/tasks_in_work');
 			}
-			$this->template->content .= View::factory('forms/mail_list');
 //			$this->template->content .= View::factory('profiler/stats');
 		}
 
