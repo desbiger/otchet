@@ -1,8 +1,8 @@
 <?
 return array(
-	'host' => 'imap.gmail.com',
-	'port' => '993',
+	'host' => 'pop.yandex.ru',
+	'port' => '110',
 	'folder' => 'INBOX',
-	'user' => 'desbiger',
-	'pass' => 'biger3455464',
+	'user' => 'sakharov@rospartner.ru',
+	'pass' => 'Ect6Yn',
 );
