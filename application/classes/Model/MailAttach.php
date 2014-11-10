@@ -2,5 +2,5 @@
 
     class Model_MailAttach extends ORM
     {
-
+		protected $_table_name = 'mail_attach';
     }
