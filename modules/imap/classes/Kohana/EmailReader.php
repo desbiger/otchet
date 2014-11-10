@@ -141,11 +141,12 @@
 						'body' => $this->GetClearBody($vol),
 				);
 
-//				Добавляем таск
+				//				Добавляем таск
 				Task::Add(array(
-						'name' => 'Обращение от ' . strip_tags($value['from']). '\/ тема: '.$value['subject'],
+						'name' => 'Обращение от ' . strip_tags($value['from']) . '\/ тема: ' . $value['subject'],
 						'description' => $value['body'],
-						'project_id' => 8
+						'project_id' => 8,
+						'status' => 0,
 				));
 
 				imap_delete($this->conn, $vol);
