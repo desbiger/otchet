@@ -19,6 +19,10 @@
 			//			$this->_inbox();
 		}
 
+		/**
+		 * Загрузка конфига
+		 * @param $file
+		 */
 		private function LoadConfig($file)
 		{
 			$config        = Kohana::$config->load($file);
@@ -106,11 +110,24 @@
 		public function getUnseen()
 		{
 			$list = imap_search($this->conn, 'UNSEEN');
-			//			return $list;
-
 			return $this->getMessages($list);
 		}
 
+		/**
+		 * Чистый текст сообщения
+		 * @param $id_message
+		 * @return string
+		 */
+		public function GetClearBody($id_message)
+		{
+			return imap_fetchbody($this->conn, $id_message, 1);
+		}
+
+		/**
+		 * Получение массива писем из списка в виде массива идентификаторов
+		 * @param $array
+		 * @return array
+		 */
 		public function getMessages($array)
 		{
 			$res = array();
@@ -118,16 +135,32 @@
 				$header = imap_fetch_overview($this->conn, $vol);
 
 				$value = array(
-						'index' => $vol,
-					//						'header' => imap_fetch_overview($this->conn, $vol),
+						'message_id' => $vol,
 						'subject' => $this->MimeDecode($header[0]->subject),
 						'from' => $this->MimeDecode($header[0]->from),
-						'body' => imap_qprint(imap_body($this->conn, $vol)),
+						'body' => $this->GetClearBody($vol),
 				);
-				//				$this->addToBase($value);
+
+//				Добавляем таск
+				Task::Add(array(
+						'name' => 'Обращение от ' . strip_tags($value['from']). 'тема: '.$value['subject'],
+						'description' => $value['body'],
+						'project_id' => 8
+				));
+
+				imap_delete($this->conn, $vol);
+				$this->GetAttachments($vol);
+				$this->addToBase($value);
 				$res[] = $value;
 			}
+			imap_expunge($this->conn);
+			$this->_close();
 			return $res;
+		}
+
+		public function ParsAddress($string)
+		{
+
 		}
 
 		/** @param None
@@ -157,27 +190,23 @@
 			return $res;
 		}
 
+		/**
+		 * Записываем письмо в базу
+		 * @param $date
+		 */
 		public function addToBase($date)
 		{
-			ORM::factory('Mail')
-					->set('date', $date['header']->date)
-					->set('subject', $date['header']->subject)
-					->set('message_id', $date['header']->message_id)
-					->set('to', $date['header']->toaddress)
-					->set('from', $date['header']->fromaddress)
-					->set('size', $date['header']->Size)
+			ORM::factory('Mail') //					->set('date', $date['header']->date)
+					->set('subject', $date['subject'])
+					->set('message_id', $date['message_id'])//					->set('to', $date['header']->toaddress)
+					->set('from', $date['from'])//					->set('size', $date['header']->Size)
 					->set('body', $date['body'])
-					->set('type', $date['structure']->type)
-					->set('udate', $date['header']->udate)
-					->set('charset', $date['structure']->parameters[0]->value)
+					//					->set('type', $date['structure']->type)
+					//					->set('udate', $date['header']->udate)
+					//					->set('charset', $date['structure']->parameters[0]->value)
 					->save();
-			$this->delMessage($date['index']);
 		}
 
-		public function delMessage($i)
-		{
-
-		}
 
 		/**
 		 * Сохраняем вложения
@@ -256,7 +285,14 @@
 					 * have the attachment with the same file name.
 					 */
 					echo DOCROOT . $folder . '/' . $email_number . "-" . $filename;
-					file_put_contents(DOCROOT . $folder . '/' . $email_number . "-" . $filename, $attachment['attachment']);
+					if (file_put_contents(DOCROOT . $folder . '/' . $email_number . "-" . $filename, $attachment['attachment'])) {
+						ORM::factory('MailAttach')
+								->set('file_name', $filename)
+								->set('new_file_name', $email_number . "-" . $filename)
+								->set('dir', $folder)
+								->set('message_id', $email_number)
+								->save();
+					};
 				}
 
 			}

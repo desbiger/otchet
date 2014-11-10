@@ -16,6 +16,13 @@
 					->save();
 		}
 
+		static function Add($array)
+		{
+			return ORM::factory('Tasks')
+					->values($array)
+					->save();
+		}
+
 		/**
 		 * @return Database_Result
 		 * находит все мои задач в статусе - готовые к сдачи
@@ -106,11 +113,12 @@
 		{
 			if ($status) {
 				return ORM::factory('SmallTasks', $subtask_id)
-						->set('status',0)
+						->set('status', 0)
 						->save();
-			}else{
+			}
+			else {
 				return ORM::factory('SmallTasks', $subtask_id)
-						->set('status',1)
+						->set('status', 1)
 						->save();
 			}
 
