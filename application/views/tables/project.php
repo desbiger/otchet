@@ -1,8 +1,8 @@
-<?=
-	View::factory('blocks/projects_menu')
-			->bind('project_id', $id) ?>
-<br/>
-<hr/>
+<?//=
+//	View::factory('blocks/projects_menu')
+//			->bind('project_id', $id) ?>
+<!--<br/>-->
+<!--<hr/>-->
 
 <?
 	$project = ORM::factory('Objects', $id);
@@ -61,12 +61,11 @@
 ?>
 <h2>
 	<i class = "project" style = "float: right"></i>
-	Отчет по проекту <?= $project->name ?>
+	Список задач по проекту <?= $project->name ?>
 </h2>
 <div class = "tabs">
 	<ul class = "tabNavigation">
-		<li><a href = "#list"><h3>Таблица</h3></a></li>
-		<li><a href = "#diagramm"><h3>Диаграмма</h3></a></li>
+		<li><a href = "#list"><h3>Список задач</h3></a></li>
 		<li><a href = "#wiki"><h3>Wiki (<?= $project->wiki->find_all()
 							->count() ?>)</h3></a></li>
 		<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
@@ -83,7 +82,7 @@
 
 	</div>
 	<div id = "list">
-		<?= View::factory('forms/filter_objects') ?>
+<!--		--><?//= View::factory('forms/filter_objects') ?>
 
 		<? $i = 0; ?>
 		<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
