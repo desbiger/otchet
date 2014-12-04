@@ -17,6 +17,9 @@
 				'stat' => array(
 						'model' => 'ObjectStatus',
 						'foreign_key' => 'status'
+				),
+				'client' => array(
+						'model' => 'Clients',
 				)
 		);
 	}

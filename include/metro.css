@@ -185,7 +185,7 @@ i {
 .top_menu {
     padding: 0;
     margin: 0;
-    width: 700px;
+    width: 800px;
     float: left;
 }
 
@@ -633,4 +633,32 @@ a.selected h3 {
 }
 .comment .info{
     float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.projects_left_menu{
+    width: 300px;
+    margin: 0!important;
+}
+.projects_left_menu ul{
+    border: 1px solid #d3d3d3;
+    margin: 0;
+    padding: 0;
+}
+.projects_left_menu ul li{
+    display: block;
+    padding: 10px;
+}
+.projects_left_menu ul li.selected{
+    background-color: #a3d7f3;
 }

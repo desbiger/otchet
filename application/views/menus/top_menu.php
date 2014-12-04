@@ -7,6 +7,12 @@
 	</li>
 	<!--	<li><a href="/index/newtask">Новая задача</a></li>-->
 	<li>
+		<a href = "/clients">
+			<img src = "/include/img/folder_html_8545.png" alt = ""/>
+			Клиенты
+		</a>
+	</li>
+	<li>
 		<a href = "/projects">
 			<img src = "/include/img/folder_html_8545.png" alt = ""/>
 			Проекты
