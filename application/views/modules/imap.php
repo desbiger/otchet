@@ -1,3 +1,12 @@
+<script type="text/javascript">
+	$(function () {
+		$(".tabNavigation li").eq(localStorage.getItem("tab")).find("a").click();
+
+		$(".tabNavigation li a").click(function () {
+			localStorage.setItem("tab", $(".tabNavigation li > a.selected").parent().index());
+		});
+	});
+</script>
 <h2>Настройки модуля чтения почты</h2>
 <div class="tabs">
 	<ul class="tabNavigation">
@@ -52,9 +61,10 @@
 			$projects = ORM::factory('Objects')
 					->find_all();
 			$projects = My::Obj_fore_select($projects, 'id', 'name');
-			$task_Status = array_merge(array(''),My::$ststuses);
-			$users = ORM::factory('Workers')->find_all();
-			$users = My::Obj_fore_select($users,'id','name');
+			$task_Status = array_merge(array(''), My::$ststuses);
+			$users = ORM::factory('Workers')
+					->find_all();
+			$users = My::Obj_fore_select($users, 'id', 'name');
 		?>
 
 		<form action="" method="post">
@@ -116,7 +126,7 @@
 							Form::select('rule[project][]', $projects) ?>
 						          назначить отвественного
 						<?=
-							Form::select('rule[for_user][]',$users) ?>
+							Form::select('rule[for_user][]', $users) ?>
 						          установить статус задачи
 						<?=
 							Form::select('rule[status][]', $task_Status) ?>
