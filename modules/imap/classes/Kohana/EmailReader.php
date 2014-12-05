@@ -12,9 +12,9 @@
 		private $_port;
 		private $_type = 'pop3';
 
-		public function __construct($file = 'imap_email')
+		public function __construct()
 		{
-			$this->LoadConfig($file);
+			$this->LoadConfig();
 			$this->_connect();
 			//			$this->_inbox();
 		}
@@ -23,13 +23,13 @@
 		 * Загрузка конфига
 		 * @param $file
 		 */
-		private function LoadConfig($file)
+		private function LoadConfig()
 		{
-			$config        = Kohana::$config->load($file);
-			$this->_server = $config['host'];
-			$this->_user   = $config['user'];
-			$this->_pass   = $config['pass'];
-			$this->_port   = $config['port'];
+			$config        = Settings::factory('imap')->GetSettings();
+			$this->_server = $config->server;
+			$this->_user   = $config->user;
+			$this->_pass   = $config->pass;
+			$this->_port   = $config->port;
 		}
 
 		/** @param None
