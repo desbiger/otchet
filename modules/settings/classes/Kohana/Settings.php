@@ -18,7 +18,8 @@
 		{
 			$r = ORM::factory('Settings')
 					->where('module_id', '=', $this->module_id)
-					->where('variable', '=', $var)->find();
+					->where('variable', '=', $var)
+					->find();
 			if ($r->loaded()) {
 				return $r->value;
 			}
@@ -32,9 +33,10 @@
 			$record = ORM::factory('Settings');
 
 			if ($this->GetVar($var)) {
-//				die($var);
+				//				die($var);
 				$record->where('module_id', '=', $this->module_id)
-						->where('variable', '=', $var)->find();
+						->where('variable', '=', $var)
+						->find();
 
 			}
 			$record->set('module_id', $this->module_id)
@@ -42,6 +44,19 @@
 					->set('value', $value)
 					->save();
 			return $this;
+		}
+
+		public function GetSettings()
+		{
+			$result = '';
+			$res    = ORM::factory('Settings')
+					->where('module_id', '=', $this->module_id)
+					->find_all();
+			foreach ($res as $vol) {
+				$var = $vol->variable;
+				$result->$var = $vol->value;
+			}
+			return $result;
 		}
 
 		public function ClearAll()

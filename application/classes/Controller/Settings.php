@@ -5,7 +5,7 @@
 		public function action_index()
 		{
 			$imap                    = Settings::factory('imap')
-					->GetVar('pass');
-			$this->template->content = $imap;
+					->GetSettings();
+			$this->template->content = $imap->pass;
 		}
 	}
