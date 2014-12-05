@@ -662,3 +662,11 @@ a.selected h3 {
 .projects_left_menu ul li.selected{
     background-color: #a3d7f3;
 }
+
+
+
+.padding_inputs select, .padding_inputs input[type=text], .padding_inputs input[type=password]{
+    padding: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+}

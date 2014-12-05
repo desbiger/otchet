@@ -134,6 +134,7 @@
 		// Object Relationship Mapping
 			'my' => MODPATH . 'mymodule',
 			'imap' => MODPATH . 'imap',
+			'settings' => MODPATH . 'settings',
 		// Object Relationship Mapping
 		// 'unittest'   => MODPATH.'unittest',   // Unit testing
 		// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation

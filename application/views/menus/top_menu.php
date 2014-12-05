@@ -12,12 +12,12 @@
 			Клиенты
 		</a>
 	</li>
-	<li>
-		<a href = "/projects">
-			<img src = "/include/img/folder_html_8545.png" alt = ""/>
-			Проекты
-		</a>
-	</li>
+<!--	<li>-->
+<!--		<a href = "/projects">-->
+<!--			<img src = "/include/img/folder_html_8545.png" alt = ""/>-->
+<!--			Проекты-->
+<!--		</a>-->
+<!--	</li>-->
 	<li>
 		<a href = "/users">
 			<img src = "/include/img/kdmconfig_4251.png" alt = ""/>
@@ -27,11 +27,10 @@
 	<? if (Auth::instance()
 			->logged_in('Admin')
 	): ?>
-
 		<li>
-			<a href = "/otchet">
+			<a href = "/settings/">
 				<img src = "/include/img/pie_chart_48_8556.png" alt = ""/>
-				Раздел Руководителя
+				Настройки
 			</a>
 		</li>
 	<? endif ?>
