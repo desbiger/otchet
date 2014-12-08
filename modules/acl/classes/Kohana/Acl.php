@@ -18,16 +18,30 @@
 		static function CheckAccess($worker_id, $project_id)
 		{
 			if (Auth::instance()
-					->logged_in('Admin')
+					->logged_in('1')
 			) {
 				return true;
 			}
 			else {
 				$obj = ORM::factory('ProjectAccess')
 						->where('worker_id', '=', $worker_id)
-						->where('project_id', '=', $project_id);
+						->where('project_id', '=', $project_id)->find();
 				return $obj->loaded();
 			}
+		}
+
+		static function CheckClientAccess($client_id)
+		{
+			$client = ORM::factory('Clients', $client_id);
+			$res    = false;
+			foreach ($client->projects->find_all() as $project) {
+
+				if (self::CheckAccess(WORKER_ID, (int)$project->id)) {
+					return true;
+					exit;
+				}
+			}
+			return $res;
 		}
 
 		public function GreateGroup($users)
