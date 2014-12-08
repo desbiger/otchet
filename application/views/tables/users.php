@@ -24,23 +24,13 @@
 		<td>Отчество</td>
 		<td>Статус</td>
 	</tr>
-	<? foreach ($users as $task): ?>
-		<tr rel = "<?= $task->id ?>">
-
-			<?if ($task->avatar && file_exists($task->avatar_file->filename)) {
-
-				$src = My::ResizeImage($task->avatar_file->filename, 50);
-			}
-			else {
-				$src = "/include/empty_ava.png";
-			}
-			?>
-
-			<td><img width="50" src = "<?= $src?>" alt = ""/></td>
-			<td rel = "<?= $task->id ?>"><?= $task->firstname ?></td>
-			<td><?= $task->name ?></td>
-			<td><?= $task->secondename ?> </td>
-			<td><?= $task->status->name ?></td>
+	<? foreach ($users as $user): ?>
+		<tr rel = "<?= $user->id ?>">
+			<td><img width="50" src = "<?= Worker::GetAva($user->id,50)?>" alt = ""/></td>
+			<td rel = "<?= $user->id ?>"><?= $user->firstname ?></td>
+			<td><?= $user->name ?></td>
+			<td><?= $user->secondename ?> </td>
+			<td><?= $user->status->name ?></td>
 		</tr>
 	<? endforeach ?>
 </table>

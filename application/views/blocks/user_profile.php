@@ -14,12 +14,7 @@
 <table class = "user_table">
 	<tr>
 		<td style = "width: 128px">
-			<? if ($user->avatar && file_exists($user->avatar_file->filename)): ?>
-				<?$src =  My::ResizeImage($user->avatar_file->filename, '123') ?>
-				<a href = "<?= $user->avatar_file->filename ?>" class="fancy"><img  src = "<?= $src?>" alt = ""/></a>
-			<? else: ?>
-				<img  src = "/include/empty_ava.png" alt = ""/>
-			<?endif ?>
+				<img  src = "<?=Worker::GetAva($user->id,128)?>" alt = ""/>
 		</td>
 		<td>
 			<div class = "user_about">
