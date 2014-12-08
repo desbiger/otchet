@@ -1,6 +1,7 @@
-<?//=
-//	View::factory('blocks/projects_menu')
-//			->bind('project_id', $id) ?>
+<? //=
+	//	View::factory('blocks/projects_menu')
+	//			->bind('project_id', $id)
+?>
 <!--<br/>-->
 <!--<hr/>-->
 
@@ -60,38 +61,38 @@
 
 ?>
 <h2>
-	<i class = "project" style = "float: right"></i>
+	<i class="project" style="float: right"></i>
 	Список задач по проекту <?= $project->name ?>
 </h2>
-<div class = "tabs">
-	<ul class = "tabNavigation">
-		<li><a href = "#list"><h3>Список задач</h3></a></li>
-		<li><a href = "#wiki"><h3>Wiki (<?= $project->wiki->find_all()
-							->count() ?>)</h3></a></li>
+<div class="tabs">
+	<ul class="tabNavigation">
+		<li><a href="#list"><h3>Список задач</h3></a></li>
+		<li><a href="#wiki"><h3>Wiki (<?=
+						$project->wiki->find_all()
+								->count() ?>)</h3></a></li>
 		<!--		<li><a href = "#graph" data-trigger-event="init_charts" data-trigger-event-once="true" class="chartTab"><h3>График занятости по проекту</h3></a></li>-->
+		<li>
+			<h3>
+				<a href="#access">
+					Настройка доступа к проекту
+				</a>
+			</h3>
+		</li>
 	</ul>
 	<hr/>
 	<br/>
 
-	<div id = "diagramm">
-		В разработке
-		<?=
-			View::factory('grafics/ganta')
-					->bind('tasks', $tasks)
-		?>
-
-	</div>
-	<div id = "list">
-<!--		--><?//= View::factory('forms/filter_objects') ?>
+	<div id="list">
+		<!--		--><? //= View::factory('forms/filter_objects') ?>
 
 		<? $i = 0; ?>
-		<a class = "plus" href = "/index/newtask/<?= $id ?>" title = "Добавить задачу"></a>
-		<table class = "base_table">
+		<a class="plus" href="/index/newtask/<?= $id ?>" title="Добавить задачу"></a>
+		<table class="base_table">
 			<tr>
 				<td>#</td>
 				<td>Задача</td>
 				<td>Комментарии</td>
-				<td style = "width: 68px">Дата</td>
+				<td style="width: 68px">Дата</td>
 				<td>Готово %</td>
 				<td>Поставил задачу</td>
 				<td>Выполнил задачу</td>
@@ -117,88 +118,70 @@
 				$summa_imtervals = My::SummOffTimes($intervals);
 				$workers         = $task->workers->find_all();
 				?>
-				<tr class = "<?= My::$status_color[$task->status] ?>">
+				<tr class="<?= My::$status_color[$task->status] ?>">
 					<td><?= $i ?></td>
 					<td>
 
-						<a href = "/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
+						<a href="/projects/taskdetail/<?= $project->id ?>/<?= $task->id ?>">
 							<?= $task->name ?>
 						</a>
 						<? if ($task->files->find_all()
 								->count()
 						): ?>
-							<span class = "atach"></span>
+							<span class="atach"></span>
 						<? endif ?>
 
 					</td>
-					<td><?= $task->comments->find_all()
-								->count() ?></td>
+					<td><?=
+							$task->comments->find_all()
+									->count() ?></td>
 					<td><?= $task->date->find()->date ? date("d F Y", strtotime($task->date->find()->date)) : "" ?></td>
 
-					<td style = "text-align: center"><? My::statusLine($task->finish, 'blue') ?> &nbsp<?= $task->finish ?>%</td>
-
+					<td style="text-align: center"><? My::statusLine($task->finish, 'blue') ?> &nbsp<?= $task->finish ?>%</td>
 
 					<td>
-						<a href = "/user/profile/<?= $task->boss->id ?>">
-							<img width = "20" src = "<?= Worker::GetAva($task->boss->id, 20) ?>" alt = ""/>
+						<a href="/user/profile/<?= $task->boss->id ?>">
+							<img width="20" src="<?= Worker::GetAva($task->boss->id, 20) ?>" alt=""/>
 							<?= $task->boss->name ?> <?= $task->boss->secondename ?>
 						</a>
 					</td>
 					<td>
 						<? foreach ($workers as $worker): ?>
-						<a href = "/user/profile/<?= $worker->id ?>" style="display: block">
-							<img width = "20" src = "<?= Worker::GetAva($worker->id, 20) ?>" alt = ""/>
-							<?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?>
+							<a href="/user/profile/<?= $worker->id ?>" style="display: block">
+								<img width="20" src="<?= Worker::GetAva($worker->id, 20) ?>" alt=""/>
+								<?= $worker->name ?> <?= $worker->secondename ?> <?= $worker->firstname ?>
 							</a>
 							<hr/>
 						<? endforeach ?>
 					</td>
 					<td><?= $summa_imtervals[0] ?> час.<?= $summa_imtervals[1] ?> мин.</td>
-					<td><a rel = "edit" href = "/projects/taskedit/<?= $id ?>/<?= $task->id ?>"></a></td>
-					<td><a rel = "del" href = "/projects/project/<?= $id ?>/del_task_<?= $task->id ?>"></a></td>
+					<td><a rel="edit" href="/projects/taskedit/<?= $id ?>/<?= $task->id ?>"></a></td>
+					<td><a rel="del" href="/projects/project/<?= $id ?>/del_task_<?= $task->id ?>"></a></td>
 				</tr>
 			<? endforeach ?>
 			<tr>
 				<? $itogo = My::SummOffTimes($Global_intervals) ?>
-				<td style = "text-align: right; font-weight: bold" colspan = "8">итого времени затрчено:</td>
-				<td style = "font-weight: bold"><?= $itogo[0] ?> час. <?= $itogo[1] ?> мин.</td>
+				<td style="text-align: right; font-weight: bold" colspan="8">итого времени затрчено:</td>
+				<td style="font-weight: bold"><?= $itogo[0] ?> час. <?= $itogo[1] ?> мин.</td>
 			</tr>
 		</table>
 
 	</div>
-	<div id = "wiki">
+	<div id="wiki">
 		<? $wiki = $project->wiki->find_all() ?>
 		<? $project_id = $project->id; ?>
-		<?= View::factory('blocks/wiki_list')
-				->bind('wiki', $wiki)
-				->bind('id', $project_id) ?>
+		<?=
+			View::factory('blocks/wiki_list')
+					->bind('wiki', $wiki)
+					->bind('id', $project_id) ?>
 	</div>
-	<!--	<div id = "graph">-->
-	<!--		<script type = "text/javascript">-->
-	<!--			$(function () {-->
-	<!--				$('#graph').click(function () {-->
-	<!--					AmCharts.render();-->
-	<!--				})-->
-	<!--			})-->
-	<!--		</script>-->
-	<!--		--><? //
-		//
-		//			$title = 'График';
-		//			$name = $project->name;
-		//			$datas = My::GetDatasForGraphikProject($id);
-		//
-		//
-		//
-	?>
-	<!--		--><? //=
-		//			View::factory('grafics/line')
-		//					->bind('datas', $datas)
-		//					->bind('project', $name)
-		//					->bind('title', $title)
-		//					->bind('id', $id)
-		//
-	?>
-	<!--	</div>-->
+	<div id="access">
+		<? $project_users = Acl::factory()
+				->GetProjectUsers($project_id, false); ?>
+		<?=
+			View::factory('blocks/access/project_workers')
+					->bind('project_users', $project_users) ?>
+	</div>
 </div>
 
 
