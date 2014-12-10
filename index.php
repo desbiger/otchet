@@ -119,4 +119,4 @@ else
 		->send_headers(TRUE)
 		->body();
 }
-		echo View::factory('profiler/stats');
+//		echo View::factory('profiler/stats');

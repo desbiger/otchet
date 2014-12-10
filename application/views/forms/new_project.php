@@ -5,6 +5,7 @@
 		<h2>Добавление нового проекта</h2>
 
 		<form action = "/projects/" method = "post">
+			<?=Form::hidden('client_id',$client_id)?>
 			<table>
 				<tr>
 					<td>Название проекта<?=

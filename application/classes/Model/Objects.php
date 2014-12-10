@@ -22,4 +22,27 @@
 						'model' => 'Clients',
 				)
 		);
+
+		function find_all($ignore_access = false)
+		{
+			if (!$ignore_access) {
+				$this->where('id', 'IN', Acl::factory()
+						->GetMyProjects());
+
+			}
+
+			if ($this->_loaded) {
+				throw new Kohana_Exception('Method find_all() cannot be called on loaded objects');
+			}
+
+			if (!empty($this->_load_with)) {
+				foreach ($this->_load_with as $alias) {
+					// Bind auto relationships
+					$this->with($alias);
+				}
+			}
+			$this->_build(Database::SELECT);
+
+			return $this->_load_result(true);
+		}
 	}

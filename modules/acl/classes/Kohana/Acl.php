@@ -5,6 +5,8 @@
 
 		protected $project_access;
 
+		static public $admin_role = 'Admin'; //Роль админа
+
 		static function factory()
 		{
 			return new Acl();
@@ -18,14 +20,15 @@
 		static function CheckAccess($worker_id, $project_id)
 		{
 			if (Auth::instance()
-					->logged_in('1')
+					->logged_in(self::$admin_role)
 			) {
 				return true;
 			}
 			else {
 				$obj = ORM::factory('ProjectAccess')
 						->where('worker_id', '=', $worker_id)
-						->where('project_id', '=', $project_id)->find();
+						->where('project_id', '=', $project_id)
+						->find();
 				return $obj->loaded();
 			}
 		}
@@ -87,6 +90,59 @@
 			}
 			else {
 				return $list;
+			}
+		}
+
+		/**
+		 * Возвращает массив ID проектов к котороым текущий пользователь имеет доступ
+		 * @return array
+		 */
+		public function GetMyProjects()
+		{
+			if (Auth::instance()
+					->logged_in(self::$admin_role)
+			) {
+				$projects = ORM::factory('Objects')->find_all(true);
+				$res = array(0);
+				foreach($projects as $p){
+					$res[] = $p->id;
+				}
+				return $res;
+			}
+			else {
+				$projects = $this->project_access->where('worker_id', '=', WORKER_ID);
+				foreach ($projects->find_all() as $project) {
+					$res[] = $project->project_id;
+				}
+				return count($res) > 0 ? $res : array(0);
+			}
+
+		}
+
+		public function GetMyClients()
+		{
+
+			if (Auth::instance()
+					->logged_in(self::$admin_role)
+			) {
+				$clients = ORM::factory('Clients')
+						->find_all(true);
+				$res = array(0);
+				foreach ($clients as $vol) {
+					$res[] = $vol->id;
+				}
+				return $res;
+			}
+			else {
+				$res      = array(0);
+				$projects = $this->GetMyProjects();
+				$clients  = ORM::factory('Objects')
+						->where('id', 'in', $projects)
+						->group_by('client_id');
+				foreach ($clients->find_all() as $client) {
+					$res[] = $client->client_id;
+				}
+				return count($res) > 0 ? $res : array(0);
 			}
 		}
 	}

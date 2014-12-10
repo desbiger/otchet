@@ -11,16 +11,7 @@
 		public function action_index()
 		{
 			if ($_POST) {
-				$valid = Validation::factory($_POST);
-				$valid->label('name', 'Компания / клиент');
-				$valid->rule('name', 'not_empty');
-
-				if ($valid->check()) {
-					ORM::factory('Clients')
-							->set('name', Arr::get($_POST, 'name'))
-							->set('description', Arr::get($_POST, 'description'))
-							->save();
-				}
+				ORM::factory('Clients')->AddClient($_POST);
 			}
 
 			$this->template->title   = 'Список клиентов';

@@ -4,8 +4,8 @@
 	{
 		public function action_edit()
 		{
-			$project_id              = $this->request->param('id');
-			$errors = array();
+			$project_id = $this->request->param('id');
+			$errors     = array();
 			if ($_POST) {
 				$valid = Validation::factory($_POST);
 				$valid->label('name', 'Название проекта');
@@ -15,7 +15,7 @@
 
 
 				if ($valid->check()) {
-					$project = ORM::factory('Objects',$project_id);
+					$project = ORM::factory('Objects', $project_id);
 					$project->set('name', Arr::get($_POST, 'name'));
 					$project->set('description', Arr::get($_POST, 'description'));
 					$project->set('status', Arr::get($_POST, 'status'));
@@ -48,8 +48,12 @@
 					$project->set('name', Arr::get($_POST, 'name'));
 					$project->set('description', Arr::get($_POST, 'description'));
 					$project->set('status', Arr::get($_POST, 'status'));
-					$project->save();
-					$this->redirect('/projects');
+					$project->set('client_id', Arr::get($_POST, 'client_id'));
+					$id = $project->save();
+
+					Acl::factory()
+							->ShareProjectToUser($id, WORKER_ID);
+					$this->redirect('/clients/client/' . Arr::get($_POST, 'client_id'));
 				}
 				else {
 					$errors = $valid->errors('validation');

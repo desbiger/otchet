@@ -15,14 +15,12 @@
 		</td>
 	</tr>
 	<? foreach ($clients as $vol): ?>
-		<? if (Acl::CheckClientAccess($vol->id)): ?>
 			<tr>
 				<td>
 					<a href="/clients/client/<?= $vol->id ?>"><?= $vol->name ?></a></td>
 				<td><?= $vol->description ?></td>
 				<td><a href="/clients/edit/<?= $vol->id ?>">Редактировать</a></td>
 			</tr>
-		<? endif ?>
 	<? endforeach ?>
 </table>
 
