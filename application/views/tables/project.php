@@ -180,7 +180,8 @@
 				->GetProjectUsers($project_id, false); ?>
 		<?=
 			View::factory('blocks/access/project_workers')
-					->bind('project_users', $project_users) ?>
+					->bind('project_users', $project_users)
+					->bind('project_id', $project_id) ?>
 	</div>
 </div>
 

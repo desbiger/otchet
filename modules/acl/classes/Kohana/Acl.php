@@ -84,7 +84,7 @@
 			if ($as_array) {
 				$res = array();
 				foreach ($list as $vol) {
-					$res[] = $vol['worker_id'];
+					$res[] = $vol->worker_id;
 				}
 				return $res;
 			}
@@ -102,9 +102,10 @@
 			if (Auth::instance()
 					->logged_in(self::$admin_role)
 			) {
-				$projects = ORM::factory('Objects')->find_all(true);
-				$res = array(0);
-				foreach($projects as $p){
+				$projects = ORM::factory('Objects')
+						->find_all(true);
+				$res      = array(0);
+				foreach ($projects as $p) {
 					$res[] = $p->id;
 				}
 				return $res;
@@ -119,6 +120,7 @@
 
 		}
 
+
 		public function GetMyClients()
 		{
 
@@ -127,22 +129,41 @@
 			) {
 				$clients = ORM::factory('Clients')
 						->find_all(true);
-				$res = array(0);
+				$res     = array(0);
 				foreach ($clients as $vol) {
 					$res[] = $vol->id;
 				}
 				return $res;
 			}
 			else {
-				$res      = array(0);
-				$projects = $this->GetMyProjects();
-				$clients  = ORM::factory('Objects')
+				$res                        = array(0);
+				$projects                   = $this->GetMyProjects();
+				$result = '';
+				Profiler::start('Model','Objects');
+				$clients = ORM::factory('Objects')
 						->where('id', 'in', $projects)
-						->group_by('client_id');
+						->group_by('client_id')
+//						->client->where('create_by','=',WORKER_ID)
+						;
+				Profiler::stop($result);
+//				echo View::factory('profiler/stats');
 				foreach ($clients->find_all() as $client) {
 					$res[] = $client->client_id;
 				}
 				return count($res) > 0 ? $res : array(0);
+			}
+		}
+
+		public function GetProjectOwner($project_id)
+		{
+			$project = ORM::factory('Objects')
+					->where('id', '=', $project_id)
+					->find();
+			if ($project->loaded()) {
+				return $project->client->create_by;
+			}
+			else {
+				return false;
 			}
 		}
 	}
